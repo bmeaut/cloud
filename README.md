@@ -1,2 +1,1 @@
-# cloud
-Felhő alapú szoftverfejlesztés tárgy anyagai
+# Felhő alapú szoftverfejlesztés
