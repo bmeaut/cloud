@@ -1,8 +1,10 @@
-# Kötelező elemek
+# Pontrendszer
+## Kötelező elemek
 - Webes frontend (pl. Azure web role/ Azure web app) használata (0 pont) 
 - Háttérben működő feldolgozó (pl. Azure worker role, vagy VM role, vagy Azure Functions) használata (0 pont) 
 - Storage (table,  blob, és/vagy queue) használata (pontszámok a lentiek szerint) 
     
+# Pontot érő funkciók
 - table storage használata (5-15 pont) 
   - 5 pont: írás, olvasás, módosítás, használata, partíciós kulcsok helyes megválasztása 
   - 10 pont: az előzőeken túl a storage speciális jellemzőinek kihasználása, pl. különböző típusú adatok egy táblában, több tábla használata,   
