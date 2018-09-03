@@ -1,4 +1,4 @@
-# Pontrendszer
+# Pontrendszer - NINCS VÉGLEGESÍTVE 2018. őszi félévre
 ## Kötelező elemek
 - Webes frontend (pl. Azure web role/ Azure web app) használata (0 pont) 
 - Háttérben működő feldolgozó (pl. Azure worker role, vagy VM role, vagy Azure Functions) használata (0 pont) 
