@@ -7,6 +7,9 @@ A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
 ### Költségfigyelés
 https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage
 
+### Névválasztás
+Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen. Így könnyen előfordulhat, hogy a név már foglalt. Érdemes ilyenkor valamilyen személyre egyedi prefixet/postfixet alkalmazni pl. neptun kód vagy monogram.
+
 ## Ex. 1.
 - Az egyes beállítások fölötti tooltip-eket érdemes elolvasni, értelmezni.
 - Mit jelentenek az alábbi beállítások?
@@ -15,7 +18,14 @@ https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage
   - Replikációs modellek (Replication) - LRS legyen!
   - Teljesítményszint (Standard vs. Premium)
   - Secure Transfer
+  - Resource Group
 - Hogyan választjuk a régiót (Location)?
+
+## Ex. 2.
+- Ha nincs feltelepítve a Storage Explorer, akkor ezt a lépést hagyjuk ki. (Nincs jogunk admin módban telepíteni)
+
+## Ex. 3.
+- Érdemes a rengeteg using blokk bemásolása helyett a következő pontban lévő kódot bemásolni és megkérni a Visual Studio-t, hogy rakja be a hiányzó using-okat
 
 
 
