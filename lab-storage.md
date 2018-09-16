@@ -27,5 +27,8 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 ## Ex. 3.
 - Érdemes a rengeteg using blokk bemásolása helyett a következő pontban lévő kódot bemásolni és megkérni a Visual Studio-t, hogy rakja be a hiányzó using-okat
 
+## Ex. 4.
+- Opcionális, a végére is hagyható
+
 
 
