@@ -6,6 +6,12 @@ A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
 
 ### Költségfigyelés
 https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage
+Ebben laborban:
+ - Storage -> 5 GB LRS blob hallgatóknak ingyenes 12 hónapig
+ - Computer Vision -> ha free tier-t választood, akkor ingyenes (kvóta van)
+ - App Service -> az App Service Plan-ért kellene fizetni, de van ingyenes változat (kvóta van)
+ 
+**Tehát az egész labort ingyenes erőforrásokkal végig lehet csinálni.**
 
 ### Névválasztás
 Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen. Így könnyen előfordulhat, hogy a név már foglalt. Érdemes ilyenkor valamilyen személyre egyedi prefixet/postfixet alkalmazni pl. neptun kód vagy monogram.
@@ -29,6 +35,10 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 
 ## Ex. 4.
 - Opcionális, a végére is hagyható
+
+## Ex. 9.
+- Application Insights nem kell
+- App Service Plan - **Free (F) méretű legyen!**
 
 
 
