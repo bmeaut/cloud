@@ -20,9 +20,9 @@ https://azure.microsoft.com/en-us/overview/data-platform/
     - https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip
 
 4. Adatok beszerzése és kicsomagolása
-    - https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/searchable-todo
-    - https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/searchable-todo/data
-    - https://github.com/Azure/azure-cosmosdb-dotnet/raw/master/samples/searchable-todo/data/items.zip
+    - https://github.com/bmeaut/azure-cosmosdb-dotnet/tree/master/samples/searchable-todo
+    - https://github.com/bmeaut/azure-cosmosdb-dotnet/tree/master/samples/searchable-todo/data
+    - https://github.com/bmeaut/azure-cosmosdb-dotnet/raw/master/samples/searchable-todo/data/items.zip
 
 5. Adatok importja Import Tool-lal
     - connection string --> Azure Portal Keys blade
@@ -36,7 +36,7 @@ https://azure.microsoft.com/en-us/overview/data-platform/
 
 
 7. Searchable Todo projekt letöltése, megnyitása, konfigurálása
-    - zip-ként: https://github.com/Azure/azure-cosmosdb-dotnet
+    - zip-ként: https://github.com/bmeaut/azure-cosmosdb-dotnet
     - vagy Visual Studio git clone
     - web.config-ba írjuk be a doc db kapcsolódási adatait
     - Global.asax-ban az utolsó két sort kommentezzük ki (ItemSearchRepository kezdetű sorok)
