@@ -21,6 +21,7 @@ https://azure.microsoft.com/en-us/overview/data-platform/
 
 4. Adatok beszerzése és kicsomagolása
     - https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/searchable-todo
+    - https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/searchable-todo/data
     - https://github.com/Azure/azure-cosmosdb-dotnet/raw/master/samples/searchable-todo/data/items.zip
 
 5. Adatok importja Import Tool-lal
