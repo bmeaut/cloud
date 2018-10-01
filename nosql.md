@@ -6,7 +6,7 @@ https://azure.microsoft.com/en-us/overview/data-platform/
     - most nem ezt fogjuk használni, de most már van 30 napos trial is (elvileg újrakezdhető)
     - https://azure.microsoft.com/en-us/try/cosmosdb/
     - https://azure.microsoft.com/en-us/blog/try-azure-cosmosdb-for-30-days-free-no-commitment-or-sign-up/  
-    - van emulátor is: - https://db-engines.com/en/ranking/search%2Bengine   
+    - van emulátor is: - https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator  
     - Storage Explorer támogatás   
 
 2. Database létrehozása az Azure portálon, a Collection-t csak megtervezzük
@@ -88,4 +88,4 @@ https://db-engines.com/en/ranking/search%2Bengine
     - Jelenleg nincs beépített támogatás a real-time, azonali indexelésre, a legközelebb álló megoldás az 5 percenkénti indexer futtatás
 
 ## Epilógus
-Egyéb, frisseb sample: https://github.com/Azure-Samples/search-dotnet-getting-started
+Egyéb, frissebb sample: https://github.com/Azure-Samples/search-dotnet-getting-started
