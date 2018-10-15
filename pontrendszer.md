@@ -41,7 +41,7 @@
 - Azure Search használata (7 - 15 pont)
     - 7 pont: indexer működtetése, keresés szövegekben
     - 12 pont: indexer működtetése, keresés szövegekben és geo adatokban
-    - + 3 pont: adatok dúsítása Cognitive Services-szel az indexerben
+    - +3 pont: adatok dúsítása Cognitive Services-szel az indexerben
 - Azure Redis cache használata (5 pont)
 - Azure CDN használata (5 pont)
 
@@ -77,16 +77,16 @@
 - Visual Studio App Center használata mobilos vagy Unity-s alkalmazás esetén (5 pont)
 
 ### AI
-    - Cognitive Services (5 pont szolgáltatásonként, max. 10 pont)
-        - legfeljebb kétszer szerezhető meg
+- Cognitive Services (5 pont szolgáltatásonként, max. 10 pont)
+    - legfeljebb kétszer szerezhető meg
     - Intelligens bot írása Azure Bot Service-szel (5 pont)
-    - Azure Machine Learning modell készítése és meghívása REST API-n keresztül (7 pont)       
+- Azure Machine Learning modell készítése és meghívása REST API-n keresztül (7 pont)       
 
 ### IoT - IoT hardver szükséges hozzá (pl. Raspberry Pi), tisztán szimulációért nem jár pont
-    - Legalább egy fizikai IoT eszköz monitorozása vagy kezelése IoT Hub használatával (5 - 7 pont)
-     - csak monitorozás (5 pont)
-     - vezérlés is (7 pont)
-    - IoT Edge használata (7 pont)
+- Legalább egy fizikai IoT eszköz monitorozása vagy kezelése IoT Hub használatával (5 - 7 pont)
+    - csak monitorozás (5 pont)
+    - vezérlés is (7 pont)
+- IoT Edge használata (7 pont)
 
 ### Egyéb
 - Mobilspecifikus funkciók használata - Azure Notification Hub (7 pont)
