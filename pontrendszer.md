@@ -23,9 +23,9 @@
 ## Pontot érő funkciók
 ### Adattárolás (legalább egy választandó)
 - Cosmos DB Document SQL mód használata (5-15 pont)
- - 5 pont: egy típusú entitás egy kollekcióban, egyszerű írás-olvasás
- - 10 pont: több típusú entitás egy kollekcióban, egyszerű írás-olvasás
- - +5 pont: Change Feed használata
+    - 5 pont: egy típusú entitás egy kollekcióban, egyszerű írás-olvasás
+    - 10 pont: több típusú entitás egy kollekcióban, egyszerű írás-olvasás
+    - +5 pont: Change Feed használata
 - Cosmos DB Gráf/Cassandra/Mongo mód használata (10 pont)
 - Table storage vagy Cosmos DB tábla mód használata (5-10 pont) 
   - 5 pont: írás, olvasás, módosítás, használata, partíciós kulcsok helyes megválasztása 
@@ -79,7 +79,7 @@
 ### AI
 - Cognitive Services (5 pont szolgáltatásonként, max. 10 pont)
     - legfeljebb kétszer szerezhető meg
-    - Intelligens bot írása Azure Bot Service-szel (5 pont)
+- Intelligens bot írása Azure Bot Service-szel (5 pont)
 - Azure Machine Learning modell készítése és meghívása REST API-n keresztül (7 pont)       
 
 ### IoT - IoT hardver szükséges hozzá (pl. Raspberry Pi), tisztán szimulációért nem jár pont
