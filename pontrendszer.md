@@ -2,8 +2,8 @@
 ## Általános megfontolások
 - Minimum 20 pont szükséges a jegyszerzéshez
 - Maximum 55 pont szerezhető
-- Egy jogcímen csak egyszer szerezhető pont, kivéve, ahol ezt külön jelezzük.
-- Meglévő (pl. Microsoft-os) demók, mintaalkalmazások (elemei) felhasználhatók, de ezt külön jelezni kell bemutatáskor. A nem jelzett, de átvett részletek plágiumnak számítanak. Az eredeti demóban vagy mintaalkalmazásban megvalósított funckiókért pont nem adható. *Tipp:* jó házi lehet egy nem Azure-os webes/mobilos példaalalkalmazás átalakítása Azure-osra.
+- Egy jogcímen csak egyszer szerezhető pont, kivéve, ahol ezt külön jelezzük
+- Meglévő (pl. Microsoft-os) demók, mintaalkalmazások (elemei) felhasználhatók, de ezt külön jelezni kell bemutatáskor. A nem jelzett, de átvett részletek plágiumnak számítanak. Az eredeti demóban vagy mintaalkalmazásban megvalósított funckiókért pont nem adható. *Tipp:* jó házi lehet egy nem Azure-os webes/mobilos példaalkalmazás átalakítása Azure-osra.
 - Egy egységes alkalmazásnak vagy egy egységes szolgáltatáshalmaznak kell készülnie, nem pedig több egymástól független demónak. Az alkalmazás funckiójától teljesen független, nem kapcsolódó funkciókért nem jár pont.
 - Véglegesítés után csak a következő változások lehetnek
     - hallgatóknak kedvező változások (pl. új jogcímek)
@@ -100,6 +100,6 @@
 - Azure Data Factory (5 - 10 pont)
     - 5 pont: Copy activity használata
     - 10 pont: bonyolultabb vezérlési szerkezetek, a Copy activityn kívül még legalább 2 további activity használata
-- A pontrendszer javítása, bővítése, módosítása pull request-tel (0-2 pont, összesen max. 5 pont)
+- A véglegesített pontrendszer javítása, bővítése, módosítása pull request-tel (0-2 pont, összesen max. 5 pont)
     - Helyesírási hiba is lehet, de az oktatók döntenek, hogy hány pontot ér a módosítás
     - Többször is megszerezhető
