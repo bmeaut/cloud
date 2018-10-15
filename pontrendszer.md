@@ -16,7 +16,7 @@
 - Az alkalmazásmodell részből kötelező legalább pontosan egy jogcímet választani.
 - Az adattárolás részből kötelező legalább egy jogcímet választani
 - Dokumentáció:
-    - 1 db architektúra ábra a hozzátartozó nyílfeliratokkal
+    - 1 db architektúra ábra számozott nyilakkal, az ábra alatt a hozzátartozó nyílfeliratokkal
     - Példák: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/
     - készíthető pl. Microsoft Visio-val (MS Imagine programban ingyenes hallgatóknak)
     
