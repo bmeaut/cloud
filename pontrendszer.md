@@ -93,8 +93,9 @@
     - legalább 1 platformra (Android vagy iOS)
 - Mobilspecifikus funkciók használata - Azure Mobile Offline Sync (7 pont)
 - Azure AD használatata felhasználókezelésre, authentikációra (10 - 15 pont)
-    - belső céges funkciókra a sima Azure AD
-    - külső, sima felhasználók funckióira az Azure AD B2C
+    - belső céges funkciókra egy single-tenant Azure AD (de inkább v2, aka. MSAL)
+    - több cég felhasználóinak, illetve Microsoft Account-ok (personal) authentikációjára Azure AD v2 (aka. MSAL)
+    - consumer felhasználók kezelésére és Google, Facebook, stb fiókkal való authentikációra Azure AD B2C
 - Azure Media Services használata (10 pont)
 - Azure Key Vault használata (3 pont)
 - Azure Data Factory (5 - 10 pont)
