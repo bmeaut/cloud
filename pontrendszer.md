@@ -45,8 +45,8 @@
 - Azure Redis cache használata (5 pont)
 - Azure CDN használata (5 pont)
 
-### Alkalmazásmodell (pontosan egy választandó)
-- Azure App Service (API, Web, Mobil, Logic) használata (0 - 11 pont)
+### Alkalmazásmodell
+- Azure App Service (API, Web, Mobil) használata (0 - 11 pont)
     - slot-ok használata (5 pont)
     - App Insights bekötése (3 pont)
     - AutoScale (3 pont)
@@ -56,6 +56,7 @@
 
 ### Számítás
 - Azure Functions használata (7 pont)
+- Azure Logic app használata (5 pont)
 - Azure Batch használata (5 pont)
 - Azure Data Lake Analytics használata (7 pont) - **KÖLTSÉGES lehet!**
     - legalább 10 GB bemenő adat átalakítása vagy analitikai lekérdezése U-SQL-lel. Az előállt eredményt fel kell használni az alkalmazásban.
