@@ -13,7 +13,7 @@
 
 ## Kötelező elemek
 - Frontend, ami lehet web, mobil vagy vastagkliens. Az Azure portál és a fejlesztőeszközök felülete nem számít ide.
-- Az alkalmazásmodell részből kötelező legalább pontosan egy jogcímet választani.
+- Az alkalmazásmodell részből kötelező legalább egy jogcímet választani.
 - Az adattárolás részből kötelező legalább egy jogcímet választani
 - Dokumentáció:
     - 1 db architektúra ábra számozott nyilakkal, az ábra alatt a hozzátartozó nyílfeliratokkal
