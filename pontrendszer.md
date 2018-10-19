@@ -93,10 +93,10 @@
 - Mobilspecifikus funkciók használata - Azure Notification Hub (7 pont)
     - legalább 1 platformra (Android vagy iOS)
 - Mobilspecifikus funkciók használata - Azure Mobile Offline Sync (7 pont)
-- Azure AD használatata felhasználókezelésre, authentikációra (10 - 15 pont)
-    - belső céges funkciókra egy single-tenant Azure AD (de inkább v2, aka. MSAL)
-    - több cég felhasználóinak, illetve Microsoft Account-ok (personal) authentikációjára Azure AD v2 (aka. MSAL)
-    - consumer felhasználók kezelésére és Google, Facebook, stb fiókkal való authentikációra Azure AD B2C
+- Azure AD használatata felhasználókezelésre, authentikációra v2 endpoint használatával és MSAL könyvtár segítségével  (10 pont)
+    - belső céges funkciókra egy single-tenant Azure AD
+    - vagy több cég felhasználóinak, illetve Microsoft Account-ok (personal) authentikációjára
+- Azure AD B2C használata consumer felhasználók kezelésére és Google, Facebook, stb. fiókkal való authentikációra (10 pont)
 - Azure Media Services használata (10 pont)
 - Azure Key Vault használata (3 pont)
 - Azure Data Factory (5 - 10 pont)
