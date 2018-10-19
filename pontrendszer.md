@@ -1,4 +1,4 @@
-# Pontrendszer - NINCS VÉGLEGESÍTVE 2018. őszi félévre (Release Candidate)
+# Pontrendszer - VÉGLEGESÍTVE 2018. őszi félévre (végéegesítés: 2018.10.19.)
 ## Általános megfontolások
 - Minimum 20 pont szükséges a jegyszerzéshez
 - Maximum 55 pont szerezhető
@@ -8,6 +8,7 @@
 - Véglegesítés után csak a következő változások lehetnek
     - hallgatóknak kedvező változások (pl. új jogcímek)
     - elírások, megfogalmazásbeli pontosítások javítása
+    - ellentmondások feloldása
 - A jogcímek kiírása során a felmerülő költségeket **nem vesszük figyelembe**, bár általában elérhetőek (hallgatóknak) ingyenes kvóták. A költségek megtervezése, figyelése is a feladat része. Ha a kredit elfogy, az előfizetés befagyasztásra kerül. A bemutatás során szinte biztosan nem tudunk befagyott előfizetéssel dolgozni. A befagyás elkerülése is a feladat része. Bővebb infó az elérhető felhős erőforrásokról elérhető a tárgyhonlapon.
 - Emulátorok használhatók, az emulátorral megvalósított funkciókért is jár pont
 
