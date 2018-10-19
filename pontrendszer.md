@@ -1,4 +1,4 @@
-# Pontrendszer - VÉGLEGESÍTVE 2018. őszi félévre (végéegesítés: 2018.10.19.)
+# Pontrendszer - VÉGLEGESÍTVE 2018. őszi félévre (véglegesítés: 2018.10.19.)
 ## Általános megfontolások
 - Minimum 20 pont szükséges a jegyszerzéshez
 - Maximum 55 pont szerezhető
