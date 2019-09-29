@@ -10,12 +10,12 @@ A házi feladatot védeni kell. A védés során az önálló elvégzést ellen�
 Védés ideje és helye: az utolsó gyakorlat helye és ideje.
 
 ## Azure Learn Képzési Tervek (Learning Paths)
-Az Azure Learn oldalon találtok gyakorlatmodulokat, amik képzési tervekbe vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt képzési tervek számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=business-analyst%2Cdata-scientist%2Cai-engineer%2Cdeveloper%2Cdevops-engineer%2Csolution-architect%2Cadministrator%2Cdata-engineer).
+Az Azure Learn oldalon találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=business-analyst%2Cdata-scientist%2Cai-engineer%2Cdeveloper%2Cdevops-engineer%2Csolution-architect%2Cadministrator%2Cdata-engineer).
 
 Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
 - képzési terv típusúak (Type: Learning Path) és
 - Azure-ra vonatkoznak (Products: Azure) és
-- szerepkörük bármi lehet, kivéve üzleti felhasználó (Role: nem Business User)
+- szerepkörük bármi lehet, kivéve üzleti felhasználó (Roles: bármi, csak nem Business User)
 
 Egyéb szabályok:
 - az összes elvégzett képzési tervet ugyanazon személyes Microsoft account-otokkal belépve végezzétek el
@@ -28,7 +28,7 @@ Beszámított idő képzési tervenként: a képzési terv címe alatt látható
 A személyes Microsoft account-otokkal belépve a MS Learn oldalra igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
   - belekérdezünk az elméleti részbe (lásd a modulok végén a "knowledge check" részeket) 
-  - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájl Azure Data Lake Storage Gen1-be)
+  - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájlt Azure Data Lake Storage Gen1-be)
   - vagy ha megvannak még az Azure erőforrások, akkor azt kérjük, hogy mutasd be az elkészült alkalmazást
 
 Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a teljes képzési terv idejéből semmit sem lehet beszámítani.
