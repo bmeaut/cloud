@@ -4,7 +4,7 @@ A 2019/20-as őszi félévben házi feladatként hivatalos Microsoft-os gyakorla
 
 Az alábbi képzési terv elvégzése mindenki számára kötelező (kivéve megajánlott jegyesek): [Azure fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/). Ezen gyakorlat ideje is beszámít a jegyszerzéshez.
 
-### Védés
+### Védésről általában
 A házi feladatot védeni kell. A védés során az önálló elvégzést ellenőrizzük.
 
 Védés ideje és helye: az utolsó gyakorlat helye és ideje.
@@ -22,17 +22,48 @@ Egyéb szabályok:
 - különálló modulok nem elfogadhatók
 - részben teljesített képzési tervek nem elfogadhatók
 
-Beszámított idő: a képzési terv címe alatt látható időatartam.
+Beszámított idő képzési tervenként: a képzési terv címe alatt látható időatartam.
 
-### Ellenőrzés
+### Védés
 A személyes Microsoft account-otokkal belépve a MS Learn oldalra igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
   - belekérdezünk az elméleti részbe (lásd a modulok végén a "knowledge check" részeket) 
-  - vagy egy kisebb gyakorlati rész elvégzését kérjük (pl. tölts döl egy fájl Azure Data Lake Storage Gen1-be)
+  - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájl Azure Data Lake Storage Gen1-be)
   - vagy ha megvannak még az Azure erőforrások, akkor azt kérjük, hogy mutasd be az elkészült alkalmazást
-Ha valamelyik képzési terv bámrly moduljánál a bizonyítás nem sikerül, a teljes képzési terv idejét nem lehet beszámítani.
+Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a teljes képzési terv idejéből semmit sem lehet beszámítani.
 
 ## Microsoft Cloud Workshop
+
+Bármelyik Hands-on lab ideje beszámítható a [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com/) oldalról. Ezek általában komplexebb gyakorlatok a Microsoft Learn oldalhoz képest, több Azure erőforrást használnak. 
+
+Egyéb szabályok:
+- csak olyan labort végezzetek el, ahol a laborútmutatóban az egyes feladatoknál meg van adva időtartam (pl. Duration: 45 minutes)
+- részben teljesített laborok nem elfogadhatók
+
+Tippek:
+- laborok egy github repo-ban vannak, a repo-n belül a *Hands-On lab* mappában vannak a legfontosabb leírások
+- általában egy *Before the HOL - <labor címe>.md* fájl írja le, hogy milyen előfeltételei vannak a labornak. Ezt előzetesen érdemes átolvasni.
+- általában egy *HOL step-by-step - <labor címe>.md* maga a laborútmutató
+
+Beszámított idő laboronként: a feladatoknál megadott időtartamok összege
+
+### Védés
+Szúrópróbaszerűen 
+  - egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts döl egy fájl Azure Data Lake Storage Gen1-be)
+  - vagy ha megvannak még az Azure erőforrások, akkor azt kérjük, hogy mutasd be az elkészült alkalmazást
+Ha valamelyik labor bármely feladatánál a védés nem sikerül, a teljes labor idejéből semmit sem lehet beszámítani.
+
+## Értékelés
+
+A fenti feltételeknek megfelelő összes elvégzett gyakorlat/labor beszámítható, megvédett időtartamait összeadjuk és ezen összeg alapján alakul ki a félévközi jegy. A jegy számítása:
+
+| Jegy          | Időtartam (perc)|
+| ------------- | --------------- |
+| 5             | 1261 - 1500     |
+| 4             | 1051 - 1260     |
+| 3             | 826 - 1050      |
+| 2             | 600 - 825       |
+
 
 
  
