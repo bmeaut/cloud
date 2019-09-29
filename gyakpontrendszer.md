@@ -70,7 +70,7 @@ A fenti feltételeknek megfelelő összes elvégzett és megvédett gyakorlat/la
 
 A költségek megtervezése, figyelése is a feladat része. Ha a hallgatói előfizetésen a kredit elfogy, az előfizetés befagyasztásra kerül. Vannak erőforrástípusok, melyeknél a leállítás csökkenti vagy megszünteti a költséget (pl. virtuális gép), ugyanakkor vannak, melyeket nem lehet költségsprólás miatt "kikapcsolni" (tipikusan a tárolást végző erőforrások, adatbázisok). A kredit elfogyása megakadályozhatja, hogy elvégezzétek a házi feladatot!
 
-*Tipp*: vannak olyan képzési tervek, ahol lehetőség van *Azure Sandbox* használatára (pl. https://docs.microsoft.com/en-us/learn/modules/create-cosmos-db-for-scale/2-create-an-account), ilyenkor ez még egy utolsó mentsvár lehet, hiszen ez egy olyan Azure környezet, amihez nem kell előfizetés. Az Azure Sandbox-ról bővebben [itt](https://docs.microsoft.com/en-us/learn/support/?pivots=sandbox).
+*Tipp*: vannak olyan képzési tervek, ahol lehetőség van *Azure Sandbox* használatára (pl. [ebben a modulban](https://docs.microsoft.com/en-us/learn/modules/create-cosmos-db-for-scale/2-create-an-account)), ilyenkor ez még egy utolsó mentsvár lehet, hiszen ez egy olyan Azure környezet, amihez nem kell előfizetés. Az Azure Sandbox-ról bővebben [itt](https://docs.microsoft.com/en-us/learn/support/?pivots=sandbox).
 
 Ha a házi feladat elvégzése **után** fogy el a kredit, az nem kizáró ok a védésre, de törekedjetek rá, hogy ez ne történjen meg. Nem kötelező a házi feladat elvégzése után az erőforrásokat megtartani, ha máskülönben elfogyott volna az előfizetésen a kredit. Az Azure Sandbox erőforrások legfeljebb 4 óráig élnek, így értelemszerűen nem kell őket megtartani.
 
