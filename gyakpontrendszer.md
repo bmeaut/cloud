@@ -10,7 +10,7 @@ A házi feladatot védeni kell. A védés során az önálló elvégzést ellen�
 Védés ideje és helye: az utolsó gyakorlat helye és ideje.
 
 ## Azure Learn Képzési Tervek (Learning Paths)
-Az Azure Learn oldalon találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=business-analyst%2Cdata-scientist%2Cai-engineer%2Cdeveloper%2Cdevops-engineer%2Csolution-architect%2Cadministrator%2Cdata-engineer).
+A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=business-analyst%2Cdata-scientist%2Cai-engineer%2Cdeveloper%2Cdevops-engineer%2Csolution-architect%2Cadministrator%2Cdata-engineer).
 
 Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
 - képzési terv típusúak (Type: Learning Path) és
@@ -25,7 +25,7 @@ Egyéb szabályok:
 Beszámított idő képzési tervenként: a képzési terv címe alatt látható időatartam.
 
 ### Védés
-A személyes Microsoft account-otokkal belépve a MS Learn oldalra igazolnotok kell a képzési tervek elvégzését.
+A személyes Microsoft account-otokkal belépve a [MS Learn oldalra](https://docs.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
   - belekérdezünk az elméleti részbe (lásd a modulok végén a "knowledge check" részeket) 
   - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájlt Azure Data Lake Storage Gen1-be)
