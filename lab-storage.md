@@ -9,7 +9,7 @@ A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
 https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage
 Ebben laborban:
  - Storage -> 5 GB LRS blob hallgatóknak ingyenes 12 hónapig
- - Computer Vision -> ha free tier-t választood, akkor ingyenes (kvóta van)
+ - Computer Vision -> ha free tier-t választod, akkor ingyenes (kvóta van)
  - App Service -> az App Service Plan-ért kellene fizetni, de van ingyenes változat (kvóta van)
  
 **Tehát az egész labort ingyenes erőforrásokkal végig lehet csinálni.**
@@ -32,10 +32,15 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - Ha nincs feltelepítve a Storage Explorer, akkor ezt a feladatot hagyjuk ki. (Nincs jogunk admin módban telepíteni). Helyette az Azure Portal-on a storage oldalán (blade-jén) a Blobs menüpontot használjuk a blob-ok nézegetésére/kezelésére.
 
 ## Ex. 3.
+- Ez már kicsit máshogy néz ki VS 2019-ben, de az opciók majdnem ugyanazok - semmi extra funkció nem kell, HTTPS sem
+- A NuGet csomagokból már vannak újabbak, lehet használni a legújabb stabil verziókat
 - Érdemes a rengeteg using blokk bemásolása helyett a következő pontban lévő kódot bemásolni és megkérni a Visual Studio-t, hogy rakja be a hiányzó using-okat
 
 ## Ex. 4.
 - Opcionális, a végére is hagyható
+
+## Ex. 5.
+- A 8-as pontban azt írja, hogy az URL-t ki kell egészíteni. Az újabb verziós NuGet csomagot használva nem kell.
 
 ## Ex. 9.
 - Application Insights nem kell
