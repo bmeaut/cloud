@@ -12,6 +12,9 @@ Ebben laborban:
  - Computer Vision -> ha free tier-t választod, akkor ingyenes (kvóta van)
  - App Service -> az App Service Plan-ért kellene fizetni, de van ingyenes változat (kvóta van)
  
+ Ingyenes szolgáltatások: https://azure.microsoft.com/en-us/free/
+ Azure sponsorship portál: https://www.microsoftazuresponsorships.com/ 
+ 
 **Tehát az egész labort ingyenes erőforrásokkal végig lehet csinálni.**
 
 ### Névválasztás
@@ -22,7 +25,7 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - Mit jelentenek az alábbi beállítások?
   - Storage V1 vs V2
   - Resource Manager (Deployment Model)
-  - Replikációs modellek (Replication) - LRS legyen!
+  - Replikációs modellek (Replication) - LRS legyen! (https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
   - Teljesítményszint (Standard vs. Premium)
   - Secure Transfer
   - Resource Group
