@@ -19,8 +19,7 @@ Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok 
 
 Egyéb szabályok:
 - az összes elvégzett képzési tervet ugyanazon személyes Microsoft account-otokkal belépve végezzétek el
-- különálló modulok nem elfogadhatók
-- részben teljesített képzési tervek nem elfogadhatók
+- részben elvégzett képzési tervek, illetve olyan modulok, ahol a tartalmazó képzési terv nincs elvégezve - nem elfogadhatók
 
 Beszámított idő képzési tervenként: a képzési terv címe alatt látható időatartam.
 
