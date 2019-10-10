@@ -1,5 +1,6 @@
 # Azure adatkezelés - NoSQL
 https://azure.microsoft.com/en-us/overview/data-platform/
+https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/data-store-overview
 
 ## Cosmos DB
 1. Cosmos DB létrehozása az Azure portálon
