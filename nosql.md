@@ -21,7 +21,7 @@ Multimodális NoSQL adatbázis: https://docs.microsoft.com/en-us/azure/cosmos-db
     
 3. Import Tool letöltése
     - https://docs.microsoft.com/hu-hu/azure/cosmos-db/import-data
-    - https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip
+    - https://aka.ms/csdmtool
 
 4. Adatok beszerzése és kicsomagolása
     - https://github.com/bmeaut/azure-cosmosdb-dotnet/tree/master/samples/searchable-todo
