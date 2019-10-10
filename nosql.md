@@ -16,6 +16,7 @@ Multimodális NoSQL adatbázis: https://docs.microsoft.com/en-us/azure/cosmos-db
 2. Database létrehozása az Azure portálon, a Collection-t csak megtervezzük
     - 5 GB, 400 RU a hallgatói keret, így csak unpartitioned kollekciónk lehet
     - https://azure.microsoft.com/en-us/pricing/details/cosmos-db/
+    - Költségkalkulátor: https://cosmos.azure.com/capacitycalculator/
     - Belső szerkezet: https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-resources
     - Modellezés: https://docs.microsoft.com/en-us/azure/cosmos-db/modeling-data    
     
