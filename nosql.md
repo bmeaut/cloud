@@ -1,13 +1,16 @@
 # Azure adatkezelés - NoSQL
 https://azure.microsoft.com/en-us/overview/data-platform/
+
 https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/data-store-overview
 
 ## Cosmos DB
+Multimodális NoSQL adatbázis: https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
+
 1. Cosmos DB létrehozása az Azure portálon
     - most nem ezt fogjuk használni, de most már van 30 napos trial is (elvileg újrakezdhető)
     - https://azure.microsoft.com/en-us/try/cosmosdb/
     - https://azure.microsoft.com/en-us/blog/try-azure-cosmosdb-for-30-days-free-no-commitment-or-sign-up/  
-    - van emulátor is: - https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator  
+    - van emulátor is: https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator  
     - Storage Explorer támogatás   
 
 2. Database létrehozása az Azure portálon, a Collection-t csak megtervezzük
