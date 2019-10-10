@@ -13,7 +13,7 @@ Multimodális NoSQL adatbázis: https://docs.microsoft.com/en-us/azure/cosmos-db
     - van emulátor is: https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator  
     - Storage Explorer támogatás   
 
-2. Database létrehozása az Azure portálon, a Collection-t csak megtervezzük
+2. Database és collection létrehozása az Azure portálon, a 400 RU-t az adatbázishoz rendeljük. Partition key-t kell beállítani (isComplete?).
     - 5 GB, 400 RU a hallgatói keret, így csak unpartitioned kollekciónk lehet
     - https://azure.microsoft.com/en-us/pricing/details/cosmos-db/
     - Költségkalkulátor: https://cosmos.azure.com/capacitycalculator/
@@ -30,8 +30,8 @@ Multimodális NoSQL adatbázis: https://docs.microsoft.com/en-us/azure/cosmos-db
     - https://github.com/bmeaut/azure-cosmosdb-dotnet/raw/master/samples/searchable-todo/data/items.zip
 
 5. Adatok importja Import Tool-lal
-    - connection string --> Azure Portal Keys blade
-    - Id field: nézzük meg a json fájolkat (id)
+    - connection string --> Azure Portal Keys blade, hozzáfűzni a Database=<adatbázis neve>
+    - partition key, id field kitöltése, ne legyen id generálás
     - Ellenőrzés Data Explorer-rel
     - technikai mezők: https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-resources#system-vs-user-defined-resources
 
