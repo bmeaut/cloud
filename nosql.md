@@ -33,7 +33,7 @@ Multimodális NoSQL adatbázis: https://docs.microsoft.com/en-us/azure/cosmos-db
     - connection string --> Azure Portal Keys blade, hozzáfűzni a Database=<adatbázis neve>
     - partition key, id field kitöltése, ne legyen id generálás
     - Ellenőrzés Data Explorer-rel
-    - technikai mezők: https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-resources#system-vs-user-defined-resources
+    - technikai mezők: https://docs.microsoft.com/en-us/azure/cosmos-db/databases-containers-items#properties-of-an-item
 
 6. SQL lekérdezések
     - Nyelvi referencia https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-sql-query
