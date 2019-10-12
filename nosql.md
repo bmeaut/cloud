@@ -57,11 +57,10 @@ https://db-engines.com/en/ranking/search%2Bengine
     - Free tier-es legyen!
 
 2. Cosmos DB collection indexelése indexerrel
-    - A Cosmos DB blade-jére menjünk és ott válasszuk az Azure Search Blade-et
+    - A Cosmos DB blade-jére menjünk és ott válasszuk az Azure Search Blade-et => Import Data 
     - Milyen indexbeállítások vannak? https://docs.microsoft.com/en-us/rest/api/searchservice/create-index#request   
     - *todo* legyen az index neve
     - *sg* legyen az Suggester neve
-    - *todoixr* legyen az indexer neve
     - mindegyik lenti legyen retrievable
     - id: key
     - title: searchable + suggester
@@ -69,10 +68,11 @@ https://db-engines.com/en/ranking/search%2Bengine
     - dueDate: facetable, filterable, sortable
     - isComplete: [semmi]
     - tags: facetable, filterable, searchable + suggester
+    - *todoixr* legyen az indexer neve
     - az indexer monitorozása a Search blade-jén az Indexers csempével
 
 3. Azure Search Query-k
-    - Search Explorer blade-en: *, részszöveg, SearchAsync függvény keresése, facet-ek/count az eredményben
+    - Search Explorer blade-en: *, részszöveg
     - *facet*: http://mek.oszk.hu/~mekdl/keresok2012/index2.htm
     - https://docs.microsoft.com/hu-hu/azure/search/search-faceted-navigation
 
