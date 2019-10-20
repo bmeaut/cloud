@@ -43,7 +43,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   - Deployment Center-ben a local git deployment with kudu beállítása (https://github.com/projectkudu/kudu)
   - `git remote add <git deployment url>`
   - commit + push, push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
-    - ha elrontottuk, akkor a windows credentials manager-rel töröljük (Windows Credential)
+    - ha elrontottuk, akkor a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
  - nem jó még, hiba van
  
  ## App Service Logs
@@ -56,6 +56,10 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   - `ASPNETCORE_ENVIRONMENT` : `Production`
   - `MyDbConnection` : `connection string` (a jelszót adjuk meg!)
  - Most már jónak kell lennie
+ 
+ ## Local loop + git redeploy
+  - https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb#update-locally-and-redeploy
+  - Azure SQL update
+    - `$env:ASPNETCORE_ENVIRONMENT = 'Production'`
+    - `dotnet ef migrations script InitialCreate`
   
-
-
