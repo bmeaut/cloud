@@ -82,16 +82,14 @@ https://db-engines.com/en/ranking/search%2Bengine
     - LAUNCH
 
 5. Search SDK beépítése
-    - .NET FW verzió emelése
-    - Microsoft.Azure.Search.Data NuGet csomag hozzáadása
-    - *Item.cs*-ben minden *int* legyen *long*
-    - átírás Search API-ra - lásd ItemSearchRepository.md
-    - ellenőrizzük, hogy minden ugyanolyan jól működik-e (oldResult vs newResult változók)
+    - az endgame nevű ágon: https://github.com/bmeaut/azure-cosmosdb-dotnet/tree/endgame
+    - REST Api közvetlen hívása vs. Search SDK Nuget
+    - a master ág kódjában lévő URL-ek segítségével próbáljuk ki a szűrést ($filter=dueDate gt 2019-09-09), rendezést, javaslatot (suggest), faceted search-t
+    - https://github.com/bmeaut/azure-cosmosdb-dotnet/blob/master/samples/searchable-todo/src/searchabletodo/Data/ItemSearchRepository.cs
+    - suggestions vs autocomplete
+    - ami kimarad: fuzzy, szinonímák
 
 6. Reindex, módosítás kezelése
     - Próbáljuk ki a módosítás hatását a keresésre, frissen módosított adatokon is működik-e a keresés
     - Használjuk a reindex funkciót
     - Jelenleg nincs beépített támogatás a real-time, azonali indexelésre, a legközelebb álló megoldás az 5 percenkénti indexer futtatás
-
-## Epilógus
-Egyéb, frissebb sample: https://github.com/Azure-Samples/search-dotnet-getting-started
