@@ -62,4 +62,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   - Azure SQL update
     - `$env:ASPNETCORE_ENVIRONMENT = 'Production'`
     - `dotnet ef migrations script InitialCreate`
+    
+ ## Epilógus
+  - Azure SQL <=> App Service Managed Service Identity-vel: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi
   
