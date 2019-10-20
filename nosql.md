@@ -84,8 +84,7 @@ https://db-engines.com/en/ranking/search%2Bengine
 5. Search SDK beépítése
     - az endgame nevű ágon: https://github.com/bmeaut/azure-cosmosdb-dotnet/tree/endgame
     - REST Api közvetlen hívása vs. Search SDK Nuget
-    - a master ág kódjában lévő URL-ek segítségével próbáljuk ki a szűrést ($filter=dueDate gt 2019-09-09), rendezést, javaslatot (suggest), faceted search-t
-    - https://github.com/bmeaut/azure-cosmosdb-dotnet/blob/master/samples/searchable-todo/src/searchabletodo/Data/ItemSearchRepository.cs
+    - a master ág [kódjában](https://github.com/bmeaut/azure-cosmosdb-dotnet/blob/master/samples/searchable-todo/src/searchabletodo/Data/ItemSearchRepository.cs) lévő URL-ek segítségével próbáljuk ki a szűrést ($filter=dueDate gt 2019-09-09), rendezést, javaslatot (suggest), faceted search-t    
     - suggestions vs autocomplete
     - ami kimarad: fuzzy, szinonímák
 
