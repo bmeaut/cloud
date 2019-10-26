@@ -47,7 +47,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
  - nem jó még, hiba van
  
  ## App Service Logs
- - Kapcsoljuk be, logging site extension-t kapcsoljuk be
+ - Kapcsoljuk be az App Service Logs blade-en, a logging site extension-t is kapcsoljuk be
  - Log stream-et nézzük meg
  
  ## App Service Configuration
