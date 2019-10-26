@@ -120,7 +120,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   - Azure Monitor pricing - https://azure.microsoft.com/en-us/pricing/details/monitor/
   
 ## Labor végén/után
-- App Service Plan visszaskálázás vagy törlés
+- App Service Plan visszaskálázás (előbb egy kivételével minden slot-ot törölni kell) vagy törlés
 
 ## Epilógus
   - Azure SQL <=> App Service Managed Service Identity-vel: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi
