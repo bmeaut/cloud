@@ -88,7 +88,14 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   - MySQL-In-App - adatbázis + Free plan => ingyen adatbázisos alkalmazások
   - Push - Notification Hub-bal való összekötés
   - [WebJobs](https://docs.microsoft.com/en-us/azure/app-service/webjobs-create) - háttérprogramok, pl. karbantartási funkciókhoz. Ütemezetten is.
-  
+  - Scale up / out
+  - Networking
+  - TLS/SSL settings - TLS beállítások, Free plan-ben nem teljeskörű a támogatás. Tipp: [letsencrypt](https://github.com/sjkp/letsencrypt-siteextension)
+  - Custom domains - Free plan-ben nem teljeskörű a támogatás
+  - Backups - Free plan-ben nincs
+  - Identity - az **alkalmazáshoz** identitást rendelhetünk, amihez aztán jogokat oszthatunk ki. Jó pl. az infrastruktúra szintű konfigurációmenedzsmenthez.
+  - App Insights - monitorozó erőforrás, az Azure Monitor része
+  - Autentication/authorization - az alkalmazásból (részben) kiszervezett [authentikációs/autorizációs szolgáltatás](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization#how-it-works)
  
  ## Epilógus
   - Azure SQL <=> App Service Managed Service Identity-vel: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi
