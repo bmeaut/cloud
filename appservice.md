@@ -62,7 +62,34 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   - Azure SQL update
     - `$env:ASPNETCORE_ENVIRONMENT = 'Production'`
     - `dotnet ef migrations script InitialCreate`
-    
+ 
+ ## App Service Misc Blades
+  - Support + Troubleshooting
+  - Monitoring - Process Explorer, Alerts, Metrics
+  - API - CORS, API Definition
+  - Mobile - Easy Tables / API - kivezetés alatt
+  
+ ## App Service Blades - Dev Tools
+  - Extensions - már ott van a naplózó kiterjesztés, de pl. a [letsencrypt támogatás (klasszikus) verziója](https://github.com/sjkp/letsencrypt-siteextension) is site extension, az [új verzió](https://github.com/sjkp/letsencrypt-azure) már nem
+  - Resource explorer - API tesztelésre
+  - Perf test
+  - App Service Editor
+  - Advanced Tools ~ Kudu Tools
+  - Console
+  - Clone App - csak fizetős plan-ekben
+ 
+ ## App Service Blades - App Service Plan
+  - App Service Plan link
+  - Átkötés másik App Service Plan-re
+  - Kvóták
+  
+  ## App Service Blades - Settings
+  - Export template (ARM), Locks, Properties
+  - MySQL-In-App - adatbázis + Free plan => ingyen adatbázisos alkalmazások
+  - Push - Notification Hub-bal való összekötés
+  - [WebJobs](https://docs.microsoft.com/en-us/azure/app-service/webjobs-create) - háttérprogramok, pl. karbantartási funkciókhoz. Ütemezetten is.
+  
+ 
  ## Epilógus
   - Azure SQL <=> App Service Managed Service Identity-vel: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi
   
