@@ -41,7 +41,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   
  ## Git deployment
   - Deployment Center-ben a local git deployment with kudu beállítása (https://github.com/projectkudu/kudu)
-  - `git remote add <git deployment url>`
+  - `git remote add <remote név> <git deployment url>`
   - commit + push, push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
     - ha elrontottuk, akkor a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
  - nem jó még, hiba van
@@ -71,7 +71,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   
  ## App Service Blades - Dev Tools
   - Extensions - már ott van a naplózó kiterjesztés, de pl. a [letsencrypt támogatás (klasszikus) verziója](https://github.com/sjkp/letsencrypt-siteextension) is site extension, az [új verzió](https://github.com/sjkp/letsencrypt-azure) már nem
-  - Resource explorer - API tesztelésre
+  - Resource explorer - segédeszköz az Azure management REST API hívásához
   - Perf test
   - App Service Editor
   - Advanced Tools ~ Kudu Tools
@@ -96,7 +96,32 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   - Identity - az **alkalmazáshoz** identitást rendelhetünk, amihez aztán jogokat oszthatunk ki. Jó pl. az infrastruktúra szintű konfigurációmenedzsmenthez.
   - App Insights - monitorozó erőforrás, az Azure Monitor része
   - Autentication/authorization - az alkalmazásból (részben) kiszervezett [authentikációs/autorizációs szolgáltatás](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization#how-it-works)
- 
- ## Epilógus
+
+## Slot kezelés
+  - hozzunk létre egy storage erőforrást
+  - SQL Server copy-val készítsük el az adatbázis másolatát (mehet ugyanarra a szerverre)
+  - nézzük meg a Plan blade-jét, itt láthatók az app-ok (*Apps* blade)
+  - skálázzunk fel S1 szintre (**0,085 EUR/óra költség!**)
+  - hozzunk létre új slot-ot *test* néven
+  - ellenőrzés: üres webapp
+  - a backup-restore funkcióval másoljuk át a test-be az App Service-t - ehhez használjuk az előbb létrehozott storage erőforrást
+  - ellenőrzés: ugyanaz az adat, mint az eredeti web app-ban
+  - állítsuk át a test app connection string-jét, hogy a test db-re mutasson - **slot setting** legyen
+  - ellenőrzés: a két webapp connection string-je különböző
+  - hozzunk létre új elemet a teszten
+  - ellenőrzés: a két webapp adata különböző
+  - git deployment kapcsoljuk be a test app-ra is, állítsunk be új lokális remote-ot
+  
+## Application Insights
+  - állítsuk be a *test* app-on
+  - navigáljunk pár nemlétező oldalra (pl. /phpmyadmin)
+  - kis idő múlva figyeljük meg, hogy megjelennek a hibás (404) hívások
+  - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/
+  - Azure Monitor pricing - https://azure.microsoft.com/en-us/pricing/details/monitor/
+  
+## Labor végén/után
+- App Service Plan visszaskálázás vagy törlés
+
+## Epilógus
   - Azure SQL <=> App Service Managed Service Identity-vel: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi
   
