@@ -49,14 +49,73 @@ A megvalósításunk legyen a következő:
 
 ### Kiinduló projekt
 
-Klónozzuk le a kiinduló projektet a C:\work\\[neptun]\ mappánkon bekük egy új mappába.
+🛠 Klónozzuk le a kiinduló projektet a C:\work\\[neptun]\ mappánkon bekük egy új mappába.
 
 ```cmd
 TODO
 ```
 
-Nyissuk meg a MyNewHome.sln solutiont és tekintsük át azt. 
+🛠 Nyissuk meg a MyNewHome.sln solutiont és tekintsük át azt. 
 
 **TODO**
 
 Sok minden előre elkészítve van már nekünk. Most nem kódolni szeretnénk, hanem összerakni azt a felhő architektúrát, amit az előző fejezetben megálmodtunk.
+
+### App Service
+
+🛠 Hozzunk létre az azure portálon egy új Resource Group-ot `MyNewHome` néven. Ebbe fogunk a mai órán dolgozni.
+
+🛠 Hozzunk létre egy új Web App-ot a `MyNewHome` resource groupba `mynewhome-[neptun]` néven. Ilyenkor a `mynewhome-[neptun].azurewebsites.net` címen lesz majd elérhető a webalkalmazásunk.  
+
+Beállítások
+* Publish: code
+* Runtime .NET Core 2.2
+* OS: Windows
+* Region: West EU
+* App Service Plan:
+  * Hozzunk létre egy új plant a Create New gombbal `MyNewHomePlan` néven
+  * Az ingyenes F1 csomag elég lesz most nekünk
+* Monitoring fülön kapcsoljuk be az App Insights-ot, egy új példány létrehozásával (default)
+
+A kiinduló projektet publikáljuk ki az App Setvice-be. Ezt otthon legegyszerűbben úgy tudjuk megtenni, hogy a Visual Studioba bejelentkezünk a fiókunkkal, ami után a webes projekten jobb gomb / Publish varázslóval könnyedén tudunk deployolni. Mivel labor gépen nem szeretnénk bejelentkezni, használjuk inkább az  előre elkészített konfigurációs állományt (publish profile), ami lényegében egy XML fájl.
+
+🛠 Töltsük le a **Get publish profile** gombbal az állományt 
+
+🛠 Publikáljuk ki a projektet a VS-ből:
+* projekten jobb gomb / Publish
+* import profile, majd tallózzuk ki a letöltött configot
+* Publish indítása
+
+### Key Vault
+
+Sajnos még nem működik a web appunk. Ha kipróbáljuk lokálisan is, akkor megfigyelhetjük, hogy az alkalmazás indulása elszáll, mivel nem találja az Azure Key Vault base urljét.
+
+> **Tipp: startup dignosztika TODO **
+
+🛠 Hozzunk létre egy új Azure Key Vault-ot az aktuális resource groupunkba `MyNewHome-[neptun]-KeyVault` néven
+* Region: West EU
+* Pricing Tier: Standard
+
+🛠 Kapcsoljuk be az App Service / Identity menüben a *system assigned managed identity* beállítást
+
+Ilyenkor létrejön egy user, akinek a nevében fog futni az App Service-ünk. Erre azért lesz szükség, hogy be tudjuk állítani a Key Vaultban a hozzáférési jogosultásgokat.
+
+🛠 Állítsuk be a jogosultságokat a Key Vault-ban
+* Key Vault / Access policies / Add Access Policy
+  * Configure from template: Key and Secret management
+  * Key permissions: nekünk elég most csak a *Get* és a *List*
+  * Secret permissions: nekünk elég most csak a *Get* és a *List*
+  * Select principal: újonnan létrehozott managed identity (tipikusan az app service neve)
+  * Add gomb
+
+🛠 Adjuk meg a Web Appban, a használandó Key Vault url-jét, amit a Key Vault áttekintő nézetéről tudunk kimásolni. Megadni az App Service / Configuration / Application Settings / New application setting opcióval tudjuk. Kulcs: (kiinduló projekt `Program.cs` alapján) `KeyVault`, érték: a kimásolt Key Vault url.
+
+> **Megj.:** ASP․NET Core esetben a konfigurációt az alkalmazás több helyről olvassa fel: konzol argumentumok, környezeti változók, application.json, (lokális debug esetben client secrets). A fenti megoldás környezeti változóként kezeli az app beállításait.  
+> Mi a `Program.cs`-ben annyit látunk, hogy ezeket egészítjük még ki Production környezetben a Key Vaulttal.
+
+🛠 Indítsuk újra a Web Appot és próbáljuk ki.
+
+A Key Vaultunkban még nincs semmi, de nem is használja most az alkalmazás semmire.
+
+
+
