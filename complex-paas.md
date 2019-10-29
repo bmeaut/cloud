@@ -117,5 +117,32 @@ Ilyenkor létrejön egy user, akinek a nevében fog futni az App Service-ünk. E
 
 A Key Vaultunkban még nincs semmi, de nem is használja most az alkalmazás semmire.
 
+## Cosmos DB és Storage
 
+Az alkalmazásunk adatait egy Cosmos DB fogja tárolni. Most csak egy entitásunk lesz a `Pet`, így elég a legegyszerűbb konfiguráció. A képeket pedig kononikus módon Blob Storage-ba fogjuk tenni.
 
+🛠 Hozzunk létre a recource groupunkba egy Cosmos DB példányt
+* Account name: `mynewhome-[neptun]-db`
+* API: Core
+* Apache Spark: None
+* Location: West EU
+* Geo redundancy: Disable
+* Multi-region writes: Disable
+
+Amíg ez teker térjünk át a Storage-ra.
+
+🛠 Hozzunk létre egy Storage Accountot a resource groupunkba `mynewhome[neptun]storage` néven.
+
+🛠 A Key Vault-ban adjuk meg a Cosmos DB és a Storage connection string-jeit Secret-ként az alábbi kulccsal és értékekkel
+* `CosmosConnectionString`: Cosmos DB / Keys / PRIMARY CONNECTION STRING
+* `StorageConnectionString`: Storage / Keys / Connextion String
+
+**TODO cosmos db és storage használata a kódban**
+
+Indítsuk újra a web appot! Próbáljuk ki! 
+* Töltsünk fel egy új kutyust/cicát. 
+* Nézzük meg, hogy a blob storage-ben megjelent-e a képe
+  * Storage / Storage Explorer / Blobs
+* Nézzük meg, hogy a DB-be is bekerültek-e az adatok.
+  * Cosmos DB / Data Explorer / pets / items
+  * Írjuk át a published tulajdonságot `true`-ra: megjelenik a felületen a kutyus.
