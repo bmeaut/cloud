@@ -71,7 +71,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   
  ## App Service Blades - Dev Tools
   - Extensions - már ott van a naplózó kiterjesztés, de pl. a [letsencrypt támogatás (klasszikus) verziója](https://github.com/sjkp/letsencrypt-siteextension) is site extension, az [új verzió](https://github.com/sjkp/letsencrypt-azure) már nem
-  - Resource explorer - segédeszköz az Azure management REST API hívásához
+  - Resource explorer - segédeszköz az Azure management REST API böngészéséhez, hívásához
   - Perf test
   - App Service Editor
   - Advanced Tools ~ Kudu Tools
