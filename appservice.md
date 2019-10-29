@@ -114,6 +114,7 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
   
 ## Application Insights
   - állítsuk be a *test* app-on
+    - Agent based vs. manual - https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-web-apps#enable-application-insights
   - navigáljunk pár nemlétező oldalra (pl. /phpmyadmin)
   - kis idő múlva figyeljük meg, hogy megjelennek a hibás (404) hívások
   - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/
