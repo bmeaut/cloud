@@ -141,8 +141,76 @@ Amíg ez teker térjünk át a Storage-ra.
 
 Indítsuk újra a web appot! Próbáljuk ki! 
 * Töltsünk fel egy új kutyust/cicát. 
-* Nézzük meg, hogy a blob storage-ben megjelent-e a képe
+* Nézzük meg, hogy a storage-ben megjelent-e a képe
   * Storage / Storage Explorer / Blobs
 * Nézzük meg, hogy a DB-be is bekerültek-e az adatok.
   * Cosmos DB / Data Explorer / pets / items
   * Írjuk át a published tulajdonságot `true`-ra: megjelenik a felületen a kutyus.
+
+## Cognitive Services
+
+Az állatok klasszifikációjához és a kép kivágásához az Azure Cognitive Services szolgáltatásait fogjuk igénybe venni, amik mesterséges intelligencia alapú megoldásokat nyújt sok problémára nagyon egyszerű módon.
+
+### Klasszifikáció - Cognitive Service Custom Vision
+
+A klasszifikációhoz a Custom Vision komponenst fogjuk feltanítani egy betanító adathalmazzal, ami alapján majd becslést tud adni az újonnan kapott képeken látható állat fajáról.
+
+🛠 Hozzunk létre egy új Custom Vision erőforrást a resource groupunkba `MyNewHome-CustomVision` néven.
+* Training, Prediction Location: West EU
+* Training, Prediction Pricing Tier: F0
+
+Ez még csak az Azure-os erőforrás, ami esetünkben csak a számítási kapacitást és a számlázási egységet adja. Ebben még külön projekteket kell definiáljunk, ahol feltaníthatjuk a mesterséges intelligenciát.
+
+🛠 Hozzunk létre egy új projektet és tanítsuk fel néhány tesztadattal a modellt
+* Nyissuk meg a https://www.customvision.ai/projects oldalt
+* Figyeljünk, hogy a jobb felső sarokban jó subscription legyen kiválasztva
+* Hozzunk létre egy új projektet
+  * Name: `CatOrDog`
+  * Resource: `MyNewHome-CustomVision`
+  * Project Type: Classification => csak címkézni akarjuk a képeket tartalmuk alapján
+  * Classification Types: Multiclass => Egy képhez egy címket (tag) tartozhat
+  * Domain: General
+* A projektbe töltsük fel a macskás képeinket a kiinduló projekt `test-images/cat` mappájából és adjunk neki `cat` tag-et, majd ismételjük meg ezt a kutyákkal is a `test-images/dog` mappából `dog` taggel
+* Kattintsunk a Train gombra, és válasszuk a Quick opciót
+* A Quick test gombra kattintva próbáljuk ki a feltanított modellt egy internetről kitallózott képpel
+* Figyeljük meg, hogy a Quick test eredményei megjelennek a Predictions fül alatt is, ahol ezekre is megadhatjuk a címkéket, amivel tovább taníthatjuk a modellt a Train gomb megnyomásával
+* A használni kívánt iterációt publikáljuk a Performance fül alatt
+
+**TODO kód**
+
+Vegyük fel a Key Vaultba a Custom Vision-höz tartozó secreteket:
+* `CustomVision--ApiKey` kulccsal az Azure portálon Custom Vision / Quick start / Api key1 értékét. 
+  * Vigyázzunk mert van, hogy egy teljesen új erőforrást hoz létre a prediction-nek a custom vision. Ennek a kulcsát és URL-jét használjuk!
+* `CustomVision--ProjectId` kulccsal a custom vision portálon a projekt guidját, amit az url-ben találunk
+
+> **Megj.:** Figyeljük meg hogy a hierarchikus config kulcsokat az Azure Key Vaultban `:` helyett `--` karakterekkel kell elválasztani.
+
+Publikáljuk a webes projektünket és próbáljuk ki a feltöltést. Fel kell ismernie, az állat típusát a képről.
+
+### Kép kivágása
+
+A kép okos kivágására az Azure Computer Vision szolgáltatását fogjuk használni.
+
+Hozzunk létre az Azure portálon egy Computer Vision erőforrást `MyNewHome-ComputerVision` néven.
+
+**TOOD Code**
+
+**TODO Azure Function**
+
+! TODO külön property kellett a projektbe, hogy működjön
+
+## Azure CDN
+
+**TODO csináljunk egyet a blob storage-ra**
+
+**TODO code**
+
+## Application Insights
+
+### Track Exception
+
+TODO snapshot debugging, publish profile
+
+### Track Event
+
+TODO
