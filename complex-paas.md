@@ -6,17 +6,17 @@ A labor alapjául [Szabó Márk](https://github.com/mark-szabo) Tech Summit Buda
 
 ## Feladat
 
-Feladatunk a következőek: 
-* Funkcionálus követelmények:
+Feladatunk a következők: 
+* Funkcionális követelmények:
   * Készítsünk webalkalmazást, ahova kutyusokat és cicákat lehet feltölteni, hogy új gazdira találhassanak.
-  * A user tudja böngészni az állaptokat
+  * A user tudja böngészni az állapotokat
   * A user tud feltölteni új képet a gazdát kereső állatról
   * Az alkalmazás döntse el automatikusan, hogy a képen milyen állat szerepel (kutya, vagy macska), és ez alapján adjon egy előzetes kategória javaslatot.
   * A képről vágja le a nem releváns részeket
 * Technológiai követelmények:
   * Perzisztáljuk az állatok adatait és a képeket
-  * Optimalizáluk a statikus fájlok kiszolgálását
-  * Legyen a kitelepített alkalmazás működése jól nyomonkövethetőm debuggolható
+  * Optimalizáljunk a statikus fájlok kiszolgálását
+  * Legyen a kitelepített alkalmazás működése jól nyomonkövethető, debuggolható
   * A fejlesztőkkel ne osszuk meg az érzékeny szolgáltatás kulcsokat
 
 
@@ -38,8 +38,8 @@ A megvalósításunk legyen a következő:
     * Ehhez most **Queue Storage**-et fogunk használni *(alternatíva lehetne még az **Azure Service Bus**)*
   * A sorban lévő feladatokat egy serverless **Azure Function** fogja feldolgozni
     * A feladatokhoz tartozó adatokat az adatbázisból, a képeket a blob tárhelyről veszi
-  * A képek kivágását szintén egy **Congnitive Service** fogja végezni
-  * Az állatok nem jelennek meg addig a felületen, amíg ez a háttérművelet be nem fejeződött. Ezt egy flaggel jelezzük a DB-ben. Ha végzett a feladatával a function, akkor publikáltra állítja az állat rekorját és frissíti azt az új képpel.
+  * A képek kivágását szintén egy **Cognitive Service** fogja végezni
+  * Az állatok nem jelennek meg addig a felületen, amíg ez a háttérművelet be nem fejeződött. Ezt egy flaggel jelezzük a DB-ben. Ha végzett a feladatával a function, akkor publikáltra állítja az állat rekordját és frissíti azt az új képpel.
 * A statikus fájlok kiszolgálásának optimalizációjára használjuk az **Azure CDN** szolgáltatását
   * Esetünkben most az állatok képeit tároljuk itt
 * A kitelepített környezet szolgáltatásainak kulcsait tároljuk **Azure Key Vault**-ban
@@ -49,13 +49,13 @@ A megvalósításunk legyen a következő:
 
 ### Kiinduló projekt
 
-🛠 Klónozzuk le a kiinduló projektet a C:\work\\[neptun]\ mappánkon bekük egy új mappába.
+🛠 Klónozzuk le a kiinduló projektet a C:\work\\[neptun]\ mappánkon belül egy új mappába.
 
 ```cmd
 TODO
 ```
 
-🛠 Nyissuk meg a MyNewHome.sln solutiont és tekintsük át azt. 
+🛠 Nyissuk meg a MyNewHome.sln solution-t és tekintsük át azt. 
 
 **TODO**
 
@@ -77,7 +77,7 @@ Beállítások
   * Az ingyenes F1 csomag elég lesz most nekünk
 * Monitoring fülön kapcsoljuk be az App Insights-ot, egy új példány létrehozásával (default)
 
-A kiinduló projektet publikáljuk ki az App Setvice-be. Ezt otthon legegyszerűbben úgy tudjuk megtenni, hogy a Visual Studioba bejelentkezünk a fiókunkkal, ami után a webes projekten jobb gomb / Publish varázslóval könnyedén tudunk deployolni. Mivel labor gépen nem szeretnénk bejelentkezni, használjuk inkább az  előre elkészített konfigurációs állományt (publish profile), ami lényegében egy XML fájl.
+A kiinduló projektet publikáljuk ki az App Service-be. Ezt otthon legegyszerűbben úgy tudjuk megtenni, hogy a Visual Studioba bejelentkezünk a fiókunkkal, ami után a webes projekten jobb gomb / Publish varázslóval könnyedén tudunk deployolni. Mivel labor gépen nem szeretnénk bejelentkezni, használjuk inkább az  előre elkészített konfigurációs állományt (publish profile), ami lényegében egy XML fájl.
 
 🛠 Töltsük le a **Get publish profile** gombbal az állományt 
 
@@ -88,9 +88,9 @@ A kiinduló projektet publikáljuk ki az App Setvice-be. Ezt otthon legegyszerű
 
 ### Key Vault
 
-Sajnos még nem működik a web appunk. Ha kipróbáljuk lokálisan is, akkor megfigyelhetjük, hogy az alkalmazás indulása elszáll, mivel nem találja az Azure Key Vault base urljét.
+Sajnos még nem működik a web appunk. Ha kipróbáljuk lokálisan is, akkor megfigyelhetjük, hogy az alkalmazás indulása elszáll, mivel nem találja az Azure Key Vault base URL-jét.
 
-> **Tipp: startup dignosztika TODO **
+> **Tipp: startup diagnosztika TODO **
 
 🛠 Hozzunk létre egy új Azure Key Vault-ot az aktuális resource groupunkba `MyNewHome-[neptun]-KeyVault` néven
 * Region: West EU
@@ -98,7 +98,7 @@ Sajnos még nem működik a web appunk. Ha kipróbáljuk lokálisan is, akkor me
 
 🛠 Kapcsoljuk be az App Service / Identity menüben a *system assigned managed identity* beállítást
 
-Ilyenkor létrejön egy user, akinek a nevében fog futni az App Service-ünk. Erre azért lesz szükség, hogy be tudjuk állítani a Key Vaultban a hozzáférési jogosultásgokat.
+Ilyenkor létrejön egy user, akinek a nevében fog futni az App Service-ünk. Erre azért lesz szükség, hogy be tudjuk állítani a Key Vaultban a hozzáférési jogosultságokat.
 
 🛠 Állítsuk be a jogosultságokat a Key Vault-ban
 * Key Vault / Access policies / Add Access Policy
@@ -119,7 +119,7 @@ A Key Vaultunkban még nincs semmi, de nem is használja most az alkalmazás sem
 
 ## Cosmos DB és Storage
 
-Az alkalmazásunk adatait egy Cosmos DB fogja tárolni. Most csak egy entitásunk lesz a `Pet`, így elég a legegyszerűbb konfiguráció. A képeket pedig kononikus módon Blob Storage-ba fogjuk tenni.
+Az alkalmazásunk adatait egy Cosmos DB fogja tárolni. Most csak egy entitásunk lesz a `Pet`, így elég a legegyszerűbb konfiguráció. A képeket pedig kanonikus módon Blob Storage-ba fogjuk tenni.
 
 🛠 Hozzunk létre a recource groupunkba egy Cosmos DB példányt
 * Account name: `mynewhome-[neptun]-db`
@@ -135,7 +135,7 @@ Amíg ez teker térjünk át a Storage-ra.
 
 🛠 A Key Vault-ban adjuk meg a Cosmos DB és a Storage connection string-jeit Secret-ként az alábbi kulccsal és értékekkel
 * `CosmosConnectionString`: Cosmos DB / Keys / PRIMARY CONNECTION STRING
-* `StorageConnectionString`: Storage / Keys / Connextion String
+* `StorageConnectionString`: Storage / Keys / Connection String
 
 **TODO cosmos db és storage használata a kódban**
 
