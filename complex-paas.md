@@ -374,7 +374,14 @@ A projektben már elő van készítve egy Azure Functions projekt `MyNewHome.Fun
 
 A CDN-nel lehetőségünk van optimalizálni a statikus fájlok elérését, mégpedig úgy, hogy a felhasználóhoz közeli adatközpontban elcache-eljük azt. Most a blob storage-ban lévő állatok képére készítsünk ilyen cachet.
 
-**TODO portál leírás**
+🛠 Ellenőrizzük, hogy az Azure fiókunkban engedélyezve van-e a CDN szolgáltatás használata, ha nem engedélyezzük: Subscriptions / \[előfizetésünk\] / Resource providers / Microsoft.Cdn
+
+🛠 Hozzunk létre egy CND erőforrást `MyNewHome-CDN` néven:
+* Pricing: Standard Microsoft
+* Create new CDN Endpoint 
+  * url: `mynewhome-i6rxee-storage-cdn`
+  * origin type: storage
+  * origin hostname: storage accountunk
 
 🛠 Vegyük fel az Azure Key Vault-ba a CDN elérési útját `ImageCdnHost` kulccsal.
 
