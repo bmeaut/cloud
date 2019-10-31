@@ -158,9 +158,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 A Key Vault-unkban még nincs semmi, de nem is használja most az alkalmazás semmire.
 
+> **Megj.:** Most az `IConfiguration`-t közvetlenül használjuk mindenhol. Egy éles alkalmazásban érdemes lenne használni az Options mintát (`IOption<T>`), hogy erősen típusosan kezeljük a konfigurációinkat. https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.0
+
 ## Cosmos DB és Storage
 
-Az alkalmazásunk adatait egy Cosmos DB fogja tárolni. Most csak egy entitásunk lesz a `Pet`, így elég a legegyszerűbb konfiguráció. A képeket pedig kanonikus módon Blob Storage-ba fogjuk tenni.
+Az alkalmazásunk adatait egy Cosmos DB fogja tárolni. Most csak egy entitásunk lesz a `Pet`, így elég a legegyszerűbb konfiguráció. A képeket pedig kanonikus módon egy Blob Storage-ba fogjuk tenni.
 
 🛠 Hozzunk létre a recource groupunkba egy Cosmos DB példányt
 * Account name: `mynewhome-[neptun]-db`
@@ -178,9 +180,46 @@ Amíg ez teker térjünk át a Storage-ra.
 * `CosmosConnectionString`: Cosmos DB / Keys / PRIMARY CONNECTION STRING
 * `StorageConnectionString`: Storage / Keys / Connection String
 
-**TODO cosmos db és storage használata a kódban**
+🛠 Tekintsük át hogyan használjuk a Cosmos DB-t a `PetService`-ben. Lényegében a CRUD műveleteket valósítottuk meg most az alacsony szintű API-n keresztül. Minimális ORM funkcionalitást kapunk, mert a `Pet` osztályt tudjuk használni a műveletek során, de például a lekérdezéseket már nem tudjuk LINQ-kel megvalósítani. Ha itt is ORM-et szeretnénk használni akkor érdemes megvizsgálni az Entity Framework Core 3.0 Cosmos DB támogatását.
 
-Indítsuk újra a web appot! Próbáljuk ki! 
+🛠 Implementáljuk a `PetController` `UploadAndRecognizeImage` metódusában a Blob storage kezelését. 
+
+```C#
+[HttpPost("upload")]
+public async Task<ActionResult> UploadAndRecognizeImage()
+{
+    var image = Request?.Form?.Files?[0];
+    if (image == null) return BadRequest();
+
+    // Retrieve a reference to a container
+    var container = _storage.CreateCloudBlobClient().GetContainerReference("pets");
+
+    // Create the container if it doesn't already exist
+    await container.CreateIfNotExistsAsync();
+
+    // Set container access level
+    await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Container });
+
+    string ext = GetImageExtension(image.ContentType);
+    if (ext == null) return BadRequest();
+
+    // Upload image from stream with a generated filename
+    var blob = container.GetBlockBlobReference(Guid.NewGuid().ToString() + "." + ext);
+    await blob.UploadFromStreamAsync(image.OpenReadStream());
+
+    var url = blob.Uri.AbsoluteUri;
+
+    // TODO recognize pet type
+
+    return Ok(new { url, type = "", probability = 0 });
+}
+```
+
+A kód lényegében létrehoz egy klienst, amin keresztül létrehozunk egy konténert `pets` néven, publikus hozzáféréssel, majd ebbe a konténerbe feltöltjük a képet. A kliensnek leküldjük ezt az URL-t, hogy meg tudja jeleníteni a felületen. A `type` és a `probability` mezőket most csak mock értékekkel feltöltjük. Ezeket fogja majd a kognitív szolgáltatásunk tölteni.
+
+> **Megj.:** Most nem töltjük az időt, hogy szépen kiszervezzük ezt a kódot. Egy éles alkalmazásban érdemes lenne ezeket külön service osztályokba szervezni.
+
+🛠 Indítsuk újra a web appot! Próbáljuk ki! 
 * Töltsünk fel egy új kutyust/cicát. 
 * Nézzük meg, hogy a storage-ben megjelent-e a képe
   * Storage / Storage Explorer / Blobs
