@@ -4,6 +4,29 @@ A labor célja, hogy egy összetettebb cloud-native webalkalmazást készítsün
 
 A labor alapjául [Szabó Márk](https://github.com/mark-szabo) Tech Summit Budapest 2019-es [előadása](https://github.com/mark-szabo/techsummit-demo) szolgált, amely átdolgozásra került erre a tárgyra.
 
+<details>
+<summary>Tartalomjegyzék</summary>
+
+- [Összetettebb Azure PaaS alkalmazás](#%c3%96sszetettebb-azure-paas-alkalmaz%c3%a1s)
+  - [Feladat](#feladat)
+  - [Architektúra](#architekt%c3%bara)
+  - [Megvalósítás](#megval%c3%b3s%c3%adt%c3%a1s)
+    - [Kiinduló projekt](#kiindul%c3%b3-projekt)
+    - [App Service](#app-service)
+    - [Key Vault](#key-vault)
+  - [Cosmos DB és Storage](#cosmos-db-%c3%a9s-storage)
+  - [Klasszifikáció - Cognitive Service Custom Vision](#klasszifik%c3%a1ci%c3%b3---cognitive-service-custom-vision)
+  - [Kép kivágása](#k%c3%a9p-kiv%c3%a1g%c3%a1sa)
+    - [Custom Vision](#custom-vision)
+    - [Queue storage](#queue-storage)
+    - [Azure Function](#azure-function)
+  - [Azure CDN](#azure-cdn)
+  - [Application Insights](#application-insights)
+    - [Track Exception](#track-exception)
+    - [Track Event](#track-event)
+</details>
+
+
 ## Feladat
 
 Feladatunk a következők: 
@@ -227,13 +250,9 @@ A kód lényegében létrehoz egy klienst, amin keresztül létrehozunk egy kont
   * Cosmos DB / Data Explorer / pets / items
   * Írjuk át a published tulajdonságot `true`-ra: megjelenik a felületen a kutyus.
 
-## Cognitive Services
+## Klasszifikáció - Cognitive Service Custom Vision
 
-Az állatok klasszifikációjához és a kép kivágásához az Azure Cognitive Services szolgáltatásait fogjuk igénybe venni, amik mesterséges intelligencia alapú megoldásokat nyújt sok problémára nagyon egyszerű módon.
-
-### Klasszifikáció - Cognitive Service Custom Vision
-
-A klasszifikációhoz a Custom Vision komponenst fogjuk feltanítani egy betanító adathalmazzal, ami alapján majd becslést tud adni az újonnan kapott képeken látható állat fajáról.
+Az állatok klasszifikációjához és a kép kivágásához az Azure Cognitive Services szolgáltatásait fogjuk igénybe venni, amik mesterséges intelligencia alapú megoldásokat nyújt sok problémára, nagyon egyszerű módon. A klasszifikációhoz a Custom Vision komponenst fogjuk feltanítani egy betanító adathalmazzal, ami alapján majd becslést tud adni az újonnan kapott képeken látható állat fajáról.
 
 🛠 Hozzunk létre egy új Custom Vision erőforrást a resource groupunkba `MyNewHome-CustomVision` néven.
 * Training, Prediction Location: West EU
@@ -243,47 +262,136 @@ Ez még csak az Azure-os erőforrás, ami esetünkben csak a számítási kapaci
 
 🛠 Hozzunk létre egy új projektet és tanítsuk fel néhány tesztadattal a modellt
 * Nyissuk meg a https://www.customvision.ai/projects oldalt
-* Figyeljünk, hogy a jobb felső sarokban jó subscription legyen kiválasztva
+* Ügyeljünk, hogy a jobb felső sarokban jó subscription legyen kiválasztva
 * Hozzunk létre egy új projektet
   * Name: `CatOrDog`
   * Resource: `MyNewHome-CustomVision`
   * Project Type: Classification => csak címkézni akarjuk a képeket tartalmuk alapján
   * Classification Types: Multiclass => Egy képhez egy címket (tag) tartozhat
   * Domain: General
-* A projektbe töltsük fel a macskás képeinket a kiinduló projekt `test-images/cat` mappájából és adjunk neki `cat` tag-et, majd ismételjük meg ezt a kutyákkal is a `test-images/dog` mappából `dog` taggel
+* A projektbe töltsük fel a macskás képeinket a kiinduló projekt `test-images/cats` mappájából és adjunk neki `cat` tag-et, majd ismételjük meg ezt a kutyákkal is a `test-images/dogs` mappából `dog` taggel
 * Kattintsunk a Train gombra, és válasszuk a Quick opciót
 * A Quick test gombra kattintva próbáljuk ki a feltanított modellt egy internetről kitallózott képpel
 * Figyeljük meg, hogy a Quick test eredményei megjelennek a Predictions fül alatt is, ahol ezekre is megadhatjuk a címkéket, amivel tovább taníthatjuk a modellt a Train gomb megnyomásával
 * A használni kívánt iterációt publikáljuk a Performance fül alatt
 
-**TODO kód**
+🛠 Hívjuk meg a feltanított Custom Vision API-nkat a `PetController`-ben.
 
-Vegyük fel a Key Vaultba a Custom Vision-höz tartozó secreteket:
+```C#
+private readonly CustomVisionPredictionClient _customVision;
+private readonly Guid _customVisionId;
+
+public PetController(PetService petService, IConfiguration configuration, IHttpClientFactory httpClientFactory)
+{
+    _petService = petService;
+    _storage = CloudStorageAccount.Parse(configuration["StorageConnectionString"]);
+
+    _customVision = new CustomVisionPredictionClient(httpClientFactory.CreateClient(), false)
+    {
+        ApiKey = configuration["CustomVision:ApiKey"],
+        Endpoint = configuration["CustomVision:Url"],
+    };
+
+    _customVisionId = new Guid(configuration["CustomVision:ProjectId"]);
+}
+```
+
+```C#
+var prediction = await _customVision.ClassifyImageUrlAsync(_customVisionId, "Iteration2", new ImageUrl(url)); // Figyeljünk oda az iteráció nevére
+var tag = prediction.Predictions.OrderByDescending(p => p.Probability).First();
+```
+
+🛠 Vegyük fel a Key Vaultba a Custom Vision-höz tartozó secreteket:
 * `CustomVision--ApiKey` kulccsal az Azure portálon Custom Vision / Quick start / Api key1 értékét. 
+* `CustomVision--Url` kulccsal az Azure portálon Custom Vision / Quick start / Url értékét. 
   * Vigyázzunk mert van, hogy egy teljesen új erőforrást hoz létre a prediction-nek a custom vision. Ennek a kulcsát és URL-jét használjuk!
 * `CustomVision--ProjectId` kulccsal a custom vision portálon a projekt guidját, amit az url-ben találunk
 
 > **Megj.:** Figyeljük meg hogy a hierarchikus config kulcsokat az Azure Key Vaultban `:` helyett `--` karakterekkel kell elválasztani.
 
-Publikáljuk a webes projektünket és próbáljuk ki a feltöltést. Fel kell ismernie, az állat típusát a képről.
+🛠 Publikáljuk a webes projektünket és próbáljuk ki a feltöltést. Fel kell ismernie, az állat típusát a képről.
 
-### Kép kivágása
+## Kép kivágása
 
-A kép okos kivágására az Azure Computer Vision szolgáltatását fogjuk használni.
+A kép okos kivágására az Azure Computer Vision szolgáltatását fogjuk használni. Maga a feldolgozás a tervezett architektúránknak megfelelően aszinkron történik. A feldolgozandó elem adatait egy Queue Storage-ba fogjuk belerakni. Ezt az üzenetsort egy serverless komponens (Azure Function) fogja figyelni, és aktiválódik, ha van új feladat, majd elvégzi a feldolgozást. Számunkra azért is előnyös lehet a serverless megoldás, mivel lehet hívás alapon számlázni, és szinte a végtelenségig skálázható akár function-önkét.
 
-Hozzunk létre az Azure portálon egy Computer Vision erőforrást `MyNewHome-ComputerVision` néven.
+###  Custom Vision
 
-**TOOD Code**
+🛠 Hozzunk létre az Azure portálon egy Computer Vision erőforrást `MyNewHome-ComputerVision` néven.
 
-**TODO Azure Function**
+Ezt szintén egy REST API-n keresztül fogjuk majd elérni, további konfigurációt nem igényel, mivel ez egy SaaS, és az előre elkészített funkcióit fogjuk használni.
 
-! TODO külön property kellett a projektbe, hogy működjön
+### Queue storage
+
+🛠 Rakjunk az üzenetsorba egy üzenetet a `PetController` `PostPet` metódusában.
+
+```C#
+[HttpPost]
+public async Task<ActionResult<Pet>> PostPet([FromBody] Pet pet)
+{
+    pet = await _petService.AddPetAsync(pet);
+
+    // Retrieve a reference to a queue
+    var queue = _storage.CreateCloudQueueClient().GetQueueReference("newpets");
+
+    // Create the queue if it doesn't already exist
+    await queue.CreateIfNotExistsAsync();
+
+    // Create a message and add it to the queue
+    var message = new CloudQueueMessage(pet.ToString());
+    await queue.AddMessageAsync(message);
+
+    return CreatedAtAction(nameof(GetPetsAsync), new { id = pet.Id }, pet);
+}
+```
+
+Most az egyszerűség kedvéért használtunk Queue storage-et. Egy összetettebb alkalmazás esetében (pl.: Microservice architektúra) érdemes megfontolni egy robosztusabb Queue szolgáltatás használatát. Erre példa az Azure Service Bus.
+
+🛠 Publikáljuk az alkalmazást
+
+### Azure Function
+
+A projektben már elő van készítve egy Azure Functions projekt `MyNewHome.Functions` néven. Ha megvizsgáljuk láthatjuk, hogy maga a function egy statikus `Run` metódusból áll, aminek az aktiválásának módját a `QueueTrigger` attribútum adja meg. Ha megjelenik egy új elem a queue-ban akkor meghívódik a function. Az azure key vault és a dependency injection használatához kicsit maszírozni kellett a function projektet, de ez előkészítve működik most nektek. **TODO még egy kis magyarázat**
+
+🛠 Hozzuk létre az Azure portálon egy Function appot `MyNewHome-i6rxee-functions` néven és konfiguráljuk fel.
+* Runtime Stack: .NET Core
+* Region: West EU
+* Hosting
+  * Válasszuk ki a storage accountunkat
+  * Plan type: Consumption
+    * Ilyenkor a meghívások száma után fizetünk és ilyenkor skálázódik magától a végtelenségig. Lehetőségünk lenne még egy meglévő App Service Plan-be telepíteni az appunkat, olyankor a skálázás az adott App Service Plan feladata.
+* Create
+* A function app-ban adjuk meg a Configuration menüben az Azure Key Vault-unk elérési útvonalát az App Service mintájára
+* A Platform beállításokban kapcsoljuk be a System Managed Identity-t, majd adjuk hozzá az Azure Key Vault-ban az Access Policy-khez az App Service mintájára.
+
+🛠 Cseréljük le a Function tetején lévő URL-t a saját Computer Vision URL-ünkre.
+
+🛠 Publikáljuk a Functions appot az exportált publish profile állománnyal.
+
+🛠 Próbáljuk ki! Töltsünk fel egy új képet, és várjunk amíg meg nem jelenik a felületen a feldolgozott rekord.
 
 ## Azure CDN
 
-**TODO csináljunk egyet a blob storage-ra**
+A CDN-nel lehetőségünk van optimalizálni a statikus fájlok elérését, mégpedig úgy, hogy a felhasználóhoz közeli adatközpontban elcache-eljük azt. Most a blob storage-ban lévő állatok képére készítsünk ilyen cachet.
 
-**TODO code**
+**TODO portál leírás**
+
+🛠 Vegyük fel az Azure Key Vault-ba a CDN elérési útját `ImageCdnHost` kulccsal.
+
+🛠 Írjuk felül a CDN elérési útjával a Cosmos DB-ben az állat képének URL-jét.
+
+```C#
+// Swap url host to CDN
+var url = new Uri(new Uri(config.GetValue<string>("ImageCdnHost")), blob.Uri.PathAndQuery).AbsoluteUri;
+
+// publish pet
+var pet = await petService.GetPetAsync(petFromQueue.Id, petFromQueue.Type);
+pet.ImageUrl = url;
+pet.Published = true;
+await petService.UpdatePetAsync(pet);
+```
+
+🛠 Publikáljuk a Functions appot és próbáljuk ki! F12-vel már azt kell látnunk, hogy az újonnan feltöltött képek esetében a CDN-ről jönnek le a képek és nem a Blob-ból közvetlenül.
 
 ## Application Insights
 
