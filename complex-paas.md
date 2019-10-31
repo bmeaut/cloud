@@ -59,7 +59,7 @@ TODO
 
 **TODO**
 
-Sok minden előre elkészítve van már nekünk. Most nem kódolni szeretnénk, hanem összerakni azt a felhő architektúrát, amit az előző fejezetben megálmodtunk.
+Sok minden előre elkészítve van már nekünk. Most nem kódolni szeretnénk, hanem összerakni azt a felhő architektúrát, amit az előző fejezetben megálmodtunk. A további implementáció a laborútmutatóból másolhatók, egy egy kevés magyarázat is tartozik hozzájuk.
 
 ### App Service
 
@@ -88,13 +88,13 @@ A kiinduló projektet publikáljuk ki az App Service-be. Ezt otthon legegyszerű
 
 ### Key Vault
 
-Sajnos még nem működik a web appunk. Ha kipróbáljuk lokálisan is, akkor megfigyelhetjük, hogy az alkalmazás indulása elszáll, mivel nem találja az Azure Key Vault base URL-jét.
-
-> **Tipp: startup diagnosztika TODO **
+ASP․NET Core esetben a konfigurációt az alkalmazás több helyről olvassa fel: konzol argumentumok, környezeti változók, application.json, (lokális debug esetben client secrets). Mi ezt szeretnénk most kiegészíteni azzal, hogy az Azure Key Vault-ból is olvassa fel a konfigurációt, ha élesbe telepítettük ki az alkalmazásunkat.
 
 🛠 Hozzunk létre egy új Azure Key Vault-ot az aktuális resource groupunkba `MyNewHome-[neptun]-KeyVault` néven
 * Region: West EU
 * Pricing Tier: Standard
+
+A Key Vaulthoz minden hozzáférés alapvetően le van tiltva. Most olyan authentikációs módszert választunk, ahol a web alkalmazást futtató service user (*system assigned managed identity*) nevében fogunk hozzáférni a biztonságos tárhoz.
 
 🛠 Kapcsoljuk be az App Service / Identity menüben a *system assigned managed identity* beállítást
 
@@ -108,14 +108,55 @@ Ilyenkor létrejön egy user, akinek a nevében fog futni az App Service-ünk. E
   * Select principal: újonnan létrehozott managed identity (tipikusan az app service neve)
   * Add gomb
 
-🛠 Adjuk meg a Web Appban, a használandó Key Vault url-jét, amit a Key Vault áttekintő nézetéről tudunk kimásolni. Megadni az App Service / Configuration / Application Settings / New application setting opcióval tudjuk. Kulcs: (kiinduló projekt `Program.cs` alapján) `KeyVault`, érték: a kimásolt Key Vault url.
+🛠 Vegyük fel az Azure Key Vault-hoz kapcsolódó NuGet csomagokat a `MyNewHome.Infrastructure` projektbe.
 
-> **Megj.:** ASP․NET Core esetben a konfigurációt az alkalmazás több helyről olvassa fel: konzol argumentumok, környezeti változók, application.json, (lokális debug esetben client secrets). A fenti megoldás környezeti változóként kezeli az app beállításait.  
-> Mi a `Program.cs`-ben annyit látunk, hogy ezeket egészítjük még ki Production környezetben a Key Vaulttal.
+```xml
+<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+<PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="2.2.0" />
+```
+
+🛠 Valósítsuk meg a `MyNewHome.Infrastructure` projektben lévő `ConfigurationBuilderExtensions.AddAzureKeyVault()` segédfüggvényt.
+
+```C#
+public static IConfigurationBuilder AddAzureKeyVault(this IConfigurationBuilder builder)
+{
+    var config = builder.Build();
+    var keyVaultBaseUrl = config.GetValue<string>("KeyVault");
+
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    var keyVaultClient = new KeyVaultClient(
+        new KeyVaultClient.AuthenticationCallback(
+            azureServiceTokenProvider.KeyVaultTokenCallback));
+    builder.AddAzureKeyVault(keyVaultBaseUrl, keyVaultClient, new DefaultKeyVaultSecretManager());
+
+    return builder;
+}
+```
+
+Az az oka annak, hogy külön projektben van ez a konfiguráció, hogy majd az Azure Function projektünk is tudja használni ezt a kódot.
+
+Figyeljük meg, hogy az aktuális configból olvassuk ki az URL-t, `KeyVault` kulcsú beállításként. Ezt most környezeti változóként fogjuk kezelni a telepített alkalmazásban. A managed identity authentikációt a `KeyVaultClient` megoldja, ha a fenti beállításokat választjuk.
+
+🛠 Adjuk meg a Web Appban, a használandó Key Vault URL-jét, amit a Key Vault áttekintő nézetéről tudunk kimásolni. Megadni az App Service / Configuration / Application Settings / New application setting opcióval tudjuk. Kulcs: `KeyVault`, érték: a kimásolt Key Vault URL.
+
+🛠 Az API projekt `Program` osztályában használjuk az `AddAzureKeyVault` segédfüggvényünket, de csak akkor, ha éles környezetben vagyunk.
+
+```C#
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .ConfigureAppConfiguration((context, builder) =>
+        {
+            if (context.HostingEnvironment.IsProduction())
+            {
+                builder.AddAzureKeyVault();
+            }
+        })
+        .UseStartup<Startup>();
+```
 
 🛠 Indítsuk újra a Web Appot és próbáljuk ki.
 
-A Key Vaultunkban még nincs semmi, de nem is használja most az alkalmazás semmire.
+A Key Vault-unkban még nincs semmi, de nem is használja most az alkalmazás semmire.
 
 ## Cosmos DB és Storage
 
