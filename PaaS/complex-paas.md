@@ -43,11 +43,11 @@ Feladatunk a következők:
   * A fejlesztőkkel ne osszuk meg az érzékeny szolgáltatás kulcsokat
 
 
-![Screenshot](https://github.com/totht91/techsummit-demo/raw/master/readme-images/ScreenshotShadow.png)
+![Screenshot](https://github.com/bmeaut/azure-complex-paas-labor/raw/master/readme-images/ScreenshotShadow.png)
 
 ## Architektúra
 
-![Architektúra](https://github.com/totht91/techsummit-demo/raw/master/readme-images/Architecture.png)
+![Architektúra](https://github.com/bmeaut/azure-complex-paas-labor/raw/master/readme-images/Architecture.png)
 
 A megvalósításunk legyen a következő:
 * A user egy **ASP․NET Core**-os REST API backendet és egy **React**-os frontend alkalmazást fog használni
