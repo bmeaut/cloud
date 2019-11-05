@@ -9,6 +9,9 @@ Előadásanyagok és tárgyinfó: https://www.aut.bme.hu/Course/felho
 A tárgykövetelményekhez kapcsolódó házi feladat szempontrendszer itt található: [gyakpontrendszer](gyakpontrendszer.md)
 
 ## Gyakorlatok
+
+https://bmeaut.github.io/
+
 * Storage
   * [Gyakorlat anyag](Storage/storage.md)
 * NoSQL
