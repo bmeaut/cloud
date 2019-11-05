@@ -75,7 +75,9 @@ A megvalósításunk legyen a következő:
 🛠 Klónozzuk le a kiinduló projektet a C:\work\\[neptun]\ mappánkon belül egy új mappába.
 
 ```cmd
-TODO
+mkdir c:\work\[neptun]\complex-paas
+cd c:\work\[neptun]\complex-paas
+git clone https://github.com/bmeaut/azure-complex-paas-labor.git
 ```
 
 🛠 Nyissuk meg a MyNewHome.sln solution-t és tekintsük át azt. 
