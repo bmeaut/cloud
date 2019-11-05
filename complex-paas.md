@@ -408,6 +408,34 @@ await petService.UpdatePetAsync(pet);
 
 TODO snapshot debugging, publish profile
 
+```C#
+try
+{
+    var prediction = await _customVision.ClassifyImageUrlAsync(_customVisionId, "Iteration2", new ImageUrl(url));
+    var tag = prediction.Predictions.OrderByDescending(p => p.Probability).First();
+
+    return Ok(new { url, type = tag.TagName, probability = tag.Probability });
+}
+catch (Exception ex)
+{
+    _telemetryClient.TrackException(ex);
+    throw;
+}
+```
+
 ### Track Event
 
 TODO
+
+```C#
+_telemetryClient.TrackEvent(
+    "New pet added.",
+    new Dictionary<string, string>
+    {
+        { "Pet type", pet.Type.ToString() },
+    },
+    new Dictionary<string, double>
+    {
+        { "New pet", 1 },
+    });
+```
