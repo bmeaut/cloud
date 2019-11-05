@@ -240,6 +240,17 @@ public async Task<ActionResult> UploadAndRecognizeImage()
 }
 ```
 
+```C#
+private readonly PetService _petService;
+        private readonly CloudStorageAccount _storage;
+
+        public PetController(PetService petService, IConfiguration configuration)
+        {
+            _petService = petService;
+            _storage = CloudStorageAccount.Parse(configuration["StorageConnectionString"]);
+        }
+```
+
 A kód lényegében létrehoz egy klienst, amin keresztül létrehozunk egy konténert `pets` néven, publikus hozzáféréssel, majd ebbe a konténerbe feltöltjük a képet. A kliensnek leküldjük ezt az URL-t, hogy meg tudja jeleníteni a felületen. A `type` és a `probability` mezőket most csak mock értékekkel feltöltjük. Ezeket fogja majd a kognitív szolgáltatásunk tölteni.
 
 > **Megj.:** Most nem töltjük az időt, hogy szépen kiszervezzük ezt a kódot. Egy éles alkalmazásban érdemes lenne ezeket külön service osztályokba szervezni.
