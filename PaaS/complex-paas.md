@@ -251,6 +251,25 @@ private readonly PetService _petService;
         }
 ```
 
+```C#
+private string GetImageExtension(string contentType)
+        {
+            switch (contentType)
+            {
+                case "image/png": return "png";
+                case "image/jpeg": return "jpeg";
+                case "image/jpg": return "jpg";
+                case "image/gif": return "gif";
+                case "image/bmp": return "bmp";
+                case "image/ief": return "ief";
+                case "image/svg+xml": return "svg+xml";
+                case "image/raw": return "raw";
+                default: return null;
+            }
+        }
+    }
+```
+
 A kód lényegében létrehoz egy klienst, amin keresztül létrehozunk egy konténert `pets` néven, publikus hozzáféréssel, majd ebbe a konténerbe feltöltjük a képet. A kliensnek leküldjük ezt az URL-t, hogy meg tudja jeleníteni a felületen. A `type` és a `probability` mezőket most csak mock értékekkel feltöltjük. Ezeket fogja majd a kognitív szolgáltatásunk tölteni.
 
 > **Megj.:** Most nem töltjük az időt, hogy szépen kiszervezzük ezt a kódot. Egy éles alkalmazásban érdemes lenne ezeket külön service osztályokba szervezni.
