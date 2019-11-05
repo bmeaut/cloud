@@ -136,7 +136,7 @@ Ilyenkor létrejön egy user, akinek a nevében fog futni az App Service-ünk. E
 🛠 Vegyük fel az Azure Key Vault-hoz kapcsolódó NuGet csomagokat a `MyNewHome.Infrastructure` projektbe.
 
 ```xml
-<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.4" />
 <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="2.2.0" />
 ```
 
