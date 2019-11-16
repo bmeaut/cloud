@@ -38,7 +38,6 @@ Shameful önreklám: https://blog.autsoft.hu/tag/wikidataonazure/
         - a kapcsolata legyen a már korábban létrehozott blob kapcsolat
         - de most töltsük ki a könyvtárat és a fájlnevet is, adjuk meg a blob-ban lévő gzip-et
         - Compression Type: gzip
-        - Compression Label: Optimal
         - Binary Copy: uncheck
         - File format: JSON
         - File pattern: set of object        
