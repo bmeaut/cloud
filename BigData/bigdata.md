@@ -39,7 +39,7 @@ Shameful önreklám: https://blog.autsoft.hu/tag/wikidataonazure/
         - de most töltsük ki a könyvtárat és a fájlnevet is, adjuk meg a blob-ban lévő gzip-et
         - Compression Type: gzip
         - Binary Copy: uncheck
-        - File format: JSON
+        - File format: JSON, de ne engedjüük, hogy a sémát felfedezze a tömörítés beállítása előtt (`Import schema`: `None`)
         - File pattern: set of object        
     - Hozassunk létre egy új Cosmos DB típusú célt
         - új kapcsolat is kell, tallózzuk ki a Cosmos DB-nket
