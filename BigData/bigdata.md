@@ -44,7 +44,7 @@ Shameful önreklám: https://blog.autsoft.hu/tag/wikidataonazure/
         - új kapcsolat is kell, tallózzuk ki a Cosmos DB-nket
         - Adjuk meg a collection nevet
     - Pipeline szerkesztőjében fent az eszköztáron Trigger -> Trigger Now
-3. Ellenőrizzük a Comos DB  Data Explorer-ben
+3. Ellenőrizzük a monitorozó oldalon (figyeljünk a szűrő ikonocska mögötti szűrőkre is!) és a Comos DB  Data Explorer-ben
 
 
 
