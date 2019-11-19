@@ -24,4 +24,4 @@ https://bmeaut.github.io/
   * [Gyakorlat anyag](PaaS/complex-paas.md)
   * Kiinduló projekt: https://github.com/bmeaut/azure-complex-paas-labor
 * Big Data
- * [Gyakorlat anyag](BigData/bigdata.md)
+  * [Gyakorlat anyag](BigData/bigdata.md)
