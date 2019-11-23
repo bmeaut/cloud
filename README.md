@@ -25,3 +25,5 @@ https://bmeaut.github.io/
   * Kiinduló projekt: https://github.com/bmeaut/azure-complex-paas-labor
 * Big Data
   * [Gyakorlat anyag](BigData/bigdata.md)
+* Azure DevOps
+  * [Gyakorlat anyag](DevOps/devops.md)
