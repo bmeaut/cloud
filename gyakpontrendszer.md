@@ -1,6 +1,6 @@
-# Házi feladat feltételrendszer - 2019/20 őszi félév
+# Házi feladat feltételrendszer - 2020/21 őszi félév
 
-*Véglegesítve: 2019.10.26.*
+*Nincs véglegesítve 2020. őszi félévre*
 
 A 2019/20-as őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését fogadjuk el. A gyakorlatok **csak a lentebb megadott halmazból kerülhetnek ki**, de ezeken belül szabadon válogathattok. Minden gyakorlathoz egy időtartamot adott meg a készítője, a gyakorlat elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
