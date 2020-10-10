@@ -1,6 +1,8 @@
 # Azure Storage Hands-On Lab
 https://github.com/bmeaut/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md
 
+Sajnos már nagyon elavult a leírás :disappointed:
+
 ## Azure Portal 
 ### Nyelvi beállítások
 A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
@@ -21,23 +23,17 @@ Ebben laborban:
 Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen. Így könnyen előfordulhat, hogy a név már foglalt. Érdemes ilyenkor valamilyen személyre egyedi prefixet/postfixet alkalmazni pl. neptun kód vagy monogram.
 
 ## Ex. 1.
-- Az egyes beállítások fölötti tooltip-eket érdemes elolvasni, értelmezni.
-- Mit jelentenek az alábbi beállítások?
-  - Storage V1 vs V2
-  - Resource Manager (Deployment Model)
-  - Replikációs modellek (Replication) - LRS legyen! (https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
-  - Teljesítményszint (Standard vs. Premium)
-  - Secure Transfer
-  - Resource Group
-- Hogyan választjuk a régiót (Location)?
+- új Storage fiók létrehozása
+- hogy ingyenes legyen (LRS)
+- resourcegroup: IntellipixResources
+- két konténert hozzunk létre: photos, thumbnails
 
 ## Ex. 2.
-- Ha nincs feltelepítve a Storage Explorer, akkor ezt a feladatot hagyjuk ki. (Nincs jogunk admin módban telepíteni). Helyette az Azure Portal-on a storage oldalán (blade-jén) a Blobs menüpontot használjuk a blob-ok nézegetésére/kezelésére.
+- Nézzünk körül Storage Explorer-ben
 
 ## Ex. 3.
-- Ez már kicsit máshogy néz ki VS 2019-ben, de az opciók majdnem ugyanazok - semmi extra funkció nem kell, HTTPS sem
-- A NuGet csomagokból már vannak újabbak, lehet használni a legújabb stabil verziókat
-- Érdemes a rengeteg using blokk bemásolása helyett a következő pontban lévő kódot bemásolni és megkérni a Visual Studio-t, hogy rakja be a hiányzó using-okat
+- ASP.NET Core MVC projekt
+- ImageResizer és Azure.Storage.Blobs NuGet csomagok
 
 ## Ex. 4.
 - Opcionális, a végére is hagyható
