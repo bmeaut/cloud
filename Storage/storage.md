@@ -32,8 +32,39 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - Nézzünk körül Storage Explorer-ben
 
 ## Ex. 3.
-- ASP.NET Core MVC projekt
-- ImageResizer és Azure.Storage.Blobs NuGet csomagok
+1. ASP.NET Core MVC projekt (Intellipix)
+
+```powershell
+dotnet new webapp
+```
+
+2. Próba
+
+3. ImageResizer és Azure.Storage.Blobs NuGet csomagok
+
+```powershell
+dotnet add package imageresizer
+dotnet add package Azure.Storage.Blobs
+```
+
+4. User Secrets
+
+```bash
+dotnet user-secrets init
+dotnet user-secrets set "Az:StoreConnString" "connstring"
+```
+
+5. BlobInfo egy új `Models` alkönyvtárba
+
+```csharp
+public class BlobInfo
+{
+    public string ImageUri { get; set; }
+    public string ThumbnailUri { get; set; }
+    public string Caption { get; set; }
+}
+```
+
 
 ## Ex. 4.
 - Opcionális, a végére is hagyható
