@@ -158,7 +158,9 @@ public async Task<IActionResult> OnPostAsync()
 }
 ```
 
-10. Nézzük meg mit műveltünk Azure Storage Explorer-ben és a weboldal forrásában is. Ha átírjuk a thumbnail URI-ban a /thumbnail/-t /photos/-ra, megkapjuk az eredeti képet.
+10. Példaképek [letöltése](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip)
+
+11. Nézzük meg mit műveltünk Azure Storage Explorer-ben és a weboldal forrásában is. Ha átírjuk a thumbnail URI-ban a /thumbnail/-t /photos/-ra, megkapjuk az eredeti képet.
 
 ## Ex. 4.
 - Kihagyható
@@ -210,12 +212,14 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 /**/}
 ```
 
-
-
-
-## Ex. 9.
-- Application Insights nem kell
-- App Service Plan - **Free (F) méretű legyen!**
-
-
+5. Listázás okosítása
+```csharp
+ Blobs=await blobcc.GetBlobsAsync()
+                .Select(b=>blobcc.GetBlobClient(b.Name))
+                .SelectAwait(async bc=> new {(await bc.GetPropertiesAsync()).Value.Metadata, Uri=bc.Uri.ToString(), bc.Name})                
+                .Select(x=>new BlobInfo{ImageUri=x.Uri
+                            , ThumbnailUri=x.Uri.Replace("/photos/","/thumbnails/"), 
+                            Caption=x.Metadata.ContainsKey("Captions")? x.Metadata["Captions"]:x.Name})                
+                .ToListAsync();
+```
 
