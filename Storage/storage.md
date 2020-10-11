@@ -41,7 +41,7 @@ dotnet new webapp
 
 2. Próba
 
-3. ImageResizer és Azure.Storage.Blobs NuGet csomagok
+3. NuGet csomagok
 
 ```powershell
 dotnet add package SixLabors.ImageSharp
@@ -56,7 +56,20 @@ dotnet user-secrets init
 dotnet user-secrets set "Az:StoreConnString" "connstring"
 ```
 
-5. BlobInfo egy új `Models` alkönyvtárba
+5. `IndexModel`-ben konfig kiolvasás
+
+```csharp
+ private readonly IConfiguration _config;
+
+public IndexModel(ILogger<IndexModel> logger, IConfiguration config)
+{
+    _logger = logger;
+    _config =  config;
+}
+```
+
+
+6. `BlobInfo` egy új `Models` alkönyvtárba
 
 ```csharp
 public class BlobInfo
@@ -65,6 +78,53 @@ public class BlobInfo
     public string ThumbnailUri { get; set; }
     public string Caption { get; set; }
 }
+```
+
+
+7. Blob adatok listázása az `IndexModel`-be
+
+```csharp
+public IEnumerable<BlobInfo> Blobs {get; set;} 
+
+public async Task OnGet()
+
+{
+    BlobServiceClient blobSvc = new BlobServiceClient(_config["Az:StoreConnString"]);
+    BlobContainerClient blobcc=blobSvc.GetBlobContainerClient("photos");
+
+    Blobs=await blobcc.GetBlobsAsync()
+        .Select(b=>blobcc.GetBlobClient(b.Name).Uri.ToString())
+        .Select(u=>new BlobInfo{ImageUri=u, ThumbnailUri=u.Replace("/photos/","/thumbnails/")})                
+        .ToListAsync();
+}
+```
+
+8. Felület az Index.cshtml-be
+
+```html
+<div class="container" style="padding-top: 24px">
+    <div class="row">
+        <div class="col-sm-8">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" asp-for="Upload" id="upload" style="display: none" onchange="$('#submit').click();"/>
+                <input type="button" value="Upload a Photo" class="btn btn-primary btn-lg" onclick="$('#upload').click();" />
+                <input type="submit" id="submit" style="display: none"/>
+            </form>
+        </div>
+        <div class="col-sm-4 pull-right">
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+            @foreach (BlobInfo blob in Model.Blobs)
+            {
+                <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
+            }
+
+        </div>
+    </div>
+</div>
 ```
 
 ## Ex. 4.
