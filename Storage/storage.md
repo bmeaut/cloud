@@ -27,6 +27,7 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - hogy ingyenes legyen (LRS)
 - resourcegroup: IntellipixResources
 - két konténert hozzunk létre: photos, thumbnails
+  - mindkettőben hozzá lehessen férni publikusan a blobokhoz
 
 ## Ex. 2.
 - Nézzünk körül Storage Explorer-ben
@@ -43,8 +44,9 @@ dotnet new webapp
 3. ImageResizer és Azure.Storage.Blobs NuGet csomagok
 
 ```powershell
-dotnet add package imageresizer
+dotnet add package SixLabors.ImageSharp
 dotnet add package Azure.Storage.Blobs
+dotnet add package System.Interactive.Async
 ```
 
 4. User Secrets
@@ -65,9 +67,8 @@ public class BlobInfo
 }
 ```
 
-
 ## Ex. 4.
-- Opcionális, a végére is hagyható
+- Kihagyható
 
 ## Ex. 5.
 - A 8-as pontban azt írja, hogy az URL-t ki kell egészíteni. Az újabb verziós NuGet csomagot használva nem kell.
