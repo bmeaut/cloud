@@ -158,13 +158,60 @@ public async Task<IActionResult> OnPostAsync()
 }
 ```
 
-
+10. Nézzük meg mit műveltünk Azure Storage Explorer-ben és a weboldal forrásában is. Ha átírjuk a thumbnail URI-ban a /thumbnail/-t /photos/-ra, megkapjuk az eredeti képet.
 
 ## Ex. 4.
 - Kihagyható
 
 ## Ex. 5.
-- A 8-as pontban azt írja, hogy az URL-t ki kell egészíteni. Az újabb verziós NuGet csomagot használva nem kell.
+1. Vision szolgáltatás létrehozása
+ - F0 plan
+ - ugyanabba a resource group-ba és régióba, mint ahol a  storage account van
+
+2. Új secret-ek a Keys & Endpoint lapról
+
+```bash
+dotnet user-secrets set "Az:VisionEndpoint" "https://valami.cognitiveservices.azure.com/"
+dotnet user-secrets set "Az:VisionKey" "titok"
+```
+
+3. NuGet csomag hozzáadása
+
+```bash
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
+```
+
+4. Feltöltés okosítása
+
+```csharp
+/**/public async Task<IActionResult> OnPostAsync()
+/**/{
+       ComputerVisionClient vc =  
+           new ComputerVisionClient(new ApiKeyServiceClientCredentials(_config["Az:VisionKey"])){ Endpoint = _config["Az:VisionEndpoint"] };
+       VisualFeatureTypes?[] features = new VisualFeatureTypes?[] { VisualFeatureTypes.Description };   
+/**/
+/**/    BlobServiceClient blobSvc = new BlobServiceClient(_config["Az:StoreConnString"]);
+/**/    BlobContainerClient blobccP=blobSvc.GetBlobContainerClient("photos");
+/**/    BlobClient blobc= blobccP.GetBlobClient(Upload.FileName);
+/**/    
+/**/    using(Stream stream= Upload.OpenReadStream())
+/**/    {
+/**/        var resp=await blobc.UploadAsync(stream);
+            var analResult = await vc.AnalyzeImageAsync(blobc.Uri.ToString(), features);
+            var blobMetaDict=analResult.Description.Tags
+                .Select((t,i)=> new KeyValuePair<string,string>(nameof(analResult.Description.Tags)+i, t))
+                .Concat(new Dictionary<string,string>{{nameof(analResult.Description.Captions),analResult.Description.Captions[0].Text}})
+                .ToDictionary(kvp=>kvp.Key, kvp=>kvp.Value);
+            await blobc.SetMetadataAsync(blobMetaDict);
+/**/        stream.Seek(0,SeekOrigin.Begin);
+/**/        /*...*/
+/**/    }
+/**/    return new RedirectToPageResult("Index");
+/**/}
+```
+
+
+
 
 ## Ex. 9.
 - Application Insights nem kell
