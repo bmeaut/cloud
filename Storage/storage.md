@@ -33,7 +33,7 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - Nézzünk körül Storage Explorer-ben
 
 ## Ex. 3.
-1. ASP.NET Core MVC projekt (Intellipix)
+1. ASP.NET Core MVC projekt (`Intellipix`)
 
 ```powershell
 dotnet new webapp
@@ -126,6 +126,39 @@ public async Task OnGet()
     </div>
 </div>
 ```
+
+9. Feltöltés az `IndexModel`-be
+
+```csharp
+[BindProperty]
+public IFormFile Upload { get; set; }
+
+public async Task<IActionResult> OnPostAsync()
+{   
+    BlobServiceClient blobSvc = new BlobServiceClient(_config["Az:StoreConnString"]);
+    BlobContainerClient blobccP=blobSvc.GetBlobContainerClient("photos");
+    BlobClient blobc= blobccP.GetBlobClient(Upload.FileName);
+    using(Stream stream= Upload.OpenReadStream())
+    {
+        var resp=await blobc.UploadAsync(stream);
+        stream.Seek(0,SeekOrigin.Begin);
+        using (Image image = Image.Load(stream, out IImageFormat fmt))
+        {            
+            image.Mutate(x => x.Resize(192, 0));
+            BlobContainerClient blobccT=blobSvc.GetBlobContainerClient("thumbnails");
+            using(MemoryStream memoryStream=new MemoryStream())
+            {
+                image.Save(memoryStream, fmt);
+                memoryStream.Seek(0,SeekOrigin.Begin);
+                await blobccT.UploadBlobAsync(Upload.FileName,memoryStream);
+             }
+        }
+    }
+    return new RedirectToPageResult("Index");            
+}
+```
+
+
 
 ## Ex. 4.
 - Kihagyható
