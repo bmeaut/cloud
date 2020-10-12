@@ -223,6 +223,8 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
                 .ToListAsync();
 ```
 
+6. Próba
+
 ## Ex. 6.
 
 1. Új form az eddigi üres div-be
@@ -269,4 +271,6 @@ public ActionResult OnPostSearchAsync()
 /**/                            
 /**/}
 ```
+
+4. Próba
 
