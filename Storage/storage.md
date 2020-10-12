@@ -105,10 +105,10 @@ public async Task OnGet()
 <div class="container" style="padding-top: 24px">
     <div class="row">
         <div class="col-sm-8">
-            <form method="post" enctype="multipart/form-data">
+           <form method="post" enctype="multipart/form-data">
                 <input type="file" asp-for="Upload" id="upload" style="display: none" onchange="$('#submit').click();"/>
                 <input type="button" value="Upload a Photo" class="btn btn-primary btn-lg" onclick="$('#upload').click();" />
-                <input type="submit" id="submit" style="display: none"/>
+                <input type="submit" id="submit" style="display: none" asp-page-handler="Upload"/>
             </form>
         </div>
         <div class="col-sm-4 pull-right">
@@ -133,7 +133,7 @@ public async Task OnGet()
 [BindProperty]
 public IFormFile Upload { get; set; }
 
-public async Task<IActionResult> OnPostAsync()
+public async Task<IActionResult> OnPostUploadAsync()
 {   
     BlobServiceClient blobSvc = new BlobServiceClient(_config["Az:StoreConnString"]);
     BlobContainerClient blobccP=blobSvc.GetBlobContainerClient("photos");
@@ -186,7 +186,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 4. Feltöltés okosítása
 
 ```csharp
-/**/public async Task<IActionResult> OnPostAsync()
+/**/public async Task<IActionResult> OnPostUploadAsync()
 /**/{
        ComputerVisionClient vc =  
            new ComputerVisionClient(new ApiKeyServiceClientCredentials(_config["Az:VisionKey"])){ Endpoint = _config["Az:VisionEndpoint"] };
