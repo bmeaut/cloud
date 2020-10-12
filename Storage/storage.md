@@ -154,7 +154,7 @@ public async Task<IActionResult> OnPostUploadAsync()
              }
         }
     }
-    return new RedirectToPageResult("Index");            
+    return new RedirectToAction("Index");            
 }
 ```
 
@@ -208,7 +208,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 /**/        stream.Seek(0,SeekOrigin.Begin);
 /**/        /*...*/
 /**/    }
-/**/    return new RedirectToPageResult("Index");
+/**/    return RedirectToAction("Index");
 /**/}
 ```
 
