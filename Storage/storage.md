@@ -1,5 +1,5 @@
 # Azure Storage Hands-On Lab
-https://github.com/bmeaut/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md
+https://github.com/microsoft/AcademicContent/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md
 
 Sajnos már nagyon elavult a leírás :disappointed:
 
