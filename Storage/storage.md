@@ -111,7 +111,7 @@ public async Task OnGet()
                 <input type="submit" id="submit" style="display: none" asp-page-handler="Upload"/>
             </form>
         </div>
-        <div class="col-sm-4 pull-right">
+        <div class="col-sm-4 float-right">
         </div>
     </div>
     <hr />
@@ -230,15 +230,15 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 1. Új form az eddigi üres div-be
 
 ```html
-<div class="col-sm-4 pull-right">
-    <form method="post" enctype="multipart/form-data" class="navbar-form">
-         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search photos" asp-for="SearchTerm" style="max-width: 800px">
-            <span class="input-group-btn">
-                <button class="btn btn-primary" type="submit" asp-page-handler="Search">Go</button>
-            </span>
-        </div>
-    </form>          
+<div class="col-sm-4 float-right">
+   <form method="post" enctype="multipart/form-data" class="form-inline">
+     <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search photos" asp-for="SearchTerm" style="max-width: 800px">
+        <span class="input-group-append">
+            <button class="btn btn-primary" type="submit" asp-page-handler="Search">Go</button>
+        </span>
+    </div>
+  </form>                
 </div>
 ```
 
@@ -268,6 +268,7 @@ public ActionResult OnPostSearchAsync()
 /**/                    , ThumbnailUri=x.Uri.Replace("/photos/","/thumbnails/"), 
 /**/                    Caption=x.Metadata.ContainsKey("Captions")? x.Metadata["Captions"]:x.Name})                
 /**/        .ToListAsync();
+         SearchTerm=term;
 /**/                            
 /**/}
 ```
