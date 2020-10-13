@@ -3,7 +3,7 @@ https://github.com/microsoft/AcademicContent/blob/master/Labs/Azure%20Services/A
 
 Sajnos már nagyon elavult a leírás :disappointed:
 
-## Azure Portal 
+## [Azure Portal](https://portal.azure.com/) 
 ### Nyelvi beállítások
 A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
 
