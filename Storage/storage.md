@@ -12,7 +12,6 @@ https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage
 Ebben laborban:
  - Storage -> 5 GB LRS blob hallgatóknak ingyenes 12 hónapig
  - Computer Vision -> ha free tier-t választod, akkor ingyenes (kvóta van)
- - App Service -> az App Service Plan-ért kellene fizetni, de van ingyenes változat (kvóta van)
  
  Ingyenes szolgáltatások: https://azure.microsoft.com/en-us/free/
  Azure sponsorship portál: https://www.microsoftazuresponsorships.com/ 
