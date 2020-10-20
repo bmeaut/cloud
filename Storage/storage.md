@@ -274,3 +274,49 @@ public ActionResult OnPostSearchAsync()
 
 4. Próba
 
+Ex. 7.
+
+Fontos tudnvalók a (blob) kliensről:
+https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/
+https://devblogs.microsoft.com/azure-sdk/best-practices-for-using-azure-sdk-with-asp-net-core/
+
+`BlobServiceClient` a DI rendszerből:
+
+1. 
+
+```bash
+dotnet add package Microsoft.Extensions.Azure
+```
+
+2. Startup.cs `ConfigureServices` függvényébe
+
+```csharp
+using Microsoft.Extensions.Azure;
+```
+
+```csharp
+ services.AddAzureClients(builder =>
+            {
+                builder.AddBlobServiceClient(Configuration["Az:StoreConnString"]);
+            });
+```
+
+3. `IndexModel`-be
+
+```csharp
+/**/public IndexModel(ILogger<IndexModel> logger, IConfiguration config
+     , BlobServiceClient blobServiceClient)
+/**/{
+/**/    _logger = logger;
+/**/    _config = config;
+        _blobServiceClient = blobServiceClient;
+}
+```
+
+4. `BlobServiceClient` példányosítások törlése,  BlobServiceClient példányhivatkozások lecserélése `_blobServiceClient` hivatkozásra
+
+
+
+
+
+
