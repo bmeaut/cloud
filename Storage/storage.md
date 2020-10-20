@@ -277,6 +277,7 @@ public ActionResult OnPostSearchAsync()
 Ex. 7.
 
 Fontos tudnvalók a (blob) kliensről:
+
 https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/
 https://devblogs.microsoft.com/azure-sdk/best-practices-for-using-azure-sdk-with-asp-net-core/
 
