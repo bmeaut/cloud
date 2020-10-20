@@ -10,8 +10,6 @@ A tárgykövetelményekhez kapcsolódó házi feladat szempontrendszer itt talá
 
 ## Gyakorlatok
 
-https://bmeaut.github.io/
-
 * Storage
   * [Gyakorlat anyag](Storage/storage.md)
 * NoSQL
