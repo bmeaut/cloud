@@ -244,6 +244,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 2. Kezelőfv az `IndexModel`-be, átirányítjuk a lekérdező műveletre.
 
 ```csharp
+[BindProperty]
+public string SearchTerm {get; set;}
+
 public ActionResult OnPostSearchAsync()
 {
     return RedirectToAction("Index", new { term = SearchTerm });
@@ -283,7 +286,7 @@ https://devblogs.microsoft.com/azure-sdk/best-practices-for-using-azure-sdk-with
 
 `BlobServiceClient` a DI rendszerből:
 
-1. 
+1. Segédcsomag hozzáadás
 
 ```bash
 dotnet add package Microsoft.Extensions.Azure
@@ -305,6 +308,8 @@ using Microsoft.Extensions.Azure;
 3. `IndexModel`-be
 
 ```csharp
+    private readonly BlobServiceClient _blobServiceClient;
+
 /**/public IndexModel(ILogger<IndexModel> logger, IConfiguration config
      , BlobServiceClient blobServiceClient)
 /**/{
@@ -314,7 +319,7 @@ using Microsoft.Extensions.Azure;
 }
 ```
 
-4. `BlobServiceClient` példányosítások törlése,  BlobServiceClient példányhivatkozások lecserélése `_blobServiceClient` hivatkozásra
+4. `BlobServiceClient` példányosítások törlése,  `BlobServiceClient` példányhivatkozások lecserélése `_blobServiceClient` hivatkozásra (összesen 3 db., 1 az `OnGet`-ben, 2 az `OnPostUploadAsync`-ban )
 
 
 
