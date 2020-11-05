@@ -1,12 +1,8 @@
 # AppService SQL adatbázissal
 
-https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb
+https://github.com/VIAUBC01/MovieCatalog.Azure
 
 ## Azure SQL
-  - Árazási modellek: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-purchase-models
-    - elastic vs standalone (vs managed) https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-pool
-    - vCore vs DTU (DTU kalkulátor: https://dtucalculator.azurewebsites.net/)
-    - vCore-on belül Serverless (*preview*): https://docs.microsoft.com/en-us/azure/sql-database/sql-database-serverless
   - válasszuk: standalone Standard S0 (10 DTU) - **12 hónapig ingyenes** (https://azure.microsoft.com/en-us/free/free-account-faq/)
   - nézzük meg:
     - a szerver és az adatbázis erőforrásokat
@@ -19,16 +15,17 @@ https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotn
 ## App Service
   - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
   - Publish: code
-  - Runtime stack: .NET Core 2.2
-  - OS: Windows
+  - Runtime stack: .NET Core 3.1
+  - OS: Linux
   - Region: WEU
   - Windows plan - **Free (F1)** legyen
   - App Insights: nem kell (még)
   
 ## Példaprojekt beüzemelése
-  - git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
-  - fordít, dotnet ef database update (.NET Core SDK 3 esetén `dotnet tool install --global dotnet-ef --version 3.0.0`)
-  - sqlite adatbázis létrejön
+  - git clone https://github.com/VIAUBC01/MovieCatalog.Azure
+  - dotnet ef tool install: `dotnet tool install --global dotnet-ef
+  - Azure-os connection string az appsettings.Development.json-be
+  - fordít, `dotnet ef database update`
   - **Projektként** futtassuk
   
 ## Azure SQL adatbázis inicializálása
