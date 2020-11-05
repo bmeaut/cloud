@@ -11,7 +11,15 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
     - backup (szerver)
     - connection strings (db)
     - Azure Search indexer (db)
+    - hogy üres az adatbázis
     
+## Példaprojekt beüzemelése
+  - git clone https://github.com/VIAUBC01/MovieCatalog.Azure
+  - dotnet ef tool install: `dotnet tool install --global dotnet-ef`
+  - Azure-os connection string az appsettings.Development.json-be
+  - futtat. Automatikus adatbázis inicializáció van a projektben. Ellenőrizzük weben az adatbázis tartalmat.
+
+
 ## App Service
   - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
   - Publish: code
@@ -20,13 +28,7 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
   - Region: WEU
   - Windows plan - **Free (F1)** legyen
   - App Insights: nem kell (még)
-  
-## Példaprojekt beüzemelése
-  - git clone https://github.com/VIAUBC01/MovieCatalog.Azure
-  - dotnet ef tool install: `dotnet tool install --global dotnet-ef`
-  - Azure-os connection string az appsettings.Development.json-be
-  - fordít, `dotnet ef database update`
-  - **Projektként** futtassuk
+
   
 ## Azure SQL adatbázis inicializálása
   - https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb#connect-to-sql-database-in-production
