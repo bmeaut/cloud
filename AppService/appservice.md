@@ -23,7 +23,7 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
   
 ## Példaprojekt beüzemelése
   - git clone https://github.com/VIAUBC01/MovieCatalog.Azure
-  - dotnet ef tool install: `dotnet tool install --global dotnet-ef
+  - dotnet ef tool install: `dotnet tool install --global dotnet-ef`
   - Azure-os connection string az appsettings.Development.json-be
   - fordít, `dotnet ef database update`
   - **Projektként** futtassuk
