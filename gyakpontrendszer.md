@@ -40,20 +40,30 @@ Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a tel
 
 ## Pluralsight kurzusok (course)
 
-Az alábbi képzési tervek kurzusai számíthatók be - itt tehát nem kell teljes képzési terveket elvégezni, elég csak egyes kurzusokat:
+Az alábbi képzési tervek **kurzusai** számíthatók be - itt tehát nem kell teljes képzési terveket elvégezni, elég csak egyes kurzusokat:
 
 - [Microsoft Azure Fundamentals](https://www.pluralsight.com/paths/microsoft-azure-fundamentals-az-900)
 - [Microsoft Azure Architect Technologies (AZ-300)](https://www.pluralsight.com/paths/microsoft-azure-architect-technologies-az-300)
+- [Microsoft Azure Administrator (AZ-104)](https://www.pluralsight.com/paths/microsoft-azure-administrator-az-104)
+- [Developing Solutions for Microsoft Azure (AZ-203)](https://www.pluralsight.com/paths/developing-solutions-for-microsoft-azure-az-203)
 - [Microsoft Azure Architect Design (AZ-301)](https://www.pluralsight.com/paths/microsoft-azure-architect-design-az-301)
+- [Microsoft Azure DevOps Engineer (AZ-400)](https://www.pluralsight.com/paths/microsoft-azure-devops-engineer-az-400)
 - [Microsoft Azure Security Engineer (AZ-500)](https://www.pluralsight.com/paths/microsoft-azure-security-engineer-az-500)
 - [Microsoft Azure Compute for Developers](https://www.pluralsight.com/paths/microsoft-azure-compute-for-developers)
 - [Microsoft Azure Deployment](https://www.pluralsight.com/paths/microsoft-azure-deployment)
+- [Infrastructure and Configuration on Microsoft Azure for DevOps Engineers](https://www.pluralsight.com/paths/infrastructure-and-configuration-on-microsoft-azure-for-devops-engineers)
 - [Designing Microsoft Azure AI Solutions](https://www.pluralsight.com/paths/designing-microsoft-azure-ai-solutions)
 - [Managing Microsoft Azure Compute](https://www.pluralsight.com/paths/managing-microsoft-azure-compute)
 - [Managing Microsoft Azure Identity and Security](https://www.pluralsight.com/paths/managing-microsoft-azure-identity-and-security)
+- [Managing Microsoft Azure Networking](https://www.pluralsight.com/paths/managing-microsoft-azure-networking)
 - [Microsoft Azure Storage for Developers](https://www.pluralsight.com/paths/microsoft-azure-storage-for-developers)
 - [Microsoft Azure Deployment](https://www.pluralsight.com/paths/microsoft-azure-deployment)
 - [Azure Data Solution (DP-201)](https://www.pluralsight.com/paths/azure-data-solution-dp-201)
+- [Securing Microsoft Azure Data Solutions](https://www.pluralsight.com/paths/securing-microsoft-azure-data-solutions)
+- [Building Data Storage Solutions with Microsoft Azure Services](https://www.pluralsight.com/paths/building-data-storage-solutions-with-microsoft-azure-services)
+- [Monitoring and Managing Microsoft Azure Data Solutions](https://www.pluralsight.com/paths/monitoring-and-managing-microsoft-azure-data-solutions)
+- [.NET Developer on Microsoft Azure](https://www.pluralsight.com/paths/net-developer-on-microsoft-azure)
+- [Node.js Developer on Microsoft Azure](https://www.pluralsight.com/paths/nodejs-developer-on-microsoft-azure)
 
 Az ingyenes eléréshez az alábbi programokat használhatjátok:
 
@@ -66,7 +76,7 @@ Egyéb szabályok:
 - részben elvégzett kurzusok nem elfogadhatók
 - egy kurzus ideje egyszer számít be, függetlenül attól, hogy hány képzési tervben szerepel
 
-Beszámított idő képzési tervenként: a kurzusnál megadott össz időtartam.
+Beszámított idő: a kurzusnál megadott össz időtartam.
 
 ## Microsoft Cloud Workshop
 
