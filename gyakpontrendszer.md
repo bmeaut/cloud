@@ -2,7 +2,7 @@
 
 *Véglegesítve 2020. őszi félévre 2020.11.06-án*
 
-A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os (vagy Pluralsight-os) gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok **csak a lentebb megadott halmazból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz egy időtartamot adott meg a készítője, a gyakorlat elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
+A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os (vagy Pluralsight-os) gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
 Az alábbi képzési terv(ek) a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek): 
 
