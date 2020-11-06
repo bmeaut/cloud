@@ -38,12 +38,22 @@ Ezen túlmenően szúrópróbaszerűen
 
 Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a teljes képzési terv idejéből semmit sem lehet beszámítani.
 
-## Pluralsight képzési tervek (Learning Paths)
+## Pluralsight kurzusok (course)
 
-Az alábbi két képzési terv számítható be:
+Az alábbi képzési tervek kurzusai számíthatók be - itt tehát nem kell teljes képzési terveket elvégezni, elég csak egyes kurzusokat:
 
+- [Microsoft Azure Fundamentals](https://www.pluralsight.com/paths/microsoft-azure-fundamentals-az-900)
+- [Microsoft Azure Architect Technologies (AZ-300)](https://www.pluralsight.com/paths/microsoft-azure-architect-technologies-az-300)
+- [Microsoft Azure Architect Design (AZ-301)](https://www.pluralsight.com/paths/microsoft-azure-architect-design-az-301)
+- [Microsoft Azure Security Engineer (AZ-500)](https://www.pluralsight.com/paths/microsoft-azure-security-engineer-az-500)
 - [Microsoft Azure Compute for Developers](https://www.pluralsight.com/paths/microsoft-azure-compute-for-developers)
 - [Microsoft Azure Deployment](https://www.pluralsight.com/paths/microsoft-azure-deployment)
+- [Designing Microsoft Azure AI Solutions](https://www.pluralsight.com/paths/designing-microsoft-azure-ai-solutions)
+- [Managing Microsoft Azure Compute](https://www.pluralsight.com/paths/managing-microsoft-azure-compute)
+- [Managing Microsoft Azure Identity and Security](https://www.pluralsight.com/paths/managing-microsoft-azure-identity-and-security)
+- [Microsoft Azure Storage for Developers](https://www.pluralsight.com/paths/microsoft-azure-storage-for-developers)
+- [Microsoft Azure Deployment](https://www.pluralsight.com/paths/microsoft-azure-deployment)
+- [Azure Data Solution (DP-201)](https://www.pluralsight.com/paths/azure-data-solution-dp-201)
 
 Az ingyenes eléréshez az alábbi programokat használhatjátok:
 
@@ -52,10 +62,11 @@ Az ingyenes eléréshez az alábbi programokat használhatjátok:
 
 Egyéb szabályok:
 
-- az összes elvégzett képzési tervet ugyanazon Pluralsight accounttal belépve végezzétek el
-- részben elvégzett képzési tervek, illetve olyan modulok, ahol a tartalmazó képzési terv nincs elvégezve - nem elfogadhatók
+- az összes kurzust ugyanazon Pluralsight accounttal belépve végezzétek el
+- részben elvégzett kurzusok nem elfogadhatók
+- egy kurzus ideje egyszer számít be, függetlenül attól, hogy hány képzési tervben szerepel
 
-Beszámított idő képzési tervenként: a képzési tervnél megadott össz időtartam.
+Beszámított idő képzési tervenként: a kurzusnál megadott össz időtartam.
 
 ## Microsoft Cloud Workshop
 
