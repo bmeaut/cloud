@@ -1,6 +1,6 @@
 # Házi feladat feltételrendszer - 2020/21 őszi félév
 
-*Nincs véglegesítve 2020. őszi félévre*
+*Véglegesítve 2020. őszi félévre 2020.11.06-án*
 
 A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os (vagy Pluralsight-os) gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok **csak a lentebb megadott halmazból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz egy időtartamot adott meg a készítője, a gyakorlat elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
@@ -15,7 +15,7 @@ Ezen tervek ideje is beszámít a jegyszerzéshez.
 
 A házi feladatot védeni kell. A védés során az önálló elvégzést ellenőrizzük.
 
-Védés ideje és helye: az utolsó gyakorlat helye és ideje.
+Védés ideje: az utolsó gyakorlat ideje.
 
 ## Azure Learn képzési tervek (Learning Paths)
 
@@ -132,6 +132,7 @@ Véglegesítés után is fenntartjuk a jogot
 - az elvégezhető gyakorlatok halmazának bővítésére
 - a jegyszámítási határok kedvezőbbé tételére
 - pontosításra, helyesírási hibák javítására
+- egyéb változtatásra egyetemi szabályok változása miatt (pl. járványhelyzet miatt)
 
 Ezen változtatásokat hallgatók is kezdeményezhetik *pull request* küldésével.
 A változásokat a github history-ban követhetitek.
