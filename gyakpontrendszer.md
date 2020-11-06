@@ -4,7 +4,12 @@
 
 A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os (vagy Pluralsight-os) gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok **csak a lentebb megadott halmazból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz egy időtartamot adott meg a készítője, a gyakorlat elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
-Az alábbi képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek): [Azure fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/). Ezen gyakorlat ideje is beszámít a jegyszerzéshez.
+Az alábbi képzési terv(ek) a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek): 
+
+- vagy az [Azure fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/) képzési terv (kb. 10 óra)
+- vagy **a teljes Azure fundamentals sorozat** (összesen 6 képzési terv kb. 13 órában, [első rész](https://docs.microsoft.com/en-us/learn/paths/az-900-describe-cloud-concepts/). 
+
+Ezen tervek ideje is beszámít a jegyszerzéshez.
 
 ### Védésről általában
 
