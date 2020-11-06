@@ -79,8 +79,8 @@ Beszámított idő: a kurzusnál megadott össz időtartam.
 
 ### Védés
 
-A Pluralsight fiókotokkal belépve igazolnotok kell a kurzusok elvégzését, pl. [itt](https://app.pluralsight.com/library/history).
-Ezen túlmenően szúrópróbaszerűen 
+A Pluralsight fiókotokkal belépve igazolnotok kell a kurzusok elvégzését, pl. [itt](https://app.pluralsight.com/library/history). Ezen túlmenően szúrópróbaszerűen
+
   - belekérdezünk a lényegi tartalomba
   - ha van a kurzushoz *Knowledge Check* ([példa](https://app.pluralsight.com/library/courses/microsoft-azure-subscriptions-managing/learning-check)), akkor az ottani kérdések közül is tehetünk fel
   - ha van kapcsolódó *RoleIQ teszt* ([példa](https://app.pluralsight.com/roleiq/roles/9bb6d491-d1a8-4f76-be35-f453851c268d)), akkor egy ilyen teszt (részleges) kitöltését is kérhetjük
