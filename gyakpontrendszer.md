@@ -2,16 +2,18 @@
 
 *Nincs véglegesítve 2020. őszi félévre*
 
-A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését fogadjuk el. A gyakorlatok **csak a lentebb megadott halmazból kerülhetnek ki**, de ezeken belül szabadon válogathattok. Minden gyakorlathoz egy időtartamot adott meg a készítője, a gyakorlat elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
+A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését fogadjuk el. A gyakorlatok **csak a lentebb megadott halmazból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz egy időtartamot adott meg a készítője, a gyakorlat elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
 Az alábbi képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek): [Azure fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/). Ezen gyakorlat ideje is beszámít a jegyszerzéshez.
 
 ### Védésről általában
+
 A házi feladatot védeni kell. A védés során az önálló elvégzést ellenőrizzük.
 
 Védés ideje és helye: az utolsó gyakorlat helye és ideje.
 
-## Azure Learn Képzési Tervek (Learning Paths)
+## Azure Learn képzési tervek (Learning Paths)
+
 A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=business-analyst%2Cdata-scientist%2Cai-engineer%2Cdeveloper%2Cdevops-engineer%2Csolution-architect%2Cadministrator%2Cdata-engineer).
 
 Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
@@ -20,12 +22,14 @@ Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok 
 - szerepkörük bármi lehet, kivéve üzleti felhasználó (Roles: bármi, csak nem Business User)
 
 Egyéb szabályok:
+
 - az összes elvégzett képzési tervet ugyanazon egyetemi M365 (@edu.bme.hu) account-otokkal belépve végezzétek el
 - részben elvégzett képzési tervek, illetve olyan modulok, ahol a tartalmazó képzési terv nincs elvégezve - nem elfogadhatók
 
 Beszámított idő képzési tervenként: a képzési terv címe alatt látható időatartam.
 
 ### Védés
+
 Az egyetemi M365 account-otokkal (@edu.bme.hu) belépve a [MS Learn oldalra](https://docs.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
   - belekérdezünk az elméleti részbe (lásd a modulok végén a "knowledge check" részeket) 
@@ -33,6 +37,25 @@ Ezen túlmenően szúrópróbaszerűen
   - vagy ha megvannak még az Azure erőforrások, akkor azt kérjük, hogy mutasd be az elkészült alkalmazást
 
 Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a teljes képzési terv idejéből semmit sem lehet beszámítani.
+
+## Pluralsight képzési tervek (Learning Paths)
+
+Az alábbi két képzési terv számítható be:
+
+- [Microsoft Azure Compute for Developers](https://www.pluralsight.com/paths/microsoft-azure-compute-for-developers)
+- [Microsoft Azure Deployment](https://www.pluralsight.com/paths/microsoft-azure-deployment)
+
+Az ingyenes eléréshez az alábbi programokat használhatjátok:
+
+- [Pluralsight Microsoft Azure benefit](https://help.pluralsight.com/help/microsoft-azure-courses)
+- [Pluralsight Microsoft Azure for Students benefit](https://help.pluralsight.com/help/microsoft-azure-for-students)
+
+Egyéb szabályok:
+
+- az összes elvégzett képzési tervet ugyanazon Pluralsight accounttal belépve végezzétek el
+- részben elvégzett képzési tervek, illetve olyan modulok, ahol a tartalmazó képzési terv nincs elvégezve - nem elfogadhatók
+
+Beszámított idő képzési tervenként: a képzési tervnél megadott össz időtartam.
 
 ## Microsoft Cloud Workshop
 
