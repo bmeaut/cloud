@@ -20,13 +20,13 @@ Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok 
 - szerepkörük bármi lehet, kivéve üzleti felhasználó (Roles: bármi, csak nem Business User)
 
 Egyéb szabályok:
-- az összes elvégzett képzési tervet ugyanazon személyes Microsoft account-otokkal belépve végezzétek el
+- az összes elvégzett képzési tervet ugyanazon egyetemi M365 (@edu.bme.hu) account-otokkal belépve végezzétek el
 - részben elvégzett képzési tervek, illetve olyan modulok, ahol a tartalmazó képzési terv nincs elvégezve - nem elfogadhatók
 
 Beszámított idő képzési tervenként: a képzési terv címe alatt látható időatartam.
 
 ### Védés
-A személyes Microsoft account-otokkal belépve a [MS Learn oldalra](https://docs.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
+Az egyetemi M365 account-otokkal (@edu.bme.hu) belépve a [MS Learn oldalra](https://docs.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
   - belekérdezünk az elméleti részbe (lásd a modulok végén a "knowledge check" részeket) 
   - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájlt Azure Data Lake Storage Gen1-be)
