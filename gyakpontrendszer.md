@@ -21,6 +21,8 @@ Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok 
 - Azure-ra vonatkoznak (Products: Azure) és
 - szerepkörük bármi lehet, kivéve üzleti felhasználó (Roles: bármi, csak nem Business User vagy Owner)
 
+Számos képzési terv elérhető magyarul is.
+
 Egyéb szabályok:
 
 - az összes elvégzett képzési tervet ugyanazon egyetemi M365 (@edu.bme.hu) account-otokkal belépve végezzétek el
@@ -38,53 +40,25 @@ Ezen túlmenően szúrópróbaszerűen
 
 Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a teljes képzési terv idejéből semmit sem lehet beszámítani.
 
-## Pluralsight kurzusok (course)
+## Pluralsight videókurzusok (course)
 
-Az alábbi képzési tervek **kurzusai** számíthatók be - itt tehát nem kell teljes képzési terveket elvégezni, elég csak egyes kurzusokat:
+Itt a képzési tervek kurzusokból állnak, a képzési tervek pedig csatornákba vannak rendezve. A csatornákat csak akkor látod, ha regisztráltál - lásd lentebb.
+Az alábbi csatornákba tartozó képzési tervek **kurzusai** számíthatók be - itt tehát nem kell teljes képzési terveket elvégezni, elég csak egyes kurzusokat:
 
-- [Microsoft Azure Fundamentals](https://www.pluralsight.com/paths/microsoft-azure-fundamentals-az-900)
-- [Application Development on Microsoft Azure](https://www.pluralsight.com/paths/application-development-on-microsoft-azure)
-- [Microsoft Azure Architect Technologies (AZ-300)](https://www.pluralsight.com/paths/microsoft-azure-architect-technologies-az-300)
-- [Microsoft Azure Administrator (AZ-104)](https://www.pluralsight.com/paths/microsoft-azure-administrator-az-104)
-- [Developing Solutions for Microsoft Azure (AZ-203)](https://www.pluralsight.com/paths/developing-solutions-for-microsoft-azure-az-203)
-- [Microsoft Azure Architect Design (AZ-301)](https://www.pluralsight.com/paths/microsoft-azure-architect-design-az-301)
-- [Microsoft Azure DevOps Engineer (AZ-400)](https://www.pluralsight.com/paths/microsoft-azure-devops-engineer-az-400)
-- [Microsoft Azure Security Engineer (AZ-500)](https://www.pluralsight.com/paths/microsoft-azure-security-engineer-az-500)
-- [Microsoft Azure AI Engineer (AI-100)](https://www.pluralsight.com/paths/microsoft-azure-ai-engineer-ai-100)
-- [Microsoft Azure Compute for Developers](https://www.pluralsight.com/paths/microsoft-azure-compute-for-developers)
-- [Microsoft Azure Deployment](https://www.pluralsight.com/paths/microsoft-azure-deployment)
-- [Infrastructure and Configuration on Microsoft Azure for DevOps Engineers](https://www.pluralsight.com/paths/infrastructure-and-configuration-on-microsoft-azure-for-devops-engineers)
-- [Designing Microsoft Azure Applications]()
-- [Designing Microsoft Azure AI Solutions](https://www.pluralsight.com/paths/designing-microsoft-azure-ai-solutions)
-- [Managing Microsoft Azure App Services](https://www.pluralsight.com/paths/managing-microsoft-azure-app-services)
-- [Managing Microsoft Azure Compute](https://www.pluralsight.com/paths/managing-microsoft-azure-compute)
-- [Managing Microsoft Azure Identity and Security](https://www.pluralsight.com/paths/managing-microsoft-azure-identity-and-security)
-- [Managing Microsoft Azure Networking](https://www.pluralsight.com/paths/managing-microsoft-azure-networking)
-- [Microsoft Azure Storage for Developers](https://www.pluralsight.com/paths/microsoft-azure-storage-for-developers)
-- [Microsoft Azure Deployment](https://www.pluralsight.com/paths/microsoft-azure-deployment)
-- [Microsoft Azure Data Scientist (DP-100)](https://www.pluralsight.com/paths/microsoft-azure-data-scientist-dp-100)
-- [Azure Data Solution (DP-201)](https://www.pluralsight.com/paths/azure-data-solution-dp-201)
-- [Application Security on Microsoft Azure](https://www.pluralsight.com/paths/application-security-on-microsoft-azure)
-- [Securing Microsoft Azure Data Solutions](https://www.pluralsight.com/paths/securing-microsoft-azure-data-solutions)
-- [Securing Data and Applications in Microsoft Azure](https://www.pluralsight.com/paths/securing-data-and-applications-in-microsoft-azure)
-- [Building Data Storage Solutions with Microsoft Azure Services](https://www.pluralsight.com/paths/building-data-storage-solutions-with-microsoft-azure-services)
-- [Monitoring and Managing Microsoft Azure Data Solutions](https://www.pluralsight.com/paths/monitoring-and-managing-microsoft-azure-data-solutions)
-- [Monitoring and Troubleshooting Code on Microsoft Azure](https://www.pluralsight.com/paths/monitoring-and-troubleshooting-code-on-microsoft-azure)
-- [.NET Developer on Microsoft Azure](https://www.pluralsight.com/paths/net-developer-on-microsoft-azure)
-- [Node.js Developer on Microsoft Azure](https://www.pluralsight.com/paths/nodejs-developer-on-microsoft-azure)
-- [Testing on Microsoft Azure](https://www.pluralsight.com/paths/testing-on-microsoft-azure)
-- [Continuous Delivery on Microsoft Azure for DevOps Engineers](https://www.pluralsight.com/paths/continuous-delivery-on-microsoft-azure-for-devops-engineers)
-- [Continuous Integration on Microsoft Azure for DevOps Engineers](https://www.pluralsight.com/paths/continuous-integration-on-microsoft-azure-for-devops-engineers)
-- [Continuous Delivery and DevOps With Azure DevOps](https://www.pluralsight.com/paths/continuous-delivery-and-devops-with-azure-devops)
-- [Code Flows on Microsoft Azure for DevOps Engineers](https://www.pluralsight.com/paths/code-flows-on-microsoft-azure-for-devops-engineers)
-- [Deploying Microsoft Azure Data Solutions](https://www.pluralsight.com/paths/deploying-microsoft-azure-data-solutions)
-- [Planning Microsoft Azure Business Continuity](https://www.pluralsight.com/paths/planning-microsoft-azure-business-continuity)
-- [Dependency Management on Microsoft Azure for DevOps Engineers](https://www.pluralsight.com/paths/dependency-management-on-microsoft-azure-for-devops-engineers)
-- [Delivering Video Content Using Azure Media Services](https://www.pluralsight.com/paths/delivering-video-content-using-azure-media-services)
-- [Integration on Microsoft Azure](https://www.pluralsight.com/paths/integration-on-microsoft-azure)
+- [Microsoft Azure Administrators](https://app.pluralsight.com/channels/details/1690f926-ddd5-4b0d-80bd-4c3be2f821f1)
+- [Microsoft Azure Developers](https://app.pluralsight.com/channels/details/a7669348-a683-4da6-9cdf-07b19abb9c3e)
+- [Microsoft Azure Solution Architects](https://app.pluralsight.com/channels/details/acdf22f8-4ab6-4ec9-bbe4-acca6e48bc31)
+- [Microsoft Azure Data Engineers](https://app.pluralsight.com/channels/details/48b5cafe-e3a5-4fc7-bde1-7a0f507d1887)
+- [Microsoft Azure AI Engineers](https://app.pluralsight.com/channels/details/cee119b6-f1cb-4c5f-ae1e-88fa7e728b96)
+- [Microsoft Azure Data Scientists](https://app.pluralsight.com/channels/details/eff69aa8-8892-41dc-934d-de26565472c1)
+- [Microsoft Azure DevOps Engineers](https://app.pluralsight.com/channels/details/46aa40c5-1342-477f-8d49-122caceb6cbc)
+- [Microsoft Azure Certification Prep](https://app.pluralsight.com/channels/details/fc63a001-4578-484a-b55e-3242446fd8b1)
+- [Azure Migration](https://app.pluralsight.com/channels/details/437a2aca-392e-4c0a-9058-aa814aed6c05)
+- [Azure Stack](https://app.pluralsight.com/channels/details/229ffdbc-ce2c-4e1c-8274-5d2bb8727bce)
 
+A kurzusoknál általában be lehet állítani magyar feliratot (nem tudunk nyilatkozni a fordítás minőségéről).
 
-Az ingyenes eléréshez az alábbi programokat használhatjátok:
+Az **ingyenes** eléréshez az alábbi regisztrációs lehetőségeket használhatjátok:
 
 - [Pluralsight Microsoft Azure benefit](https://help.pluralsight.com/help/microsoft-azure-courses)
 - [Pluralsight Microsoft Azure for Students benefit](https://help.pluralsight.com/help/microsoft-azure-for-students)
@@ -96,6 +70,14 @@ Egyéb szabályok:
 - egy kurzus ideje egyszer számít be, függetlenül attól, hogy hány képzési tervben szerepel
 
 Beszámított idő: a kurzusnál megadott össz időtartam.
+
+### Védés
+
+A Pluralsight fiókotokkal belépve igazolnotok kell a kurzusok elvégzését, pl. [itt](https://app.pluralsight.com/library/history).
+Ezen túlmenően szúrópróbaszerűen 
+  - belekérdezünk a lényegi tartalomba
+  - ha van a kurzushoz *Knowledge Check* ([példa](https://app.pluralsight.com/library/courses/microsoft-azure-subscriptions-managing/learning-check)), akkor az ottani kérdések közül is tehetünk fel
+  - ha van kapcsolódó *RoleIQ teszt* ([példa](https://app.pluralsight.com/roleiq/roles/9bb6d491-d1a8-4f76-be35-f453851c268d)), akkor egy ilyen teszt (részleges) kitöltését is kérhetjük
 
 ## Microsoft Cloud Workshop
 
