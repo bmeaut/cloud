@@ -7,7 +7,7 @@ A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os (vagy Pl
 Az alábbi képzési terv(ek) a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek): 
 
 - vagy az [Azure fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/) képzési terv (kb. 10 óra)
-- vagy **a teljes Azure fundamentals sorozat** (összesen 6 képzési terv kb. 13 órában, [első rész](https://docs.microsoft.com/en-us/learn/paths/az-900-describe-cloud-concepts/). 
+- vagy **a teljes Azure fundamentals sorozat** (összesen 6 képzési terv kb. 13 órában, [első rész](https://docs.microsoft.com/en-us/learn/paths/az-900-describe-cloud-concepts/)). 
 
 Ezen tervek ideje is beszámít a jegyszerzéshez.
 
