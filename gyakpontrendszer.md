@@ -14,12 +14,12 @@ Védés ideje és helye: az utolsó gyakorlat helye és ideje.
 
 ## Azure Learn képzési tervek (Learning Paths)
 
-A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=business-analyst%2Cdata-scientist%2Cai-engineer%2Cdeveloper%2Cdevops-engineer%2Csolution-architect%2Cadministrator%2Cdata-engineer).
+A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=administrator%2Cai-engineer%2Cmaker%2Cbusiness-analyst%2Cdata-analyst%2Cdata-engineer%2Cdata-scientist%2Cdatabase-administrator%2Cdeveloper%2Cdevops-engineer%2Cfunctional-consultant%2Csecurity-engineer%2Csolution-architect%2Cstudent%2Ctechnology-manager).
 
 Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
 - képzési terv típusúak (Type: Learning Path) és
 - Azure-ra vonatkoznak (Products: Azure) és
-- szerepkörük bármi lehet, kivéve üzleti felhasználó (Roles: bármi, csak nem Business User)
+- szerepkörük bármi lehet, kivéve üzleti felhasználó (Roles: bármi, csak nem Business User vagy Owner)
 
 Egyéb szabályok:
 
