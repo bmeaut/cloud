@@ -43,6 +43,7 @@ Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a tel
 ## Pluralsight videókurzusok (course)
 
 Itt a képzési tervek kurzusokból állnak, a képzési tervek pedig csatornákba vannak rendezve. A csatornákat csak akkor látod, ha regisztráltál - lásd lentebb.
+
 Az alábbi csatornákba tartozó képzési tervek **kurzusai** számíthatók be - itt tehát nem kell teljes képzési terveket elvégezni, elég csak egyes kurzusokat:
 
 - [Microsoft Azure Administrators](https://app.pluralsight.com/channels/details/1690f926-ddd5-4b0d-80bd-4c3be2f821f1)
