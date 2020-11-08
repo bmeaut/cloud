@@ -3,6 +3,7 @@
 https://github.com/VIAUBC01/MovieCatalog.Azure
 
 ## Azure SQL
+
   - válasszuk: standalone Standard S0 (10 DTU) - **12 hónapig ingyenes** (https://azure.microsoft.com/en-us/free/free-account-faq/)
   - nézzük meg:
     - a szerver és az adatbázis erőforrásokat
@@ -14,12 +15,14 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
     - a webes *Query Editor*-ban ellenőrizzük, hogy üres az adatbázis
     
 ## Példaprojekt beüzemelése
+
   - git clone https://github.com/VIAUBC01/MovieCatalog.Azure
   - Azure-os connection string az appsettings.Development.json-be
   - futtat. Automatikus adatbázis inicializáció van a projektben. Ellenőrizzük weben az adatbázis tartalmat.
 
 
 ## Web App / App Service
+
   - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
   - Publish: code
   - Runtime stack: .NET Core 3.1
@@ -27,8 +30,11 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
   - Region: WEU
   - Windows plan - **Free (F1)** legyen
   - App Insights: nem kell (még)
+
+Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
   
  ## Git deployment
+ 
   - Deployment Center-ben a local git deployment with kudu beállítása (https://github.com/projectkudu/kudu)
   - `git remote add <remote név> <git deployment url>`
   - commit + push, push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
@@ -36,16 +42,19 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
  - nem jó még, hiba van
  
  ## App Service Logs
+ 
  - Kapcsoljuk be az App Service Logs blade-en
  - Log stream-et nézzük meg
  
  ## App Service Configuration
+ 
  - A portálról másoljuk ki a connection string-et
  - Configuration / App Settings
   - `MovieCatalog` : `connection string` (a jelszót adjuk meg!)
  - Most már jónak kell lennie
  
  ## SQL AD Auth MSI-vel
+ 
  - Kapcsoljuk be az App Service-ben a system managed indetity-t (*Identity* lap)
  - Kapcsoljuk be az SQL Server-en az AD integrációt (*Active Directory admin* lap), saját magunkat adjuk meg
  - [Osszunk jogokat](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi#grant-permissions-to-managed-identity) az SQL Server-ben az MSI-nek
@@ -56,7 +65,20 @@ ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
 ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
   - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"`
+  - Próba, működni kell
+  
+ ## Jogosultság teszt
+  
+ - Takarító szkript: `dotnet ef migrations script TitleRatings 0 -o clear.sql`. Ezt futtassuk le.
+ - Próba, nem fog tudni elindulni, mert nem fog tudni táblát (sem) létrehozni
+ - Teljes szkript nulláról: `dotnet ef migrations script -o full.sql`. Ezt futtassuk le.
+ - Migráció kikpacsolása: Application settings - `DOTNET_DbInitHasMigration`: `false`
  
+ ## Csatlakozás fejlesztői gépről AD felhasználóként
+ - `appsettings.Development.json`-be connection stringet átírni ugyanarra, mint az app service-é
+ - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+   - Linuxon az Azure.Identity 1.2.2 valamivel jobb, az 1.2.3 [hibás](https://github.com/Azure/azure-sdk-for-net/issues/12939#issuecomment-702746462)
+
  ## App Service Misc Blades
   - Support + Troubleshooting
   - Monitoring - Process Explorer, Alerts, Metrics
