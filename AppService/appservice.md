@@ -11,16 +11,15 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
     - backup (szerver)
     - connection strings (db)
     - Azure Search indexer (db)
-    - hogy üres az adatbázis
+    - a webes *Query Editor*-ban ellenőrizzük, hogy üres az adatbázis
     
 ## Példaprojekt beüzemelése
   - git clone https://github.com/VIAUBC01/MovieCatalog.Azure
-  - dotnet ef tool install: `dotnet tool install --global dotnet-ef`
   - Azure-os connection string az appsettings.Development.json-be
   - futtat. Automatikus adatbázis inicializáció van a projektben. Ellenőrizzük weben az adatbázis tartalmat.
 
 
-## App Service
+## Web App / App Service
   - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
   - Publish: code
   - Runtime stack: .NET Core 3.1
@@ -46,13 +45,12 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
  - nem jó még, hiba van
  
  ## App Service Logs
- - Kapcsoljuk be az App Service Logs blade-en, a logging site extension-t is kapcsoljuk be
+ - Kapcsoljuk be az App Service Logs blade-en
  - Log stream-et nézzük meg
  
  ## App Service Configuration
  - A portálról másoljuk ki a connection string-et
  - Configuration / App Settings
-  - `ASPNETCORE_ENVIRONMENT` : `Production`
   - `MyDbConnection` : `connection string` (a jelszót adjuk meg!)
  - Most már jónak kell lennie
  
