@@ -14,8 +14,6 @@ A tárgykövetelményekhez kapcsolódó házi feladat szempontrendszer itt talá
   * [Gyakorlat anyag](Storage/storage.md)
 * NoSQL
   * [Gyakorlat anyag](NoSql/nosql.md)
-* NoSQL
-  * [Gyakorlat anyag](NoSql/nosql.md)
 * AppService
   * [Gyakorlat anyag](AppService/appservice.md)
 * PaaS
