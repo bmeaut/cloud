@@ -92,7 +92,7 @@ A Pluralsight fiókotokkal belépve igazolnotok kell a kurzusok elvégzését, p
 Bármelyik *Hands-on lab* (továbbiakban:labor) ideje beszámítható a [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com/) oldalról. Ezek általában komplexebb gyakorlatok a Microsoft Learn oldalhoz képest, több Azure erőforrást használnak. 
 
 Egyéb szabályok:
-- csak olyan labort végezzetek el, ahol a laborútmutatóban az egyes feladatoknál meg van adva időtartam (pl. Duration: 45 minutes)
+- csak olyan labort végezzetek el, ahol a laborútmutatóban az egyes feladatoknál meg van adva időtartam (pl. Duration: 45 minutes) [Példa](assets/mcw_duration.png)
 - részben teljesített laborok nem elfogadhatók
 
 Tippek:
