@@ -27,21 +27,12 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
   - Region: WEU
   - Windows plan - **Free (F1)** legyen
   - App Insights: nem kell (még)
-
-  
-## Azure SQL adatbázis inicializálása
-  - https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb#connect-to-sql-database-in-production
-  - `Automatically perform database migration` rész nem kell
-  - `$env:ASPNETCORE_ENVIRONMENT = 'Production'`
-  - `dotnet ef migrations script`
-  - SQL szerver tűzfal beállítás
-  - szkript futtatása a portálon
   
  ## Git deployment
   - Deployment Center-ben a local git deployment with kudu beállítása (https://github.com/projectkudu/kudu)
   - `git remote add <remote név> <git deployment url>`
   - commit + push, push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
-    - ha elrontottuk, akkor a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
+    - ha elrontottuk, akkor Windows-on a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
  - nem jó még, hiba van
  
  ## App Service Logs
@@ -51,14 +42,20 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
  ## App Service Configuration
  - A portálról másoljuk ki a connection string-et
  - Configuration / App Settings
-  - `MyDbConnection` : `connection string` (a jelszót adjuk meg!)
+  - `MovieCatalog` : `connection string` (a jelszót adjuk meg!)
  - Most már jónak kell lennie
  
- ## Local loop + git redeploy
-  - https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb#update-locally-and-redeploy
-  - Azure SQL update
-    - `$env:ASPNETCORE_ENVIRONMENT = 'Production'`
-    - `dotnet ef migrations script InitialCreate`
+ ## SQL AD Auth MSI-vel
+ - Kapcsoljuk be az App Service-ben a system managed indetity-t (*Identity* lap)
+ - Kapcsoljuk be az SQL Server-en az AD integrációt (*Active Directory admin* lap), saját magunkat adjuk meg
+ - [Osszunk jogokat](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi#grant-permissions-to-managed-identity) az SQL Server-ben az MSI-nek
+ 
+```sql
+CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+```
+  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"`
  
  ## App Service Misc Blades
   - Support + Troubleshooting
