@@ -53,14 +53,15 @@ Itt a képzési tervek kurzusokból állnak, a képzési tervek pedig csatornák
 
 Az alábbi csatornákba tartozó képzési tervek **kurzusai** számíthatók be - itt tehát nem kell teljes képzési terveket elvégezni, elég csak egyes kurzusokat:
 
+- [Microsoft Azure Certification Prep](https://app.pluralsight.com/channels/details/418ec20a-85fe-4473-baa0-f75853cbc19c)
 - [Microsoft Azure Administrators](https://app.pluralsight.com/channels/details/1690f926-ddd5-4b0d-80bd-4c3be2f821f1)
 - [Microsoft Azure Developers](https://app.pluralsight.com/channels/details/a7669348-a683-4da6-9cdf-07b19abb9c3e)
 - [Microsoft Azure Solution Architects](https://app.pluralsight.com/channels/details/acdf22f8-4ab6-4ec9-bbe4-acca6e48bc31)
-- [Microsoft Azure Data Engineers](https://app.pluralsight.com/channels/details/48b5cafe-e3a5-4fc7-bde1-7a0f507d1887)
-- [Microsoft Azure AI Engineers](https://app.pluralsight.com/channels/details/cee119b6-f1cb-4c5f-ae1e-88fa7e728b96)
+- [Microsoft Azure AI Engineers](https://app.pluralsight.com/channels/details/48b5cafe-e3a5-4fc7-bde1-7a0f507d1887)
+- [Microsoft Azure Data Engineers](https://app.pluralsight.com/channels/details/cee119b6-f1cb-4c5f-ae1e-88fa7e728b96)
 - [Microsoft Azure Data Scientists](https://app.pluralsight.com/channels/details/eff69aa8-8892-41dc-934d-de26565472c1)
 - [Microsoft Azure DevOps Engineers](https://app.pluralsight.com/channels/details/46aa40c5-1342-477f-8d49-122caceb6cbc)
-- [Microsoft Azure Certification Prep](https://app.pluralsight.com/channels/details/fc63a001-4578-484a-b55e-3242446fd8b1)
+- [Microsoft Azure Security Engineers](https://app.pluralsight.com/channels/details/fc63a001-4578-484a-b55e-3242446fd8b1)
 - [Azure Migration](https://app.pluralsight.com/channels/details/437a2aca-392e-4c0a-9058-aa814aed6c05)
 - [Azure Stack](https://app.pluralsight.com/channels/details/229ffdbc-ce2c-4e1c-8274-5d2bb8727bce)
 
