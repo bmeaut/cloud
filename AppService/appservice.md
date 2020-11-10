@@ -16,7 +16,7 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
     
 ## Példaprojekt beüzemelése
 
-  - git clone https://github.com/VIAUBC01/MovieCatalog.Azure
+  - git clone https://github.com/VIAUBC01/MovieCatalog.Azure.git
   - Azure-os connection string az appsettings.Development.json-be
   - futtat. Automatikus adatbázis inicializáció van a projektben. Ellenőrizzük weben az adatbázis tartalmat.
 
@@ -70,6 +70,7 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
  ## Jogosultság teszt
   
  - Takarító szkript: `dotnet ef migrations script TitleRatings 0 -o clear.sql`. Ezt futtassuk le.
+    - ef core tools telepítése: `dotnet tool install --global dotnet-ef`
  - Próba, nem fog tudni elindulni, mert nem fog tudni táblát (sem) létrehozni
  - Teljes szkript nulláról: `dotnet ef migrations script -o full.sql`. Ezt futtassuk le.
  - Migráció kikpacsolása: Application settings - `DOTNET_DbInitHasMigration`: `false`
