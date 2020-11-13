@@ -88,54 +88,37 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
  - `dotnet add package Microsoft.ApplicationInsights.AspNetCore`
  -  `AddApplicationInsightsTelemetry()` a service-ek közé
  - új app konfiguráció: `APPINSIGHTS_INSTRUMENTATIONKEY`
+ - `appsettings.json`:
  
- ## App Service Blades - Dev Tools
-  - Extensions - már ott van a naplózó kiterjesztés, de pl. a [letsencrypt támogatás (klasszikus) verziója](https://github.com/sjkp/letsencrypt-siteextension) is site extension, az [új verzió](https://github.com/sjkp/letsencrypt-azure) már nem
-  - Resource explorer - segédeszköz az Azure management REST API böngészéséhez, hívásához
-  - Perf test
-  - App Service Editor
-  - Advanced Tools ~ Kudu Tools
-  - Console
-  - Clone App - csak fizetős plan-ekben
+ ```javascript
+ {
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  },
+  "AllowedHosts": "*"
+}
+ ```
+ - navigáljunk pár nemlétező oldalra (pl. /phpmyadmin)
+ - kis idő múlva figyeljük meg, hogy megjelennek a hibás (404) hívások
+ - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/, https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial
+ - Azure Monitor pricing - https://azure.microsoft.com/en-us/pricing/details/monitor/
  
-  
-  ## App Service Blades - Settings
-  - Export template (ARM), Locks, Properties
-  - MySQL-In-App - adatbázis + Free plan => ingyen adatbázisos alkalmazások
-  - Push - Notification Hub-bal való összekötés
-  - [WebJobs](https://docs.microsoft.com/en-us/azure/app-service/webjobs-create) - háttérprogramok, pl. karbantartási funkciókhoz. Ütemezetten is.
-  - Scale up / out
-  - Networking
-  - TLS/SSL settings - TLS beállítások, Free plan-ben nem teljeskörű a támogatás. Tipp: [letsencrypt](https://github.com/sjkp/letsencrypt-siteextension)
-  - Custom domains - Free plan-ben nem teljeskörű a támogatás
-  - Backups - Free plan-ben nincs
-  - Identity - az **alkalmazáshoz** identitást rendelhetünk, amihez aztán jogokat oszthatunk ki. Jó pl. az infrastruktúra szintű konfigurációmenedzsmenthez.
-  - App Insights - monitorozó erőforrás, az Azure Monitor része
-  - Autentication/authorization - az alkalmazásból (részben) kiszervezett [authentikációs/autorizációs szolgáltatás](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization#how-it-works)
-
-## Slot kezelés
-  - hozzunk létre egy storage erőforrást
-  - SQL Server copy-val készítsük el az adatbázis másolatát (mehet ugyanarra a szerverre)
-  - nézzük meg a Plan blade-jét, itt láthatók az app-ok (*Apps* blade)
-  - skálázzunk fel S1 szintre (**0,085 EUR/óra költség!**)
-  - hozzunk létre új slot-ot *test* néven
-  - ellenőrzés: üres webapp
-  - a backup-restore funkcióval másoljuk át a test-be az App Service-t - ehhez használjuk az előbb létrehozott storage erőforrást
-  - ellenőrzés: ugyanaz az adat, mint az eredeti web app-ban
-  - állítsuk át a test app connection string-jét, hogy a test db-re mutasson - **slot setting** legyen
-  - ellenőrzés: a két webapp connection string-je különböző
-  - hozzunk létre új elemet a teszten
-  - ellenőrzés: a két webapp adata különböző
-  - git deployment kapcsoljuk be a test app-ra is, állítsunk be új lokális remote-ot
-  
-## Application Insights
-  - állítsuk be a *test* app-on
-    - Agent based vs. manual - https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-web-apps#enable-application-insights
-  - navigáljunk pár nemlétező oldalra (pl. /phpmyadmin)
-  - kis idő múlva figyeljük meg, hogy megjelennek a hibás (404) hívások
-  - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/
-  - Azure Monitor pricing - https://azure.microsoft.com/en-us/pricing/details/monitor/
-  
+ ## Deployment slots
+ 
+ - fel kell skálázni S1 szintre (**0,085 EUR/óra költség!**)
+ - hozzunk létre új slot-ot *test* néven
+ - ez egy új app, inicializálni kell a deployment opciókat
+ - Identity-t be kell kapcsolni + fel kell venni az SQL adatbázisba a slot felhasználót `[<appnév>/slots/<slotnév>]`
+ - push
+    
 ## Labor végén/után
+
 - App Service Plan visszaskálázás (előbb egy kivételével minden slot-ot törölni kell) vagy törlés
   
