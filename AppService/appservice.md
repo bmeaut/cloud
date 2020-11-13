@@ -76,9 +76,18 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
  - Migráció kikpacsolása: Application settings - `DOTNET_DbInitHasMigration`: `false`
  
  ## Csatlakozás fejlesztői gépről AD felhasználóként
+ 
  - `appsettings.Development.json`-be connection stringet átírni ugyanarra, mint az app service-é
  - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
    - Linuxon az Azure.Identity 1.2.2 valamivel jobb, az 1.2.3 [hibás](https://github.com/Azure/azure-sdk-for-net/issues/12939#issuecomment-702746462)
+   
+ ## Application Insights w Log Analytics Workspace
+ 
+ - Log Analytics Workspace létrehozása
+ - Application Insights létrehozása és hozzákötése a workspace-hez
+ - `dotnet add package Microsoft.ApplicationInsights.AspNetCore`
+ -  `AddApplicationInsightsTelemetry()`
+ 
 
  ## App Service Misc Blades
   - Support + Troubleshooting
