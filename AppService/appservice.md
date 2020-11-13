@@ -98,10 +98,6 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
   - Console
   - Clone App - csak fizetős plan-ekben
  
- ## App Service Blades - App Service Plan
-  - App Service Plan link
-  - Átkötés másik App Service Plan-re
-  - Kvóták
   
   ## App Service Blades - Settings
   - Export template (ARM), Locks, Properties
