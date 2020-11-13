@@ -86,15 +86,9 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
  - Log Analytics Workspace létrehozása
  - Application Insights létrehozása és hozzákötése a workspace-hez
  - `dotnet add package Microsoft.ApplicationInsights.AspNetCore`
- -  `AddApplicationInsightsTelemetry()`
+ -  `AddApplicationInsightsTelemetry()` a service-ek közé
+ - új app konfiguráció: `APPINSIGHTS_INSTRUMENTATIONKEY`
  
-
- ## App Service Misc Blades
-  - Support + Troubleshooting
-  - Monitoring - Process Explorer, Alerts, Metrics
-  - API - CORS, API Definition
-  - Mobile - Easy Tables / API - kivezetés alatt
-  
  ## App Service Blades - Dev Tools
   - Extensions - már ott van a naplózó kiterjesztés, de pl. a [letsencrypt támogatás (klasszikus) verziója](https://github.com/sjkp/letsencrypt-siteextension) is site extension, az [új verzió](https://github.com/sjkp/letsencrypt-azure) már nem
   - Resource explorer - segédeszköz az Azure management REST API böngészéséhez, hívásához
@@ -148,7 +142,4 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
   
 ## Labor végén/után
 - App Service Plan visszaskálázás (előbb egy kivételével minden slot-ot törölni kell) vagy törlés
-
-## Epilógus
-  - Azure SQL <=> App Service Managed Service Identity-vel: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi
   
