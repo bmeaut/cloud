@@ -138,4 +138,4 @@ Véglegesítés után is fenntartjuk a jogot
 - egyéb változtatásra egyetemi szabályok változása miatt (pl. járványhelyzet miatt)
 
 Ezen változtatásokat hallgatók is kezdeményezhetik *pull request* küldésével.
-A változásokat a github history-ban követhetitek.
+A változásokat a [github history-ban](/commits/master/gyakpontrendszer.md) követhetitek.
