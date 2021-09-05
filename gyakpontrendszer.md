@@ -1,6 +1,6 @@
-# Házi feladat feltételrendszer - 2020/21 őszi félév
+# Házi feladat feltételrendszer - 2021/22 őszi félév
 
-*Véglegesítve 2020. őszi félévre 2020.11.06-án*
+*Nincs véglegesítve 2021. őszi félévre*
 
 A 2020/21-es őszi félévben házi feladatként hivatalos Microsoft-os (vagy Pluralsight-os) gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
