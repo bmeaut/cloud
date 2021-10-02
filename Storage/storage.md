@@ -213,7 +213,7 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, Compute
 }
 ```
 
-4. Feltöltés okosítása
+5. Feltöltés okosítása
 
 ```csharp
 /**/public async Task<IActionResult> OnPostUploadAsync()
@@ -242,7 +242,7 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, Compute
 /**/}
 ```
 
-5. Listázás okosítása
+6. Listázás okosítása
 ```csharp
  Blobs=await blobcc.GetBlobsAsync()
                 .Select(b=>blobcc.GetBlobClient(b.Name))
