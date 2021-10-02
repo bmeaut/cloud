@@ -160,7 +160,7 @@ public async Task<IActionResult> OnPostUploadAsync()
 }
 ```
 
-10. Példaképek [letöltése](https://a4r.blob.core.windows.net/public/cs-storage-resources.zip)
+10. Példaképek [letöltése](/assets/cs-storage-resources.zip)
 
 11. Nézzük meg mit műveltünk Azure Storage Explorer-ben és a weboldal forrásában is. Ha átírjuk a thumbnail URI-ban a /thumbnail/-t /photos/-ra, megkapjuk az eredeti képet.
 
