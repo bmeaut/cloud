@@ -32,6 +32,7 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 
 ## Ex. 2.
 - Nézzünk körül Storage Explorer-ben
+- Connection String: Access Key menüpont -> felül Show Keys gomb
 
 ## Ex. 3.
 1. ASP.NET Core MVC projekt (`Intellipix`)
