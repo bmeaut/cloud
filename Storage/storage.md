@@ -49,6 +49,7 @@ dotnet new webapp
 dotnet add package SixLabors.ImageSharp
 dotnet add package Azure.Storage.Blobs
 dotnet add package System.Interactive.Async
+dotnet add package Microsoft.Extensions.Azure
 ```
 
 4. User Secrets
