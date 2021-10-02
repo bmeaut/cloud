@@ -3,6 +3,8 @@ https://github.com/microsoft/AcademicContent/blob/5a77cd0fcb18137f39a2c0f95c7b91
 
 Sajnos már nagyon elavult a leírás :disappointed:
 
+Újabb laborfeladatok: https://docs.microsoft.com/en-us/learn/paths/store-data-in-azure/
+
 ## [Azure Portal](https://portal.azure.com/) 
 ### Nyelvi beállítások
 A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
@@ -23,7 +25,7 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 
 ## Ex. 1.
 - új Storage fiók létrehozása
-- hogy ingyenes legyen (LRS)
+- hogy ingyenes legyen (LRS) és _hot_ tier
 - resourcegroup: IntellipixResources
 - két konténert hozzunk létre: photos, thumbnails
   - mindkettőben hozzá lehessen férni publikusan a blobokhoz
