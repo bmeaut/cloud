@@ -55,18 +55,25 @@ dotnet add package System.Interactive.Async
 
 ```bash
 dotnet user-secrets init
-dotnet user-secrets set "Az:StoreConnString" "connstring"
+dotnet user-secrets set "AzStore:connectionString" "connstring"
 ```
-
-5. `IndexModel`-ben konfig kiolvasás
+5. Blob client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
 
 ```csharp
- private readonly IConfiguration _config;
+services.AddAzureClients(builder =>
+{
+    builder.AddBlobServiceClient(Configuration.GetSection("AzStore"));
+});
+```
 
-public IndexModel(ILogger<IndexModel> logger, IConfiguration config)
+5. `IndexModel`-ben elkérjük a klienst
+
+```csharp
+private readonly BlobServiceClient _blobSvc;
+public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc)
 {
     _logger = logger;
-    _config =  config;
+    _blobSvc = blobSvc;
 }
 ```
 
@@ -89,15 +96,12 @@ public class BlobInfo
 public IEnumerable<BlobInfo> Blobs {get; set;} 
 
 public async Task OnGet()
-
 {
-    BlobServiceClient blobSvc = new BlobServiceClient(_config["Az:StoreConnString"]);
-    BlobContainerClient blobcc=blobSvc.GetBlobContainerClient("photos");
-
-    Blobs=await blobcc.GetBlobsAsync()
-        .Select(b=>blobcc.GetBlobClient(b.Name).Uri.ToString())
-        .Select(u=>new BlobInfo{ImageUri=u, ThumbnailUri=u.Replace("/photos/","/thumbnails/")})                
-        .ToListAsync();
+    BlobContainerClient blobcc = _blobSvc.GetBlobContainerClient("photos");
+    Blobs = await blobcc.GetBlobsAsync()
+        .Select(b => blobcc.GetBlobClient(b.Name).Uri.ToString())
+        .Select(u => new BlobInfo { ImageUri = u, ThumbnailUri = u.Replace("/photos/", "/thumbnails/") })
+    .ToListAsync();
 }
 ```
 
@@ -136,27 +140,26 @@ public async Task OnGet()
 public IFormFile Upload { get; set; }
 
 public async Task<IActionResult> OnPostUploadAsync()
-{   
-    BlobServiceClient blobSvc = new BlobServiceClient(_config["Az:StoreConnString"]);
-    BlobContainerClient blobccP=blobSvc.GetBlobContainerClient("photos");
-    BlobClient blobc= blobccP.GetBlobClient(Upload.FileName);
-    using(Stream stream= Upload.OpenReadStream())
+{
+    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
+    BlobClient blobc = blobccP.GetBlobClient(Upload.FileName);
+    using (Stream stream = Upload.OpenReadStream())
     {
-        var resp=await blobc.UploadAsync(stream);
-        stream.Seek(0,SeekOrigin.Begin);
+        var resp = await blobc.UploadAsync(stream);
+        stream.Seek(0, SeekOrigin.Begin);
         using (Image image = Image.Load(stream, out IImageFormat fmt))
-        {            
+        {
             image.Mutate(x => x.Resize(192, 0));
-            BlobContainerClient blobccT=blobSvc.GetBlobContainerClient("thumbnails");
-            using(MemoryStream memoryStream=new MemoryStream())
+            BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
+            using (MemoryStream memoryStream = new MemoryStream())
             {
                 image.Save(memoryStream, fmt);
-                memoryStream.Seek(0,SeekOrigin.Begin);
-                await blobccT.UploadBlobAsync(Upload.FileName,memoryStream);
-             }
+                memoryStream.Seek(0, SeekOrigin.Begin);
+                await blobccT.UploadBlobAsync(Upload.FileName, memoryStream);
+            }
         }
     }
-    return new RedirectToAction("Index");            
+    return RedirectToAction("Index");
 }
 ```
 
