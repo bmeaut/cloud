@@ -67,7 +67,7 @@ services.AddAzureClients(builder =>
 });
 ```
 
-5. `IndexModel`-ben elkérjük a klienst
+6. `IndexModel`-ben elkérjük a klienst
 
 ```csharp
 private readonly BlobServiceClient _blobSvc;
@@ -79,7 +79,7 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc)
 ```
 
 
-6. `BlobInfo` egy új `Models` alkönyvtárba
+7. `BlobInfo` egy új `Models` alkönyvtárba
 
 ```csharp
 public class BlobInfo
@@ -91,7 +91,7 @@ public class BlobInfo
 ```
 
 
-7. Blob adatok listázása az `IndexModel`-be
+8. Blob adatok listázása az `IndexModel`-be
 
 ```csharp
 public IEnumerable<BlobInfo> Blobs {get; set;} 
@@ -106,7 +106,7 @@ public async Task OnGet()
 }
 ```
 
-8. Felület az Index.cshtml-be
+9. Felület az Index.cshtml-be
 
 ```html
 <div class="container" style="padding-top: 24px">
@@ -134,7 +134,7 @@ public async Task OnGet()
 </div>
 ```
 
-9. Feltöltés az `IndexModel`-be
+10. Feltöltés az `IndexModel`-be
 
 ```csharp
 [BindProperty]
@@ -164,9 +164,9 @@ public async Task<IActionResult> OnPostUploadAsync()
 }
 ```
 
-10. Példaképek [letöltése](/assets/cs-storage-resources.zip)
+11. Példaképek [letöltése](/assets/cs-storage-resources.zip)
 
-11. Nézzük meg mit műveltünk Azure Storage Explorer-ben és a weboldal forrásában is. Ha átírjuk a thumbnail URI-ban a /thumbnail/-t /photos/-ra, megkapjuk az eredeti képet.
+12. Nézzük meg mit műveltünk Azure Storage Explorer-ben és a weboldal forrásában is. Ha átírjuk a thumbnail URI-ban a /thumbnail/-t /photos/-ra, megkapjuk az eredeti képet.
 
 ## Ex. 4.
 - Kihagyható
@@ -179,14 +179,38 @@ public async Task<IActionResult> OnPostUploadAsync()
 2. Új secret-ek a Keys & Endpoint lapról
 
 ```bash
-dotnet user-secrets set "Az:VisionEndpoint" "https://valami.cognitiveservices.azure.com/"
-dotnet user-secrets set "Az:VisionKey" "titok"
+dotnet user-secrets set "AzVision:Endpoint" "https://valami.cognitiveservices.azure.com/"
+dotnet user-secrets set "AzVision:Key" "titok"
 ```
 
 3. NuGet csomag hozzáadása
 
 ```bash
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
+```
+
+4. Vision client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
+
+```csharp
+services.AddSingleton(provider => {
+    var cfg = provider.GetService<IConfiguration>();
+    return new ComputerVisionClient(new ApiKeyServiceClientCredentials(cfg["AzVision:Key"]))
+        {Endpoint = cfg["AzVision:Endpoint"]};
+});
+```
+
+5. A kliens elkérése az `IndexModel` konstruktorban
+
+
+```csharp
+private readonly ComputerVisionClient _visionClient;
+
+public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, ComputerVisionClient visionClient)
+{
+    _logger = logger;
+    _blobSvc = blobSvc;
+    _visionClient = visionClient;
+}
 ```
 
 4. Feltöltés okosítása
