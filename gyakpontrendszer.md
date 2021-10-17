@@ -23,7 +23,10 @@ A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok g
 Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
 - képzési terv típusúak (Type: Learning Path) és
 - Azure-ra vonatkoznak (Products: Azure) és
-- szerepkörük bármi lehet, kivéve üzleti felhasználó (Roles: bármi, csak nem Business User vagy Owner)
+- szerepkörük bármi lehet, kivéve 
+  - üzleti felhasználó (Business User, Owner, stb.)
+  - School Leader
+  - Hirgher Education
 
 Számos képzési terv elérhető magyarul is.
 
