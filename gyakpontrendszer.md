@@ -6,7 +6,7 @@ A 2021/22-es őszi félévben házi feladatként hivatalos Microsoft-os gyakorla
 
 ### Közös kötelező rész
 
-**[A teljes Azure fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals/)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon görgessetek le a *Two ways to prepare* részhez, az *Online - Free* fülön található az összesen 6 képzési terv kb. 13 órában. Ne felejtsétek megnyomni a **Show More** linket, mert akkor válik láthatóvá az összes terv. **Mind a 6 terv** elvégzése kötelező.
+**[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals/)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon görgessetek le a *Two ways to prepare* részhez, az *Online - Free* fülön található az összesen 6 képzési terv kb. 13 órában. Ne felejtsétek megnyomni a **Show More** linket, mert akkor válik láthatóvá az összes terv. **Mind a 6 terv** elvégzése kötelező.
 
 Ezen tervek ideje is beszámít a jegyszerzéshez.
 
@@ -18,15 +18,17 @@ Védés helye, ideje: az utolsó óra során.
 
 ## Azure Learn képzési tervek (Learning Paths)
 
-A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=administrator%2Cai-engineer%2Cmaker%2Cbusiness-analyst%2Cdata-analyst%2Cdata-engineer%2Cdata-scientist%2Cdatabase-administrator%2Cdeveloper%2Cdevops-engineer%2Cfunctional-consultant%2Csecurity-engineer%2Csolution-architect%2Cstudent%2Ctechnology-manager).
+A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=administrator%2Cai-edge-engineer%2Cai-engineer%2Cmaker%2Cdata-analyst%2Cdata-engineer%2Cdata-scientist%2Cdatabase-administrator%2Cdeveloper%2Cdevops-engineer%2Cidentity-access-admin%2Cnetwork-engineer%2Cprivacy-manager%2Crisk-practitioner%2Csecurity-engineer%2Csecurity-operations-analyst%2Csolution-architect%2Cstudent%2Ctechnology-manager).
 
 Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
 - képzési terv típusúak (Type: Learning Path) és
 - Azure-ra vonatkoznak (Products: Azure) és
-- szerepkörük bármi lehet, kivéve 
-  - üzleti felhasználó (Business User, Owner, stb.)
+- szerepkörük bármi lehet, kivéve az alábbi angol megnevezésűek:
+  - üzleti felhasználó (Business User, Owner, Analyst stb.)
+  - Functional Consultant
+  - Auditor
   - School Leader
-  - Hirgher Education
+  - Hirgher Education Educator
 
 Számos képzési terv elérhető magyarul is.
 
@@ -71,7 +73,7 @@ Ha valamelyik labor bármely feladatánál a védés nem sikerül, a teljes labo
 
 ## Értékelés
 
-A fenti feltételeknek megfelelő összes elvégzett és megvédett gyakorlat/labor beszámítható időtartamait összeadjuk és ezen összeg alapján alakul ki a félévközi jegy. A jegy számítása:
+A fenti feltételeknek megfelelő összes elvégzett és megvédett képzési terv/gyakorlat/labor beszámítható időtartamait összeadjuk és ezen összeg alapján alakul ki a félévközi jegy. A jegy számítása:
 
 | Jegy          | Időtartam (perc)      |
 | ------------- | ----------------------|
@@ -84,9 +86,9 @@ A fenti feltételeknek megfelelő összes elvégzett és megvédett gyakorlat/la
 
 A költségek megtervezése, figyelése is a feladat része. Ha a hallgatói előfizetésen a kredit elfogy, az előfizetés befagyasztásra kerül. Vannak erőforrástípusok, melyeknél a leállítás csökkenti vagy megszünteti a költséget (pl. virtuális gép), ugyanakkor vannak, melyeket nem lehet költségsprólás miatt "kikapcsolni" (tipikusan a tárolást végző erőforrások, adatbázisok). A kredit elfogyása megakadályozhatja, hogy elvégezzétek a házi feladatot!
 
-*Tipp*: vannak olyan képzési tervek, ahol lehetőség van *Azure Sandbox* használatára (pl. [ebben a modulban](https://docs.microsoft.com/en-us/learn/modules/create-cosmos-db-for-scale/2-create-an-account)), ilyenkor ez még egy utolsó mentsvár lehet, hiszen ez egy olyan Azure környezet, amihez nem kell előfizetés. Az Azure Sandbox-ról bővebben [itt](https://docs.microsoft.com/en-us/learn/support/?pivots=sandbox).
+*Tipp*: vannak olyan képzési tervek, ahol lehetőség van *Azure Sandbox* használatára (pl. [ebben a modulban](https://docs.microsoft.com/en-us/learn/modules/create-cosmos-db-for-scale/2-create-an-account)), ilyenkor ez még egy utolsó mentsvár lehet, hiszen ez egy olyan Azure környezet, amihez nem kell előfizetés. Az Azure Sandbox-ról bővebben [itt](https://docs.microsoft.com/en-us/learn/support/faq?pivots=sandbox).
 
-Ha a házi feladat elvégzése **után** fogy el a kredit, az nem kizáró ok a védésre, de törekedjetek rá, hogy ez ne történjen meg. Nem kötelező a házi feladat elvégzése után az erőforrásokat megtartani, ha máskülönben elfogyott volna az előfizetésen a kredit. Az Azure Sandbox erőforrások legfeljebb 4 óráig élnek, így értelemszerűen nem kell őket megtartani.
+Ha a házi feladat elvégzése **után** fogy el a kredit, az nem kizáró ok a védésre, de törekedjetek rá, hogy ez ne történjen meg. Nem kötelező a házi feladat elvégzése után az erőforrásokat megtartani, ha máskülönben elfogyott volna az előfizetésen a kredit. Az Azure Sandbox erőforrások legfeljebb 4 óráig élnek, így értelemszerűen nem kell (nem lehet) őket megtartani.
 
 ## A szabályrendszer változása
 
