@@ -14,7 +14,7 @@ Ezen tervek ideje is beszámít a jegyszerzéshez.
 
 A házi feladatot védeni kell. A védés során az önálló elvégzést ellenőrizzük.
 
-Védés ideje: az utolsó gyakorlat ideje.
+Védés helye, ideje: az utolsó óra során.
 
 ## Azure Learn képzési tervek (Learning Paths)
 
