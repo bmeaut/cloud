@@ -1,4 +1,4 @@
-# Megajénlott jegyként elfogadott Microsoft minősítések
+# Megajánlott jegyként elfogadott Microsoft minősítések
 Véglegesítve 2021. őszre 2021.10.17-én
 
 A minősítésnek 
