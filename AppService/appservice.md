@@ -5,7 +5,7 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
 ## Azure SQL
 
   - válasszuk: standalone Standard S0 (10 DTU) - **12 hónapig ingyenes** (https://azure.microsoft.com/en-us/free/free-account-faq/)
-  - firewall (a szerveren) - állítsuk be a saját IP-nket (add Client IP) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
+  - firewall (a szerveren) - állítsuk be a saját IP-nket (_Add Client IP_) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
 )
   - nézzük meg:
     - a szerver és az adatbázis erőforrásokat
@@ -37,16 +37,15 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
   
  ## Git deployment
  
-  - Deployment Center-ben a local git deployment with kudu beállítása (https://github.com/projectkudu/kudu)
+  - Deployment Center-ben a Local git deployment (with kudu) beállítása (https://github.com/projectkudu/kudu)
   - `git remote add <remote név> <git deployment url>`
   - commit + push, push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
     - ha elrontottuk, akkor Windows-on a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
  - nem jó még, hiba van
  
- ## App Service Logs
+ ## Diagnose & solve problems
  
- - Kapcsoljuk be az App Service Logs blade-en
- - Log stream-et nézzük meg
+ - Diagnose & solve problems > Application Logs
  
  ## App Service Configuration
  
