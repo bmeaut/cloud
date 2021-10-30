@@ -5,13 +5,15 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
 ## Azure SQL
 
   - válasszuk: standalone Standard S0 (10 DTU) - **12 hónapig ingyenes** (https://azure.microsoft.com/en-us/free/free-account-faq/)
+  - firewall (a szerveren) - állítsuk be a saját IP-nket (add Client IP) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
+)
   - nézzük meg:
     - a szerver és az adatbázis erőforrásokat
     - skálázás (db)
-    - firewall (szerver)
     - backup (szerver)
     - connection strings (db)
-    - Azure Search indexer (db)
+    - Replication (db)
+    - Add Azure Search (db)
     - a webes *Query Editor*-ban ellenőrizzük, hogy üres az adatbázis
     
 ## Példaprojekt beüzemelése
@@ -25,7 +27,7 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
 
   - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
   - Publish: code
-  - Runtime stack: .NET Core 3.1
+  - Runtime stack: .NET 5
   - OS: Linux
   - Region: WEU
   - Windows plan - **Free (F1)** legyen
@@ -93,7 +95,6 @@ order by username;
  
  - `appsettings.Development.json`-be connection stringet átírni ugyanarra, mint az app service-é
  - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
-   - Linuxon az Azure.Identity 1.2.2 valamivel jobb, az 1.2.3 [hibás](https://github.com/Azure/azure-sdk-for-net/issues/12939#issuecomment-702746462)
    
  ## Application Insights w Log Analytics Workspace
  
