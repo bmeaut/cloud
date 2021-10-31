@@ -59,13 +59,14 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
  - Kapcsoljuk be az App Service-ben a system managed indetity-t (*Identity* lap)
  - Kapcsoljuk be az SQL Server-en az AD integrációt (*Active Directory admin* lap), saját magunkat adjuk meg
  - [Osszunk jogokat](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi#grant-permissions-to-managed-identity) az SQL Server-ben az MSI-nek
+ - Az identitás neve App Service esetében az App Service neve
  
 ```sql
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
 ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
-  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"`
+  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Managed Identity;Database=<database-name>;"`
   - Próba, működni kell
 
  - tipp a felhasználók listázásához
