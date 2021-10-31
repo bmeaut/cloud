@@ -93,7 +93,7 @@ order by username;
  
  ## Csatlakozás fejlesztői gépről AD felhasználóként
  
- - `appsettings.Development.json`-be connection stringet átírni ugyanarra, mint az app service-é
+ - `appsettings.Development.json`-be connection stringet átírni: `"Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Default;Database=<database-name>;"`
  - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
    
  ## Application Insights w Log Analytics Workspace
