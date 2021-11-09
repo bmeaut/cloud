@@ -25,6 +25,7 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
 
 ## Web App / App Service
 
+  - https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
   - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
   - Publish: code
   - Runtime stack: .NET 5
