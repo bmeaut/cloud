@@ -1,6 +1,6 @@
-# Házi feladat feltételrendszer - 2021/22 őszi félév
+# Házi feladat feltételrendszer - 2022/23 őszi félév
 
-*Véglegesítve 2021. őszi félévre - 2021.10.26.*
+*Még nincs véglegesítve 2022. őszi félévre!*
 
 A 2021/22-es őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
