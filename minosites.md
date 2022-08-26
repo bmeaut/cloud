@@ -1,5 +1,5 @@
-# Megajánlott jegyként elfogadott Microsoft minősítések
-Véglegesítve 2021. őszre 2021.10.17-én
+# Megajánlott jegyként elfogadott Microsoft minősítések - 2022. ősz
+Még nincs véglegesítve 2022. őszre
 
 A minősítésnek 
 * szerep alapú (ún. role-based) vagy fundamentals típusúnak kell lennie
