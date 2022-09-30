@@ -27,11 +27,10 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - új Storage fiók létrehozása
 - hogy ingyenes legyen (LRS) és _hot_ tier
 - resourcegroup: IntellipixResources
-- két konténert hozzunk létre: photos, thumbnails
+- két konténert hozzunk létre Storage Browser-ben: photos, thumbnails
   - mindkettőben hozzá lehessen férni publikusan a blobokhoz
 
 ## Ex. 2.
-- Nézzünk körül Storage Explorer-ben
 - Connection String: Access Key menüpont -> felül Show Keys gomb
 
 ## Ex. 3.
