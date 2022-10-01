@@ -153,21 +153,24 @@ public IFormFile Upload { get; set; }
 
 public async Task<IActionResult> OnPostUploadAsync()
 {
-    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
-    BlobClient blobc = blobccP.GetBlobClient(Upload.FileName);
-    using (Stream stream = Upload.OpenReadStream())
+    if(Upload != null)
     {
-        var resp = await blobc.UploadAsync(stream);
-        stream.Seek(0, SeekOrigin.Begin);
-        using (Image image = Image.Load(stream, out IImageFormat fmt))
+        BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
+        BlobClient blobc = blobccP.GetBlobClient(Upload.FileName);
+        using (Stream stream = Upload.OpenReadStream())
         {
-            image.Mutate(x => x.Resize(192, 0));
-            BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
-            using (MemoryStream memoryStream = new MemoryStream())
+            var resp = await blobc.UploadAsync(stream);
+            stream.Seek(0, SeekOrigin.Begin);
+            using (Image image = Image.Load(stream, out IImageFormat fmt))
             {
-                image.Save(memoryStream, fmt);
-                memoryStream.Seek(0, SeekOrigin.Begin);
-                await blobccT.UploadBlobAsync(Upload.FileName, memoryStream);
+                image.Mutate(x => x.Resize(192, 0));
+                BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    image.Save(memoryStream, fmt);
+                    memoryStream.Seek(0, SeekOrigin.Begin);
+                    await blobccT.UploadBlobAsync(Upload.FileName, memoryStream);
+                }
             }
         }
     }
