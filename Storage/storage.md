@@ -36,11 +36,16 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 ## Ex. 3.
 1. ASP.NET Core MVC projekt (`Intellipix`)
 
+- Új könyvtár létrehozása `mkdir intellipix`
+- Új projekt
+
 ```powershell
 dotnet new webapp
 ```
 
 2. Próba
+
+VSCode-ban a könyvtár megnyitása. Dotnet assetek generáltatása.
 
 3. NuGet csomagok
 
@@ -60,9 +65,9 @@ dotnet user-secrets set "AzStore:connectionString" "connstring"
 5. Blob client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
 
 ```csharp
-services.AddAzureClients(builder =>
+builder.Services.AddAzureClients(azb =>
 {
-    builder.AddBlobServiceClient(Configuration.GetSection("AzStore"));
+    azb.AddBlobServiceClient(builder.Configuration.GetSection("AzStore"));
 });
 ```
 
@@ -85,7 +90,13 @@ public class BlobInfo
 {
     public string ImageUri { get; set; }
     public string ThumbnailUri { get; set; }
-    public string Caption { get; set; }
+    public string? Caption { get; set; }
+
+    public BlobInfo(string imageUri, string thumbnailUri)
+    {
+        ImageUri = imageUri;
+        ThumbnailUri = thumbnailUri;
+    }
 }
 ```
 
