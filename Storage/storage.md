@@ -5,6 +5,8 @@ Sajnos már teljesen elavult a leírás :disappointed:
 
 Újabb laborfeladatok: https://docs.microsoft.com/en-us/learn/paths/store-data-in-azure/
 
+Azure SDK for .NET csomagok: https://azure.github.io/azure-sdk/releases/latest/all/dotnet.html
+
 ## [Azure Portal](https://portal.azure.com/) 
 ### Nyelvi beállítások
 A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
@@ -134,11 +136,10 @@ public async Task OnGet()
     <hr />
     <div class="row">
         <div class="col-sm-12">
-            @foreach (BlobInfo blob in Model.Blobs)
+            @foreach (BlobInfo blob in Model.Blobs ?? Enumerable.Empty<BlobInfo>())
             {
                 <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
             }
-
         </div>
     </div>
 </div>
@@ -182,9 +183,9 @@ public async Task<IActionResult> OnPostUploadAsync()
 - Kihagyható
 
 ## Ex. 5.
-1. Vision szolgáltatás létrehozása
+1. Computer Vision szolgáltatás létrehozása
  - F0 plan
- - ugyanabba a resource group-ba és régióba, mint ahol a  storage account van
+ - ugyanabba a resource group-ba és régióba, mint ahol a storage account van
 
 2. Új secret-ek a Keys & Endpoint lapról
 
@@ -202,10 +203,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 4. Vision client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
 
 ```csharp
-services.AddSingleton(provider => {
-    var cfg = provider.GetService<IConfiguration>();
-    return new ComputerVisionClient(new ApiKeyServiceClientCredentials(cfg["AzVision:Key"]))
-        {Endpoint = cfg["AzVision:Endpoint"]};
+builder.Services.AddSingleton(provider => {
+    return new ComputerVisionClient(new ApiKeyServiceClientCredentials(builder.Configuration["AzVision:Key"]))
+        {Endpoint = builder.Configuration["AzVision:Endpoint"]};
 });
 ```
 
