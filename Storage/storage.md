@@ -160,6 +160,7 @@ public async Task<IActionResult> OnPostUploadAsync()
         using (Stream stream = Upload.OpenReadStream())
         {
             var resp = await blobc.UploadAsync(stream);
+            /*ide jön majd a computer vision logika*/
             stream.Seek(0, SeekOrigin.Begin);
             using (Image image = Image.Load(stream, out IImageFormat fmt))
             {
@@ -231,7 +232,7 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, Compute
 ```csharp
 /**/public async Task<IActionResult> OnPostUploadAsync()
 /**/{
-/**/    VisualFeatureTypes?[] features = new VisualFeatureTypes?[] { VisualFeatureTypes.Description };
+        VisualFeatureTypes?[] features = new VisualFeatureTypes?[] { VisualFeatureTypes.Description };
 /**/    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
 /**/    BlobClient blobc = blobccP.GetBlobClient(Upload.FileName);
 /**/    using (Stream stream = Upload.OpenReadStream())
@@ -253,12 +254,14 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, Compute
 6. Listázás okosítása
 ```csharp
  Blobs=await blobcc.GetBlobsAsync()
-                .Select(b=>blobcc.GetBlobClient(b.Name))
-                .SelectAwait(async bc=> new {(await bc.GetPropertiesAsync()).Value.Metadata, Uri=bc.Uri.ToString(), bc.Name})                
-                .Select(x=>new BlobInfo{ImageUri=x.Uri
-                            , ThumbnailUri=x.Uri.Replace("/photos/","/thumbnails/"), 
-                            Caption=x.Metadata.ContainsKey("Captions")? x.Metadata["Captions"]:x.Name})                
-                .ToListAsync();
+            .Select(b=>blobcc.GetBlobClient(b.Name))
+            .SelectAwait(async bc=> new {(await bc.GetPropertiesAsync()).Value.Metadata, Uri=bc.Uri.ToString(), bc.Name})                
+            .Select(x=>new BlobInfo(x.Uri
+                            ,x.Uri.Replace("/photos/","/thumbnails/"))
+                            {
+                                Caption=x.Metadata.ContainsKey("Captions")? x.Metadata["Captions"]:x.Name
+                            })                
+          .ToListAsync();
 ```
 
 7. Próba
@@ -284,7 +287,7 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, Compute
 
 ```csharp
 [BindProperty]
-public string SearchTerm {get; set;}
+public string? SearchTerm {get; set;}
 
 public ActionResult OnPostSearchAsync()
 {
@@ -305,9 +308,7 @@ public ActionResult OnPostSearchAsync()
 /**/        .SelectAwait(async bc=> new {(await bc.GetPropertiesAsync()).Value.Metadata, Uri=bc.Uri.ToString(), bc.Name})  
             .Where(x=>string.IsNullOrEmpty(term) || 
                       x.Metadata.Any(m=>m.Key.StartsWith("Tags") && m.Value.Equals(term, StringComparison.InvariantCultureIgnoreCase)))
-/**/        .Select(x=>new BlobInfo{ImageUri=x.Uri
-/**/                    , ThumbnailUri=x.Uri.Replace("/photos/","/thumbnails/"), 
-/**/                    Caption=x.Metadata.ContainsKey("Captions")? x.Metadata["Captions"]:x.Name})                
+/**/        .Select(/*...*/)                
 /**/        .ToListAsync();
          SearchTerm=term;
 /**/                            
