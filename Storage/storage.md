@@ -58,12 +58,13 @@ dotnet add package System.Interactive.Async
 dotnet add package Microsoft.Extensions.Azure
 ```
 
-4. User Secrets
+4. Connection string => User Secrets.  A teljes connection string legyen benne ne csak az access key!
 
 ```bash
 dotnet user-secrets init
 dotnet user-secrets set "AzStore:connectionString" "connstring"
 ```
+
 5. Blob client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
 
 ```csharp
@@ -113,7 +114,7 @@ public async Task OnGet()
     BlobContainerClient blobcc = _blobSvc.GetBlobContainerClient("photos");
     Blobs = await blobcc.GetBlobsAsync()
         .Select(b => blobcc.GetBlobClient(b.Name).Uri.ToString())
-        .Select(u => new BlobInfo { ImageUri = u, ThumbnailUri = u.Replace("/photos/", "/thumbnails/") })
+        .Select(u => new BlobInfo(u, u.Replace("/photos/", "/thumbnails/")))
     .ToListAsync();
 }
 ```
