@@ -1,5 +1,5 @@
 # Megajánlott jegyként elfogadott Microsoft minősítések - 2022. ősz
-Még nincs véglegesítve 2022. őszre
+Véglegesítve 2022. őszre 2022.10.04-én
 
 A minősítésnek 
 * szerep alapú (ún. role-based) vagy fundamentals típusúnak kell lennie
@@ -9,7 +9,7 @@ Az itt listázott minősítések számítanak:
 * [Role-based](https://docs.microsoft.com/en-us/learn/certifications/browse/?products=azure&type=role-based)
 * [Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/browse/?certificationtype=role-based&resource_type=certification&type=fundamentals&products=azure)
 
-A fundamentals szintű minősítések 4-est, a többiek 5-öst érnek.
+A fenti halmazon belül a fundamentals szintű minősítések 4-est, a többiek 5-öst érnek.
 
 ## Költségek, tippek, trükkök
 
