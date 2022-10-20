@@ -2,7 +2,7 @@
 
 *Még nincs véglegesítve 2022. őszi félévre!*
 
-A 2022/23-ss őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
+A 2022/23-as őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
 ### Közös kötelező rész
 
