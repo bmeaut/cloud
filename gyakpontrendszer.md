@@ -2,11 +2,11 @@
 
 *Még nincs véglegesítve 2022. őszi félévre!*
 
-A 2021/22-es őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
+A 2022/23-ss őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
 ### Közös kötelező rész
 
-**[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals/)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon görgessetek le a *Two ways to prepare* részhez, az *Online - Free* fülön található az összesen 6 képzési terv kb. 10 órában. Ne felejtsétek megnyomni a **Show More** linket, mert akkor válik láthatóvá az összes terv. **Mind a 6 terv** elvégzése kötelező.
+**[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals/)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon görgessetek le a *Two ways to prepare* részhez, az *Online - Free* fülön található az összesen 3 képzési terv kb. 6 órában. **Mind a 3 terv** elvégzése kötelező.
 
 Ezen tervek ideje is beszámít a jegyszerzéshez.
 
@@ -23,7 +23,7 @@ A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok g
 Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
 - képzési terv típusúak (Type: Learning Path) és
 - Azure-ra vonatkoznak (Products: Azure) és
-- szerepkörük bármi lehet, kivéve az alábbi angol megnevezésűek:
+- szerepkörük bármi lehet, **kivéve** az alábbi angol megnevezésűek:
   - üzleti felhasználó (Business User, Owner, Analyst stb.)
   - Functional Consultant
   - Auditor
