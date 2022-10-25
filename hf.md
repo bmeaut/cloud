@@ -28,7 +28,7 @@ Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok 
   - Functional Consultant
   - Auditor
   - School Leader
-  - Hirgher Education Educator
+  - Higher Education Educator
 
 Számos képzési terv elérhető magyarul is.
 
