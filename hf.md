@@ -29,6 +29,8 @@ Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok 
   - Auditor
   - School Leader
   - Higher Education Educator
+  - Service Adoption Specialist
+  - Support Engineer
 
 Számos képzési terv elérhető magyarul is.
 
