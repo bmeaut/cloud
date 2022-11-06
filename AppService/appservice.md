@@ -22,7 +22,7 @@ A gyakorlat menete hasonló, de több helyen eltér ettől: https://learn.micros
   - Azure-os connection string dotnet user secret-be 
   ```powershell
   dotnet user-secrets init
-  dotnet user-secrets add "ConnsectionStrings:MyDbConnection" "connectionstringünk"
+  dotnet user-secrets set "ConnsectionStrings:MyDbConnection" "connectionstringünk"
   dotnet ef database update --connection "connectionstringünk"
   ```
   - futtat, próba. Ellenőrizzük weben az adatbázis tartalmat.
