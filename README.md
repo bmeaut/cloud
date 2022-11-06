@@ -12,10 +12,13 @@ A tárgykövetelményekhez kapcsolódó házi feladat szempontrendszer [itt tal�
 
 * Storage
   * [Gyakorlat anyag](Storage/storage.md)
-* NoSQL
-  * [Gyakorlat anyag](NoSql/nosql.md)
 * AppService
   * [Gyakorlat anyag](AppService/appservice.md)
+
+### Régi, nem karbantartott gyakorlatok
+
+* NoSQL
+  * [Gyakorlat anyag](NoSql/nosql.md)
 * PaaS
   * [Gyakorlat anyag](PaaS/complex-paas.md)
   * Kiinduló projekt: https://github.com/bmeaut/azure-complex-paas-labor
