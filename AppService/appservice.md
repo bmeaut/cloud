@@ -1,11 +1,11 @@
 # AppService SQL adatbázissal
 
-https://github.com/VIAUBC01/MovieCatalog.Azure
+A gyakorlat menete hasonló, de több helyen eltér ettől: https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app
 
 ## Azure SQL
 
-  - válasszuk: standalone Standard S0 (10 DTU) - **12 hónapig ingyenes** (https://azure.microsoft.com/en-us/free/free-account-faq/)
-  - firewall (a szerveren) - állítsuk be a saját IP-nket (_Add Client IP_) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
+  - válasszuk: standalone Standard S0 (10 DTU) - **12 hónapig ingyenes** (https://azure.microsoft.com/en-us/free/free-account-faq/) vagy serverless (Development workload-ot választva ingyenes)
+  - Networking (a szerveren) - állítsuk be a saját IP-nket (_Add Client IP_) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
 )
   - nézzük meg:
     - a szerver és az adatbázis erőforrásokat
@@ -18,9 +18,14 @@ https://github.com/VIAUBC01/MovieCatalog.Azure
     
 ## Példaprojekt beüzemelése
 
-  - git clone https://github.com/VIAUBC01/MovieCatalog.Azure.git
-  - Azure-os connection string az appsettings.Development.json-be
-  - futtat. Automatikus adatbázis inicializáció van a projektben. Ellenőrizzük weben az adatbázis tartalmat.
+  - Töltsük le a [példaprojektet](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore)
+  - Azure-os connection string dotnet user secret-be 
+  ```powershell
+  dotnet user-secrets init
+  dotnet user-secrets add "ConnsectionStrings:MyDbConnection" "connectionstringünk"
+  dotnet ef database update --connection "connectionstringünk"
+  ```
+  - futtat, próba. Ellenőrizzük weben az adatbázis tartalmat.
 
 
 ## Web App / App Service
