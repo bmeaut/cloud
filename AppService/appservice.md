@@ -79,7 +79,7 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"`
  - Próba, nem működik :(
- - Frissítsük az SqlClient-et: `dotnet add package System.Data.SqlClient --version 4.8.4` Commit+push.
+ - Frissítsük az SqlClient-et: `dotnet add package Microsoft.Data.SqlClient --version 5.0.1` Commit+push.
 
  - tipp a felhasználók listázásához
  
