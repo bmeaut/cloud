@@ -34,10 +34,10 @@ A gyakorlat menete hasonló, de több helyen eltér ettől [a hivatalos MS útmu
   - https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
   - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
   - Publish: code
-  - Runtime stack: .NET 5
-  - OS: Linux
+  - Runtime stack: .NET 6
+  - OS: Linux vagy Windows
   - Region: WEU
-  - Windows plan - **Free (F1)** legyen
+  - **Free (F1)** legyen
   - App Insights: nem kell (még)
 
 Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
