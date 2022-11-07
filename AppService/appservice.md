@@ -62,7 +62,7 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
  
  - A portálról másoljuk ki a connection string-et
  - Configuration / App Settings
-  - `MovieCatalog` : `connection string` (a jelszót adjuk meg!)
+ - adjuk meg a connection stringet a secretnek megfelelően
  - Most már jónak kell lennie
  
  ## SQL AD Auth MSI-vel
