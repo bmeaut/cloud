@@ -22,7 +22,7 @@ A gyakorlat menete hasonló, de több helyen eltér ettől [a hivatalos MS útmu
   - Azure-os connection string dotnet user secret-be 
   ```powershell
   dotnet user-secrets init
-  dotnet user-secrets set "ConnsectionStrings:MyDbConnection" "connectionstringünk"
+  dotnet user-secrets set "ConnectionStrings:MyDbConnection" "connectionstringünk"
   dotnet ef database update --connection "connectionstringünk"
   ```
   - jelszót ne felejtsük el beírni a connection string-be!
@@ -70,15 +70,16 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
  - Kapcsoljuk be az App Service-ben a system managed indetity-t (*Identity* lap)
  - Kapcsoljuk be az SQL Server-en az AD integrációt (*Active Directory admin* lap), saját magunkat adjuk meg
  - [Osszunk jogokat](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi#grant-permissions-to-managed-identity) az SQL Server-ben az MSI-nek
- - Az identitás neve App Service esetében az App Service neve
+    - Az identitás neve App Service esetében az App Service neve
  
 ```sql
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
 ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
-  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Managed Identity;Database=<database-name>;"`
-  - Próba, működni kell
+ - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"`
+ - Próba, nem működik :(
+ - Frissítsük az SqlClient-et: `dotnet add package System.Data.SqlClient --version 4.8.4` Commit+push.
 
  - tipp a felhasználók listázásához
  
@@ -104,7 +105,10 @@ order by username;
  
  ## Csatlakozás fejlesztői gépről AD felhasználóként
  
- - `appsettings.Development.json`-be connection stringet átírni: `"Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Default;Database=<database-name>;"`
+ - `appsettings.Development.json`-be connection stringet átírni: 
+    ```
+    "Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Default;Database=<database-name>;"
+    ```
  - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
    
  ## Application Insights w Log Analytics Workspace
