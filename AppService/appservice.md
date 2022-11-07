@@ -95,14 +95,6 @@ where type not in ('A', 'G', 'R', 'X')
 order by username;
 ```
   
- ## Jogosultság teszt
-  
- - Takarító szkript: `dotnet ef migrations script TitleRatings 0 -o clear.sql`. Ezt futtassuk le.
-    - ef core tools telepítése: `dotnet tool install --global dotnet-ef`
- - Próba, nem fog tudni elindulni, mert nem fog tudni táblát (sem) létrehozni
- - Teljes szkript nulláról: `dotnet ef migrations script -o full.sql`. Ezt futtassuk le.
- - Migráció kikpacsolása: Application settings - `DOTNET_DbInitHasMigration`: `false`
- 
  ## Csatlakozás fejlesztői gépről AD felhasználóként
  
  - `appsettings.Development.json`-be connection stringet átírni: 
