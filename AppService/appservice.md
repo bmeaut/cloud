@@ -1,6 +1,6 @@
 # AppService SQL adatbázissal
 
-A gyakorlat menete hasonló, de több helyen eltér ettől: https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app
+A gyakorlat menete hasonló, de több helyen eltér ettől [a hivatalos MS útmutatótól](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app).
 
 ## Azure SQL
 
@@ -25,6 +25,7 @@ A gyakorlat menete hasonló, de több helyen eltér ettől: https://learn.micros
   dotnet user-secrets set "ConnsectionStrings:MyDbConnection" "connectionstringünk"
   dotnet ef database update --connection "connectionstringünk"
   ```
+  - jelszót ne felejtsük el beírni a connection string-be!
   - futtat, próba. Ellenőrizzük weben az adatbázis tartalmat.
 
 
@@ -42,10 +43,14 @@ A gyakorlat menete hasonló, de több helyen eltér ettől: https://learn.micros
 Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
   
  ## Git deployment
- 
+  
+ A solution könyvtárában álljunk!
+  - `git init`
+  - `git add --all` (.gitignore már van a projektben)
+  - `git commit`
   - Deployment Center-ben a Local git deployment (with kudu) beállítása (https://github.com/projectkudu/kudu)
   - `git remote add <remote név> <git deployment url>`
-  - commit + push, push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
+  - push ( `git push --set-upstream az master`), push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
     - ha elrontottuk, akkor Windows-on a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
  - nem jó még, hiba van
  
