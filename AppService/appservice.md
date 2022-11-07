@@ -101,7 +101,7 @@ order by username;
     ```
     "Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Default;Database=<database-name>;"
     ```
- - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+ - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). A tokenforrások sorrndje nem függ attól, hogy milyen alkalmazásban fejlesztünk éppen (VSCode-ban dolgozva is a VS tokenjét használjuk, ha van)!
    
  ## Application Insights w Log Analytics Workspace
  
