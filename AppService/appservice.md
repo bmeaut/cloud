@@ -107,6 +107,8 @@ order by username;
    
  ## Application Insights w Log Analytics Workspace
  
+ https://learn.microsoft.com/en-us/azure/azure-monitor/overview#overview
+ 
  - Log Analytics Workspace létrehozása
  - Application Insights létrehozása és hozzákötése a workspace-hez
  - `dotnet add package Microsoft.ApplicationInsights.AspNetCore`
