@@ -19,10 +19,12 @@ A gyakorlat menete hasonló, de több helyen eltér ettől [a hivatalos MS útmu
 ## Példaprojekt beüzemelése
 
   - Töltsük le a [példaprojektet](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore)
-  - Azure-os connection string dotnet user secret-be 
+  - Azure-os connection string dotnet user secret-be, majd EF Migrations beüzemelése
   ```powershell
   dotnet user-secrets init
   dotnet user-secrets set "ConnectionStrings:MyDbConnection" "connectionstringünk"
+  dotnet tool install -g dotnet-ef
+  dotnet ef migrations add InitialCreate
   dotnet ef database update --connection "connectionstringünk"
   ```
   - jelszót ne felejtsük el beírni a connection string-be!
