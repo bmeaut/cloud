@@ -81,7 +81,7 @@ ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"`
  - Próba, nem működik :(
- - Frissítsük az SqlClient-et: `dotnet add package Microsoft.Data.SqlClient --version 5.0.1` Commit+push.
+ - Frissítsük az SqlClient-et: `dotnet add package Microsoft.Data.SqlClient --version 5.0.1` (**nem!** System.Data.SqlClient) Commit+push.
 
  - tipp a felhasználók listázásához
  
@@ -123,6 +123,10 @@ order by username;
  - hozzunk létre új slot-ot *test* néven
  - ez egy új app, inicializálni kell a deployment opciókat
  - Identity-t be kell kapcsolni + fel kell venni az SQL adatbázisba a slot felhasználót `[<appnév>/slots/<slotnév>]`
+ - legyen egy kis eltérés, pl. a \_Layout.cshtml-be:
+   ```html
+   <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@(Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME") ?? "My TodoList App")</a>
+   ```
  - push
     
 ## Labor végén/után
