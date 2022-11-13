@@ -111,26 +111,7 @@ order by username;
  
  - Log Analytics Workspace létrehozása
  - Application Insights létrehozása és hozzákötése a workspace-hez
- - `dotnet add package Microsoft.ApplicationInsights.AspNetCore`
- -  `AddApplicationInsightsTelemetry()` a service-ek közé
- - új app konfiguráció: `APPINSIGHTS_INSTRUMENTATIONKEY`
- - `appsettings.json`:
- 
- ```javascript
- {
-  "Logging": {
-    "LogLevel": {
-      "Default": "Warning"
-    },
-    "ApplicationInsights": {
-      "LogLevel": {
-        "Default": "Information"
-      }
-    }
-  },
-  "AllowedHosts": "*"
-}
- ```
+ - Auto instrumentation már [Linuxos ASP.NET Core alkalmazásokhoz is](https://learn.microsoft.com/en-us/azure/azure-monitor/app/azure-web-apps-net-core?tabs=Linux%2Cwindows#enable-client-side-monitoring) ([támogatott keretrendszerek](https://learn.microsoft.com/en-us/azure/azure-monitor/app/codeless-overview#supported-environments-languages-and-resource-providers))
  - navigáljunk pár nemlétező oldalra (pl. /phpmyadmin)
  - kis idő múlva figyeljük meg, hogy megjelennek a hibás (404) hívások
  - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/, https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial
