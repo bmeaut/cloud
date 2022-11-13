@@ -128,6 +128,7 @@ order by username;
    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@(Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME") ?? "My TodoList App")</a>
    ```
  - push
+ - [swap](https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#what-happens-during-a-swap) a két slot között
     
 ## Labor végén/után
 
