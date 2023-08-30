@@ -14,7 +14,6 @@ A fenti halmazon belül a fundamentals szintű minősítések 4-est, a többiek 
 ## Költségek, tippek, trükkök
 
 Figyelem! A minősítéshez szükséges vizsgák fizetősek, cserébe nemzetközileg elismertek. A költségek csökkenthetők vagy megkerülhetők különféle módszerekkel:
-* Fundamentals szintű vizsgák esetében a virtual training day programok ingyenes vizsgalehetőséget kínálnak. [A training day oldalon](https://www.microsoft.com/hu-hu/trainingdays) az Azure-os csoportban a "Microsoft Azure Virtual Training Day: Fundamentals" események például ilyenek, de mindig ellenőrizzük, hogy a leírásban feltüntetik-e (pl. "After completing this free training, you’ll be eligible to take the Microsoft Azure Fundamentals certification exam at no cost.")
 * felsőoktatásban tanulók kedvezményes áron tehetnek le MS vizsgákat, elvileg a fentieket is. Bővebb infó [itt](https://docs.microsoft.com/en-us/learn/certifications/student-discounts)
 * számos munkahely valamilyen formában megfinanszírozza a munkavállalóinak
 
