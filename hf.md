@@ -6,7 +6,7 @@ A 2022/23-as őszi félévben házi feladatként hivatalos Microsoft-os gyakorla
 
 ### Közös kötelező rész
 
-**[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals/)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon görgessetek le a *Two ways to prepare* részhez, az *Online - Free* fülön található az összesen 3 képzési terv kb. 6 órában. **Mind a 3 terv** elvégzése kötelező.
+**[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://learn.microsoft.com/en-us/learn/certifications/azure-fundamentals/)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon görgessetek le a *Two ways to prepare* részhez, az *Online - Free* fülön található az összesen 3 képzési terv kb. 6 órában. **Mind a 3 terv** elvégzése kötelező.
 
 Ezen tervek ideje is beszámít a jegyszerzéshez.
 
@@ -18,9 +18,9 @@ Védés helye, ideje: az utolsó óra során.
 
 ## Azure Learn képzési tervek (Learning Paths)
 
-A [Microsoft Learn oldalon](https://docs.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://docs.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=administrator%2Cai-edge-engineer%2Cai-engineer%2Cmaker%2Cdata-analyst%2Cdata-engineer%2Cdata-scientist%2Cdatabase-administrator%2Cdeveloper%2Cdevops-engineer%2Cidentity-access-admin%2Cnetwork-engineer%2Cprivacy-manager%2Crisk-practitioner%2Csecurity-engineer%2Csecurity-operations-analyst%2Csolution-architect%2Cstudent%2Ctechnology-manager).
+A [Microsoft Learn oldalon](https://learn.microsoft.com/hu-hu/learn/) találtok gyakorlatmodulokat, amik **képzési tervekbe** vannak összefogva. Házi feladatként az alábbi szűrés által kijelölt **képzési tervek** számítanak be: [szűrés](https://learn.microsoft.com/en-us/learn/browse/?products=azure&resource_type=learning%20path&roles=administrator%2Cai-edge-engineer%2Cai-engineer%2Cmaker%2Cdata-analyst%2Cdata-engineer%2Cdata-scientist%2Cdatabase-administrator%2Cdeveloper%2Cdevops-engineer%2Cidentity-access-admin%2Cnetwork-engineer%2Cprivacy-manager%2Crisk-practitioner%2Csecurity-engineer%2Csecurity-operations-analyst%2Csolution-architect%2Cstudent%2Ctechnology-manager).
 
-Azaz a [tallózó oldalon](https://docs.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
+Azaz a [tallózó oldalon](https://learn.microsoft.com/en-us/learn/browse/) azok jönnek szóba, melyek
 - képzési terv típusúak (Type: Learning Path) és
 - Azure-ra vonatkoznak (Products: Azure) és
 - szerepkörük bármi lehet, **kivéve** az alábbi angol megnevezésűek:
@@ -43,7 +43,7 @@ Beszámított idő képzési tervenként: a képzési terv címe alatt látható
 
 ### Védés
 
-Az egyetemi M365 account-otokkal (@edu.bme.hu) belépve a [MS Learn oldalra](https://docs.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
+Az egyetemi M365 account-otokkal (@edu.bme.hu) belépve a [MS Learn oldalra](https://learn.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
   - belekérdezünk az elméleti részbe (lásd a modulok végén a "knowledge check" részeket) 
   - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájlt Azure Data Lake Storage Gen1-be)
