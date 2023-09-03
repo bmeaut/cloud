@@ -8,7 +8,7 @@ A minősítésnek
 Az itt listázott minősítések számítanak:
 * [Role-based](https://docs.microsoft.com/en-us/learn/certifications/browse/?products=azure&type=role-based)
 * [Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/browse/?certificationtype=role-based&resource_type=certification&type=fundamentals&products=azure)
-** ajánlott: [AZ-900](https://learn.microsoft.com/en-us/certifications/exams/az-900/)
+  * ajánlott: [AZ-900](https://learn.microsoft.com/en-us/certifications/exams/az-900/)
 
 A fenti halmazon belül a fundamentals szintű minősítések 4-est, a többiek 5-öst érnek.
 
