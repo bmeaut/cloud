@@ -57,6 +57,7 @@ dotnet add package SixLabors.ImageSharp
 dotnet add package Azure.Storage.Blobs
 dotnet add package System.Interactive.Async
 dotnet add package Microsoft.Extensions.Azure
+dotnet add package Flurl
 ```
 
 4. Connection string => User Secrets.  A teljes connection string legyen benne ne csak az access key!
