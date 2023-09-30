@@ -108,15 +108,26 @@ public class BlobInfo
 
 8. Blob adatok listázása az `IndexModel`-be
 
+Az `IndexModel` tetejére:
+
 ```csharp
-public IEnumerable<BlobInfo> Blobs {get; set;} 
+using Flurl;
+```
+
+Cseréljük az eredeti `OnGet`-et erre:
+
+```csharp
+public IEnumerable<BlobInfo> Blobs { get; set; } = Enumerable.Empty<BlobInfo>();
 
 public async Task OnGet()
 {
-    BlobContainerClient blobcc = _blobSvc.GetBlobContainerClient("photos");
-    Blobs = await blobcc.GetBlobsAsync()
-        .Select(b => blobcc.GetBlobClient(b.Name).Uri.ToString())
-        .Select(u => new BlobInfo(u, u.Replace("/photos/", "/thumbnails/")))
+    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
+    BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
+    Blobs = await blobccP.GetBlobsAsync()
+        .Select(b => new BlobInfo(
+                        blobccP.Uri.AppendPathSegment(b.Name)
+                        ,blobccT.Uri.AppendPathSegment(b.Name))
+               )
     .ToListAsync();
 }
 ```
