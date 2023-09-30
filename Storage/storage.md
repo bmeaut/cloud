@@ -97,10 +97,11 @@ public class BlobInfo
     public string ThumbnailUri { get; set; }
     public string? Caption { get; set; }
 
-    public BlobInfo(string imageUri, string thumbnailUri)
+    public BlobInfo(string imageUri, string thumbnailUri, string? caption=default)
     {
         ImageUri = imageUri;
         ThumbnailUri = thumbnailUri;
+        Caption = caption;
     }
 }
 ```
@@ -163,7 +164,7 @@ public async Task OnGet()
 
 ```csharp
 [BindProperty]
-public IFormFile Upload { get; set; }
+public IFormFile? Upload { get; set; }
 
 public async Task<IActionResult> OnPostUploadAsync()
 {
@@ -212,6 +213,8 @@ dotnet user-secrets set "AzVision:Key" "titok"
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 ```
 
+Ez a csomnag az API 3.x-es verzióját hívja, a legújabb 4-es API verzióval kompatibilis [csomag](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/sdk/install-sdk?tabs=windows%2Cubuntu%2Cdotnetcli%2Cterminal%2Cmaven&pivots=programming-language-csharp) jelenleg még beta állapotban van.
+
 4. Vision client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
 
 ```csharp
@@ -237,26 +240,21 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, Compute
 
 5. Feltöltés okosítása
 
+Az `OnPostUploadAsync` elejére:
+
 ```csharp
-/**/public async Task<IActionResult> OnPostUploadAsync()
-/**/{
-        VisualFeatureTypes?[] features = new VisualFeatureTypes?[] { VisualFeatureTypes.Description };
-/**/    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
-/**/    BlobClient blobc = blobccP.GetBlobClient(Upload.FileName);
-/**/    using (Stream stream = Upload.OpenReadStream())
-/**/    {
-/**/        var resp = await blobc.UploadAsync(stream);
-            var analResult = await _visionClient.AnalyzeImageAsync(blobc.Uri.ToString(), features);
-            var blobMetaDict = analResult.Description.Tags
-                .Select((t, i) => new KeyValuePair<string, string>(nameof(analResult.Description.Tags) + i, t))
-                .Concat(new Dictionary<string, string> { { nameof(analResult.Description.Captions), analResult.Description.Captions[0].Text } })
-                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            await blobc.SetMetadataAsync(blobMetaDict);
-/**/        stream.Seek(0, SeekOrigin.Begin);
-/**/        //...
-/**/    }
-/**/        //...
-/**/}
+VisualFeatureTypes?[] features = new VisualFeatureTypes?[] { VisualFeatureTypes.Description };
+```
+
+Ugyanezen függvényben a kommenttel jelzett helyre:
+
+```csharp
+var analResult = await _visionClient.AnalyzeImageAsync(blobc.Uri.ToString(), features);
+var blobMetaDict = analResult.Description.Tags
+   .Select((t, i) => new KeyValuePair<string, string>(nameof(analResult.Description.Tags) + i, t))
+   .Concat(new Dictionary<string, string> { { nameof(analResult.Description.Captions), analResult.Description.Captions[0].Text } })
+   .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+await blobc.SetMetadataAsync(blobMetaDict);
 ```
 
 6. Listázás okosítása
