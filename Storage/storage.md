@@ -213,7 +213,7 @@ dotnet user-secrets set "AzVision:Key" "titok"
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
 ```
 
-Ez a csomnag az API 3.x-es verzióját hívja, a legújabb 4-es API verzióval kompatibilis [csomag](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/sdk/install-sdk?tabs=windows%2Cubuntu%2Cdotnetcli%2Cterminal%2Cmaven&pivots=programming-language-csharp) jelenleg még beta állapotban van.
+Ez a csomag az API 3.x-es verzióját hívja, a legújabb 4-es API verzióval kompatibilis [csomag](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/sdk/install-sdk?tabs=windows%2Cubuntu%2Cdotnetcli%2Cterminal%2Cmaven&pivots=programming-language-csharp) jelenleg még beta állapotban van.
 
 4. Vision client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
 
@@ -259,15 +259,18 @@ await blobc.SetMetadataAsync(blobMetaDict);
 
 6. Listázás okosítása
 ```csharp
- Blobs=await blobcc.GetBlobsAsync()
-            .Select(b=>blobcc.GetBlobClient(b.Name))
-            .SelectAwait(async bc=> new {(await bc.GetPropertiesAsync()).Value.Metadata, Uri=bc.Uri.ToString(), bc.Name})                
-            .Select(x=>new BlobInfo(x.Uri
-                            ,x.Uri.Replace("/photos/","/thumbnails/"))
-                            {
-                                Caption=x.Metadata.ContainsKey("Captions")? x.Metadata["Captions"]:x.Name
-                            })                
-          .ToListAsync();
+public async Task OnGet()
+{
+    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
+    BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
+    Blobs = await blobccP.GetBlobsAsync(BlobTraits.Metadata)
+        .Select(b => new BlobInfo(
+                        blobccP.Uri.AppendPathSegment(b.Name)
+                        ,blobccT.Uri.AppendPathSegment(b.Name)
+                        ,b.Metadata.ContainsKey("Captions")? b.Metadata["Captions"]:b.Name)
+               )
+    .ToListAsync();
+}
 ```
 
 7. Próba
