@@ -1,5 +1,5 @@
 # Azure Storage Hands-On Lab
-Inspiráció: https://github.com/microsoft/AcademicContent/blob/5a77cd0fcb18137f39a2c0f95c7b91bd30edb603/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md
+Ennek a logikáját követjük: https://github.com/microsoft/AcademicContent/blob/5a77cd0fcb18137f39a2c0f95c7b91bd30edb603/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md
 
 Sajnos már teljesen elavult a leírás :disappointed:
 
@@ -66,7 +66,7 @@ dotnet user-secrets init
 dotnet user-secrets set "AzStore:connectionString" "connstring"
 ```
 
-5. Blob client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
+5. Blob client regisztrálás a DI-ba a a Program.cs-ben a többi `builder.Services` sor alá
 
 ```csharp
 builder.Services.AddAzureClients(azb =>
