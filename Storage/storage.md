@@ -28,7 +28,7 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 ## Ex. 1.
 - új Storage fiók létrehozása
 - hogy ingyenes legyen (LRS) és _hot_ tier
-- Networking: engedélyezzük az anonim hozzáférést
+- Advanced: engedélyezzük az anonim hozzáférést
 - resourcegroup: IntellipixResources
 - két konténert hozzunk létre Storage Browser-ben: photos, thumbnails
   - mindkettőben hozzá lehessen férni publikusan a blobokhoz
