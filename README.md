@@ -7,6 +7,7 @@ Előadásanyagok és tárgyinfó: https://www.aut.bme.hu/Course/felho, illetve T
 ## Pontrendszer
 
 A tárgykövetelményekhez kapcsolódó házi feladat szempontrendszer [itt található](hf.md)
+A megajánlott jegyhez kapcsolódó követelmények pedig [itt](minosites.md).
 
 ## Gyakorlatok
 
