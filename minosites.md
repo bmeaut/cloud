@@ -1,5 +1,5 @@
 # Megajánlott jegyként elfogadott Microsoft minősítések - 2023. ősz
-Még nincs véglegesítve a félévre
+Véglegesítve 2023. őszi félévre 2023. október 2-án
 
 A minősítésnek 
 * szerep alapú (ún. role-based) vagy fundamentals típusúnak kell lennie
