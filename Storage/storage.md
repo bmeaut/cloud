@@ -307,20 +307,22 @@ public ActionResult OnPostSearchAsync()
 3. Lekérdező művelet okosítása
 
 ```csharp
-    public async Task OnGet(string term)
+    public async Task OnGet(string? term)
 /**/{
-/**/    BlobServiceClient blobSvc = new BlobServiceClient(_config["Az:StoreConnString"]);
-/**/    BlobContainerClient blobcc=blobSvc.GetBlobContainerClient("photos");
-/**/    
-/**/    Blobs=await blobcc.GetBlobsAsync()
-/**/        .Select(b=>blobcc.GetBlobClient(b.Name))
-/**/        .SelectAwait(async bc=> new {(await bc.GetPropertiesAsync()).Value.Metadata, Uri=bc.Uri.ToString(), bc.Name})  
-            .Where(x=>string.IsNullOrEmpty(term) || 
-                      x.Metadata.Any(m=>m.Key.StartsWith("Tags") && m.Value.Equals(term, StringComparison.InvariantCultureIgnoreCase)))
-/**/        .Select(/*...*/)                
-/**/        .ToListAsync();
-         SearchTerm=term;
-/**/                            
+/**/    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
+/**/    BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
+/**/    Blobs = await blobccP.GetBlobsAsync(BlobTraits.Metadata)
+            .Where(b=>string.IsNullOrEmpty(term) || 
+                      b.Metadata.Any(m=>m.Key.StartsWith("Tags") 
+                      && m.Value.Equals(term, StringComparison.InvariantCultureIgnoreCase))
+                   )
+/**/       .Select(b => new BlobInfo(
+/**/                        blobccP.Uri.AppendPathSegment(b.Name)
+/**/                        ,blobccT.Uri.AppendPathSegment(b.Name)
+/**/                       ,b.Metadata.ContainsKey("Captions")? b.Metadata["Captions"]:b.Name)
+/**/              )
+/**/    .ToListAsync();
+        SearchTerm = term;
 /**/}
 ```
 
