@@ -326,6 +326,8 @@ public ActionResult OnPostSearchAsync()
 /**/}
 ```
 
+Ezzel így lekérdezzük az összes blob összes metaadatát és memóriában szűrünk. Alternatív lehetőségnek tűnhet a [blob index tags](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-index-how-to?tabs=azure-portal) töltése, amivel már Azure oldalon tudnánk szűrni. Sajnos a fenti szűrést nem lehet egy az egyben átfordítani szűrőkifejezéssé. A kulcsokat explicit meg kell adni, nem lehet a kulcsokra kifejezést megadni.
+
 4. Próba
 
 
