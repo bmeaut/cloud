@@ -14,7 +14,7 @@ A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
 ### Költségfigyelés
 https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage (Student előfieztésen nem működik a free usage monitor)
 Ebben laborban:
- - Storage -> 10 GB LRS blob hallgatóknak ingyenes 12 hónapig
+ - Storage -> 5 GB LRS blob hallgatóknak ingyenes 12 hónapig
  - Computer Vision -> ha free tier-t választod, akkor ingyenes (kvóta van)
  
  Ingyenes szolgáltatások: https://azure.microsoft.com/en-us/free/
