@@ -91,6 +91,8 @@ public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc)
 7. `BlobInfo` egy új `Models` alkönyvtárba
 
 ```csharp
+namespace intellipix.Models;
+
 public class BlobInfo
 {
     public string ImageUri { get; set; }
@@ -113,6 +115,7 @@ Az `IndexModel` tetejére:
 
 ```csharp
 using Flurl;
+using intellipix.Models;
 ```
 
 Cseréljük az eredeti `OnGet`-et erre:
