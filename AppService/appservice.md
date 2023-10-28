@@ -1,10 +1,12 @@
 # AppService SQL adatbázissal
 
-A gyakorlat menete hasonló, de több helyen eltér ettől [a hivatalos MS útmutatótól](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app).
+A gyakorlat menete hasonló, de több helyen eltér ettől [a gyakorlatanyagtól](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app).
+
+A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/tree/3655d08a7503ce5ff3951a74e420afc639a8b7a8).
 
 ## Azure SQL
 
-  - válasszuk: standalone Standard S0 (10 DTU) - **12 hónapig ingyenes** (https://azure.microsoft.com/en-us/free/free-account-faq/) vagy serverless (Development workload-ot választva ingyenes)
+  - válasszuk: serverless (Development workload)
   - Networking (a szerveren) - állítsuk be a saját IP-nket (_Add Client IP_) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
 )
   - nézzük meg:
@@ -18,7 +20,7 @@ A gyakorlat menete hasonló, de több helyen eltér ettől [a hivatalos MS útmu
     
 ## Példaprojekt beüzemelése
 
-  - Töltsük le a [példaprojektet](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore)
+  - Töltsük le a [példaprojektet]([https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/3655d08a7503ce5ff3951a74e420afc639a8b7a8.zip))
   - Azure-os connection string dotnet user secret-be, majd EF Migrations beüzemelése
   ```powershell
   dotnet user-secrets init
@@ -45,7 +47,8 @@ A gyakorlat menete hasonló, de több helyen eltér ettől [a hivatalos MS útmu
 Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
   
  ## Git deployment
-  
+
+ Aletrnatívaként a gyakorlatanyagból az Azure CLI-s megoldás is jó lehet.
  A solution könyvtárában álljunk!
   - `git init`
   - `git add --all` (.gitignore már van a projektben)
