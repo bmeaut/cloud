@@ -1,6 +1,6 @@
 # AppService SQL adatbázissal
 
-A gyakorlat menete hasonló, de több helyen eltér ettől [a gyakorlatanyagtól](https://learn.microsoft.com/en-us/azure/app-service/tutorial-dotnetcore-sqldb-app).
+A gyakorlat menete hasonló, de több helyen eltér ettől [a gyakorlatanyagtól](https://github.com/BMEVIAUBB04/gyakorlat-azure).
 
 A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/tree/3655d08a7503ce5ff3951a74e420afc639a8b7a8).
 
