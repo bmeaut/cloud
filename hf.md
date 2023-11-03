@@ -1,6 +1,6 @@
 # Házi feladat feltételrendszer - 2023/24 őszi félév
 
-*Még nincs véglegesítve a félévre*
+*Véglegesítve a félévre 2023. november 3-án*
 
 A 2023/24-es őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
