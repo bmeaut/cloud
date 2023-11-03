@@ -44,8 +44,15 @@ A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https:/
   - App Insights: nem kell (még)
 
 Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
+
+ ## App Service Configuration
+ 
+ - A portálról másoljuk ki a connection string-et
+ - Configuration / App Settings
+ - adjuk meg a connection stringet a secretnek megfelelően
+ - Most már jónak kell lennie
   
- ## Git deployment
+ ## Deployment
 
  Aletrnatívaként a gyakorlatanyagból az Azure CLI-s megoldás is jó lehet.
  A solution könyvtárában álljunk!
@@ -61,13 +68,6 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
  ## Diagnose & solve problems
  
  - Diagnose & solve problems > Application Logs
- 
- ## App Service Configuration
- 
- - A portálról másoljuk ki a connection string-et
- - Configuration / App Settings
- - adjuk meg a connection stringet a secretnek megfelelően
- - Most már jónak kell lennie
  
  ## SQL AD Auth MSI-vel
  
