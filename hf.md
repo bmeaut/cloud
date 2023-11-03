@@ -46,7 +46,7 @@ Beszámított idő képzési tervenként: a képzési terv címe alatt látható
 Az egyetemi M365 account-otokkal (@edu.bme.hu) belépve a [MS Learn oldalra](https://learn.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
   - belekérdezünk az elméleti részbe (lásd a modulok végén a "knowledge check" részeket) 
-  - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájlt Azure Data Lake Storage Gen1-be)
+  - vagy egy kisebb gyakorlati rész újraelvégzését kérjük (pl. tölts föl egy fájlt Azure Data Lake Storage-be)
   - vagy ha megvannak még az Azure erőforrások, akkor azt kérjük, hogy mutasd be az elkészült alkalmazást
 
 Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a teljes képzési terv idejéből semmit sem lehet beszámítani.
@@ -88,7 +88,7 @@ A fenti feltételeknek megfelelő összes elvégzett és megvédett képzési te
 
 A költségek megtervezése, figyelése is a feladat része. Ha a hallgatói előfizetésen a kredit elfogy, az előfizetés befagyasztásra kerül. Vannak erőforrástípusok, melyeknél a leállítás csökkenti vagy megszünteti a költséget (pl. virtuális gép), ugyanakkor vannak, melyeket nem lehet költségsprólás miatt "kikapcsolni" (tipikusan a tárolást végző erőforrások, adatbázisok). A kredit elfogyása megakadályozhatja, hogy elvégezzétek a házi feladatot!
 
-*Tipp*: vannak olyan képzési tervek, ahol lehetőség van *Microsoft Learn Sandbox* használatára (pl. [ebben a modulban](https://learn.microsoft.com/en-us/learn/modules/create-cosmos-db-for-scale/2-create-an-account)), ilyenkor ez még egy utolsó mentsvár lehet, hiszen ez egy olyan Azure környezet, amihez nem kell előfizetés. A Microsoft Learn Sandbox-ról bővebben [itt](https://learn.microsoft.com/en-us/learn/support/faq?pivots=sandbox).
+*Tipp*: vannak olyan képzési tervek, ahol lehetőség van *Microsoft Learn Sandbox* használatára (pl. [ebben a modulban]([https://learn.microsoft.com/en-us/learn/modules/create-cosmos-db-for-scale/2-create-an-account](https://learn.microsoft.com/en-us/training/modules/chain-azure-functions-data-using-bindings/3-explore-input-and-output-binding-types-portal-lab?pivots=javascript))), ilyenkor ez még egy utolsó mentsvár lehet, hiszen ez egy olyan Azure környezet, amihez nem kell előfizetés. A Microsoft Learn Sandbox-ról bővebben [itt](https://learn.microsoft.com/en-us/learn/support/faq?pivots=sandbox).
 
 Ha a házi feladat elvégzése **után**, de a védés előtt fogy el a kredit, az nem kizáró ok a védésre, de törekedjetek rá, hogy ez ne történjen meg. Nem kötelező a házi feladat elvégzése után az erőforrásokat megtartani, ha máskülönben elfogyott volna az előfizetésen a kredit. Az Azure Sandbox erőforrások legfeljebb 4 óráig élnek, így értelemszerűen nem kell (nem is lehet) őket megtartani.
 
