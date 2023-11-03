@@ -55,6 +55,7 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
  ## Deployment
 
  Aletrnatívaként a gyakorlatanyagból az Azure CLI-s megoldás is jó lehet.
+ 
  A solution könyvtárában álljunk!
   - `git init`
   - `git add --all` (.gitignore már van a projektben)
