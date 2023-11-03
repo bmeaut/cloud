@@ -51,28 +51,6 @@ Ezen túlmenően szúrópróbaszerűen
 
 Ha valamelyik képzési terv bármely moduljánál a védés nem sikerül, a teljes képzési terv idejéből semmit sem lehet beszámítani.
 
-## Microsoft Cloud Workshop
-
-Bármelyik *Hands-on lab* (továbbiakban:labor) ideje beszámítható a [Microsoft Cloud Workshop](https://microsoftcloudworkshop.com/) oldalról. Ezek általában komplexebb gyakorlatok a Microsoft Learn oldalhoz képest, több Azure erőforrást használnak. 
-
-Egyéb szabályok:
-- csak olyan labort végezzetek el, ahol a laborútmutatóban az egyes feladatoknál meg van adva időtartam (pl. Duration: 45 minutes) [Példa](assets/mcw_duration.png)
-- részben teljesített laborok nem elfogadhatók
-
-Tippek:
-- laborok egy github repo-ban vannak, a repo-n belül a *Hands-On lab* mappában vannak a legfontosabb leírások
-- általában egy *Before the HOL - <labor címe>.md* fájl írja le, hogy milyen előfeltételei vannak a labornak. Ezt előzetesen érdemes átolvasni.
-- általában egy *HOL step-by-step - <labor címe>.md* maga a laborútmutató
-
-Beszámított idő laboronként: a feladatoknál megadott időtartamok összege
-
-### Védés
-Szúrópróbaszerűen 
-  - a laborútmutatóból egy kisebb rész újraelvégzését kérjük
-  - vagy ha megvannak még az Azure erőforrások, akkor azt kérjük, hogy mutasd be az elkészült alkalmazást
-
-Ha valamelyik labor bármely feladatánál a védés nem sikerül, a teljes labor idejéből semmit sem lehet beszámítani.
-
 ## Értékelés
 
 A fenti feltételeknek megfelelő összes elvégzett és megvédett képzési terv/gyakorlat/labor beszámítható időtartamait összeadjuk és ezen összeg alapján alakul ki a félévközi jegy. A jegy számítása:
