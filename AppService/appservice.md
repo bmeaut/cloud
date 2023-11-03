@@ -21,7 +21,7 @@ A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https:/
 ## Példaprojekt beüzemelése
 
   - Töltsük le a [példaprojektet]([https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/3655d08a7503ce5ff3951a74e420afc639a8b7a8.zip))
-  - Azure-os connection string dotnet user secret-be, majd EF Migrations beüzemelése
+  - Azure-os connection string dotnet user secret-be, majd EF Migrations beüzemelése. A projektfájl (.csproj) könyvtárában:
   ```powershell
   dotnet user-secrets init
   dotnet user-secrets set "ConnectionStrings:MyDbConnection" "connectionstringünk"
