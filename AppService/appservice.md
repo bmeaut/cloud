@@ -26,7 +26,6 @@ A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https:/
   dotnet user-secrets init
   dotnet user-secrets set "ConnectionStrings:MyDbConnection" "connectionstringünk"
   dotnet tool install -g dotnet-ef
-  dotnet ef migrations add InitialCreate
   dotnet ef database update --connection "connectionstringünk"
   ```
   - jelszót ne felejtsük el beírni a connection string-be!
