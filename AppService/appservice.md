@@ -31,7 +31,6 @@ A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https:/
   - jelszót ne felejtsük el beírni a connection string-be!
   - futtat, próba. Ellenőrizzük weben az adatbázis tartalmat.
 
-
 ## Web App / App Service
 
   - https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
@@ -50,7 +49,6 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
  - A portálról másoljuk ki a connection string-et
  - Configuration / App Settings
  - adjuk meg a connection stringet a secretnek megfelelően
- - Most már jónak kell lennie
   
  ## Deployment
 
@@ -64,7 +62,6 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
   - `git remote add <remote név> <git deployment url>`
   - push ( `git push --set-upstream az master`), push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
     - ha elrontottuk, akkor Windows-on a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
- - nem jó még, hiba van
  
  ## Diagnose & solve problems
  
