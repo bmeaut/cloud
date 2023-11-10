@@ -113,7 +113,11 @@ WHERE dp.name = 'your_msi_principal';
 ```
 
  ## Csatlakozás fejlesztői gépről AD felhasználóként
- 
+
+ - csproj fájlban a user secrets kezelést kikapcsolni
+   ```xml
+   <!--<UserSecretsId>...</UserSecretsId>-->
+   ```
  - `appsettings.Development.json`-be connection stringet átírni: 
     ```
     "Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Default;Database=<database-name>;"
