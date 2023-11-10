@@ -80,8 +80,7 @@ ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
 ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"`
- - Próba, nem működik :(
- - Frissítsük az SqlClient-et: `dotnet add package Microsoft.Data.SqlClient --version 5.0.1` (**nem!** System.Data.SqlClient) Commit+push.
+ - Frissítsük az SqlClient-et: `dotnet add package Microsoft.Data.SqlClient --version 5.0.1` (**nem!** System.Data.SqlClient) Újra publikálás,
 
  - Ellenőrző szkript felhasználók listázásához 
 ```sql
@@ -101,15 +100,14 @@ order by username;
 SELECT dp.name AS principal_name, dp.type_desc AS principal_type, r.name AS role_name
 FROM sys.database_role_members AS m
 JOIN sys.database_principals AS dp ON m.member_principal_id = dp.principal_id
-JOIN sys.database_principals AS r ON m.role_principal_id = r.principal_id
-WHERE dp.name = 'your_msi_principal';
+JOIN sys.database_principals AS r ON m.role_principal_id = r.principal_id;
 
 -- List of object-level permissions for the MSI user
 SELECT d.name AS object_name, dp.name AS principal_name, dp.type_desc AS principal_type, p.permission_name
 FROM sys.database_permissions AS p
 JOIN sys.database_principals AS dp ON p.grantee_principal_id = dp.principal_id
 LEFT JOIN sys.objects AS d ON p.major_id = d.object_id
-WHERE dp.name = 'your_msi_principal';
+WHERE dp.name NOT IN ('dbo','public');
 ```
 
  ## Csatlakozás fejlesztői gépről AD felhasználóként
