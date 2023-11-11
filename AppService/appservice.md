@@ -160,14 +160,16 @@ az ad sp show --id <a login_name @ előtti része>
  ## Deployment slots
  
  - fel kell skálázni S1 szintre (**0,085 EUR/óra költség!**)
- - hozzunk létre új slot-ot *test* néven
- - ez egy új app, inicializálni kell a deployment opciókat
- - Identity-t be kell kapcsolni + fel kell venni az SQL adatbázisba a slot felhasználót `[<appnév>/slots/<slotnév>]`
+ - hozzunk létre új slot-ot *test* néven, klónoztassuk a configot az eredetiből
+ - ez egy új app,Identity-t be kell kapcsolni + fel kell venni az SQL adatbázisba a slot felhasználót `[<appnév>/slots/<slotnév>]`
  - legyen egy kis eltérés, pl. a \_Layout.cshtml-be:
    ```html
-   <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@(Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME") ?? "My TodoList App")</a>
+   <li class="nav-item">
+     <a class="nav-link text-dark" asp-area="" asp-controller="Todos" asp-action="Index">Todos</a>
+   </li>
    ```
- - push
+ - Ha git-tel publikálunk: deployment opciókat inicializálni, majd push
+ - Ha Az CLI-vel publikálunk: `--slot slotnév` hozzáadása az `az webapp deploy` parancshoz
  - [swap](https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#what-happens-during-a-swap) a két slot között
     
 ## Labor végén/után
