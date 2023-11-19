@@ -161,7 +161,7 @@ az ad sp show --id <a login_name @ előtti része>
  
  - fel kell skálázni S1 szintre (**0,085 EUR/óra költség!**)
  - hozzunk létre új slot-ot *test* néven, klónoztassuk a configot az eredetiből
- - ez egy új app,Identity-t be kell kapcsolni + fel kell venni az SQL adatbázisba a slot felhasználót `[<appnév>/slots/<slotnév>]`
+ - ez egy új app, Identity-t be kell kapcsolni + fel kell venni az SQL adatbázisba a slot felhasználót `[<appnév>/slots/<slotnév>]`
  - legyen egy kis eltérés, pl. a \_Layout.cshtml-be:
    ```html
    <li class="nav-item">
@@ -171,6 +171,10 @@ az ad sp show --id <a login_name @ előtti része>
  - Ha git-tel publikálunk: deployment opciókat inicializálni, majd push
  - Ha Az CLI-vel publikálunk: `--slot slotnév` hozzáadása az `az webapp deploy` parancshoz
  - [swap](https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#what-happens-during-a-swap) a két slot között
+
+## Azure Load test
+
+- [Load Test erőforrás és egyszerű load test létrehozása](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test?tabs=portal)
     
 ## Labor végén/után
 
