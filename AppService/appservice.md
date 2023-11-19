@@ -172,9 +172,11 @@ az ad sp show --id <a login_name @ előtti része>
  - Ha Az CLI-vel publikálunk: `--slot slotnév` hozzáadása az `az webapp deploy` parancshoz
  - [swap](https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#what-happens-during-a-swap) a két slot között
 
-## Azure Load test
+## Azure Load test & scale-out lehetőségek
 
 - [Load Test erőforrás és egyszerű load test létrehozása](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test?tabs=portal)
+- Load Test lefutás real-time megfigyeléssel (App Insights Live Metrics)
+- Scale-out lehetőségek bemutatása
     
 ## Labor végén/után
 
