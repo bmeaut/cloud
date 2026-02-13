@@ -1,12 +1,12 @@
-# Házi feladat feltételrendszer - 2023/24 őszi félév
+# Házi feladat feltételrendszer - 2025/26 tavaszi félév
 
-*Véglegesítve a félévre 2023. november 3-án*
+*Még nincs véglegesítve a félévre*
 
-A 2023/24-es őszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
+A 2025/26-os tavaszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
 ### Közös kötelező rész
 
-**[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://learn.microsoft.com/en-us/learn/certifications/azure-fundamentals/)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon görgessetek le a *Two ways to prepare* részhez, az *Online - Free* fülön található az összesen 3 képzési terv kb. 6 órában. **Mind a 3 terv** elvégzése kötelező.
+**[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://learn.microsoft.com/en-us/training/courses/az-900t00)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon 3 képzési terv található kb. 6 órában. **Mind a 3 terv** elvégzése kötelező.
 
 Ezen tervek ideje is beszámít a jegyszerzéshez.
 
@@ -65,8 +65,6 @@ A fenti feltételeknek megfelelő összes elvégzett és megvédett képzési te
 ## Azure erőforrások és költségek
 
 A költségek megtervezése, figyelése is a feladat része. Ha a hallgatói előfizetésen a kredit elfogy, az előfizetés befagyasztásra kerül. Vannak erőforrástípusok, melyeknél a leállítás csökkenti vagy megszünteti a költséget (pl. virtuális gép), ugyanakkor vannak, melyeket nem lehet költségsprólás miatt "kikapcsolni" (tipikusan a tárolást végző erőforrások, adatbázisok). A kredit elfogyása megakadályozhatja, hogy elvégezzétek a házi feladatot!
-
-*Tipp*: vannak olyan képzési tervek, ahol lehetőség van *Microsoft Learn Sandbox* használatára (pl. [ebben a modulban](https://learn.microsoft.com/en-us/training/modules/chain-azure-functions-data-using-bindings/3-explore-input-and-output-binding-types-portal-lab?pivots=javascript), ilyenkor ez még egy utolsó mentsvár lehet, hiszen ez egy olyan Azure környezet, amihez nem kell előfizetés. A Microsoft Learn Sandbox-ról bővebben [itt](https://learn.microsoft.com/en-us/learn/support/faq?pivots=sandbox).
 
 Ha a házi feladat elvégzése **után**, de a védés előtt fogy el a kredit, az nem kizáró ok a védésre, de törekedjetek rá, hogy ez ne történjen meg. Nem kötelező a házi feladat elvégzése után az erőforrásokat megtartani, ha máskülönben elfogyott volna az előfizetésen a kredit. Az Azure Sandbox erőforrások legfeljebb 4 óráig élnek, így értelemszerűen nem kell (nem is lehet) őket megtartani.
 
