@@ -1,14 +1,14 @@
-# Megajánlott jegyként elfogadott Microsoft minősítések - 2023. ősz
-Véglegesítve 2023. őszi félévre 2023. október 2-án
+# Megajánlott jegyként elfogadott Microsoft minősítések - 2026. tavasz
+Még nincs véglegesítve 2026. őszi félévre
 
 A minősítésnek 
 * szerep alapú (ún. role-based) vagy fundamentals típusúnak kell lennie
 * és Azure technológiára kell vonatkoznia
 
 Az itt listázott minősítések számítanak:
-* [Role-based](https://docs.microsoft.com/en-us/learn/certifications/browse/?products=azure&type=role-based)
-* [Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/browse/?certificationtype=role-based&resource_type=certification&type=fundamentals&products=azure)
-  * ajánlott: [AZ-900](https://learn.microsoft.com/en-us/certifications/exams/az-900/)
+* [Role-based](https://learn.microsoft.com/en-us/credentials/browse/?products=azure&expanded=certification&credential_types=role-based)
+* [Fundamentals](https://learn.microsoft.com/en-us/credentials/browse/?products=azure&expanded=certification&credential_types=fundamentals)
+  * ajánlott: [Azure Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals)
 
 A fenti halmazon belül a fundamentals szintű minősítések 4-est, a többiek 5-öst érnek.
 
