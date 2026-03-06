@@ -7,6 +7,8 @@ Sajnos már teljesen elavult a leírás :disappointed:
 
 Azure SDK for .NET csomagok: https://azure.github.io/azure-sdk/releases/latest/all/dotnet.html
 
+https://docs.azure.cn/en-us/search/cognitive-search-skill-image-analysis
+
 ## [Azure Portal](https://portal.azure.com/) 
 ### Nyelvi beállítások
 A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
