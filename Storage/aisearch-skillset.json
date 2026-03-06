@@ -1,0 +1,33 @@
+{
+  "name": "image-captions-skillset",
+  "skills": [
+    {
+      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+      "name": "imageCaptions",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "visualFeatures": [
+        "description",
+        "tags"
+      ],
+      "details": [],
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*",
+          "inputs": []
+        }
+      ],
+      "outputs": [
+        {
+          "name": "description",
+          "targetName": "description"
+        },
+        {
+          "name": "tags",
+          "targetName": "tags"
+        }
+      ]
+    }
+  ]
+}
