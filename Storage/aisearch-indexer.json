@@ -1,0 +1,34 @@
+{
+  "name": "image-captions-minimal-indexer",
+  "description": null,
+  "dataSourceName": "ipix2ds",
+  "skillsetName": "image-captions-skillset",
+  "targetIndexName": "ipix2idx",
+  "disabled": null,
+  "schedule": null,
+  "parameters": {
+    "batchSize": null,
+    "maxFailedItems": null,
+    "maxFailedItemsPerBatch": null,
+    "configuration": {
+      "imageAction": "generateNormalizedImages",
+      "dataToExtract": "contentAndMetadata",
+      "indexedFileNameExtensions": ".jpg,.jpeg,.png,.bmp,.gif"
+    }
+  },
+  "fieldMappings": [],
+  "outputFieldMappings": [
+    {
+      "sourceFieldName": "/document/normalized_images/*/description",
+      "targetFieldName": "description",
+      "mappingFunction": null
+    },
+    {
+      "sourceFieldName": "/document/normalized_images/*/tags/*",
+      "targetFieldName": "tags",
+      "mappingFunction": null
+    }
+  ],
+  "cache": null,
+  "encryptionKey": null
+}
