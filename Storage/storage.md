@@ -168,7 +168,7 @@ public async Task OnGetAsync()
            <form method="post" enctype="multipart/form-data" asp-page-handler="Upload">
                 <input type="file" asp-for="Upload" id="upload" class="d-none" onchange="this.form.requestSubmit();" />
                 <button type="button" class="btn btn-primary btn-lg" onclick="document.getElementById('upload').click();">
-                    Upload a Photo
+                    Upload
                 </button>
             </form>
         </div>
@@ -193,23 +193,28 @@ public IFormFile? Upload { get; set; }
 
 public async Task<IActionResult> OnPostUploadAsync()
 {
-    if (Upload != null)
+    if (Upload is { Length: > 0 })
     {
-        BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
-        BlobClient blobc = blobccP.GetBlobClient(Upload.FileName);
-        using Stream stream = Upload.OpenReadStream();
-        var resp = await blobc.UploadAsync(stream);
-        /*ide jön majd a computer vision logika*/
-        stream.Seek(0, SeekOrigin.Begin);
-        using Image image = Image.Load(stream);
-        image.Mutate(x => x.Resize(192, 0));
-        BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
-        using MemoryStream memoryStream = new MemoryStream();
-        image.Save(memoryStream, image.Metadata.DecodedImageFormat);
-        memoryStream.Seek(0, SeekOrigin.Begin);
-        await blobccT.UploadBlobAsync(Upload.FileName, memoryStream);
+        // Demo only: in a real app, do NOT trust user-provided filenames; sanitize and/or generate your own blob names.
+        var fileName = Upload.FileName;
+        var photosContainer = blobSvc.GetBlobContainerClient(PhotosContainerName);
+        var thumbnailsContainer = blobSvc.GetBlobContainerClient(ThumbnailsContainerName);
+        var photoBlob = photosContainer.GetBlobClient(fileName);
+        await using (var uploadStream = Upload.OpenReadStream())
+        {
+            await photoBlob.UploadAsync(uploadStream, overwrite: true, cancellationToken: HttpContext.RequestAborted);
+        }
+        await using var imageStream = Upload.OpenReadStream();
+        using var image = await Image.LoadAsync(imageStream, cancellationToken: HttpContext.RequestAborted);
+        image.Mutate(x => x.Resize(ThumbnailWidthPx, 0));
+        using var thumbnailStream = new MemoryStream();
+        var format = image.Metadata.DecodedImageFormat ?? PngFormat.Instance;
+        await image.SaveAsync(thumbnailStream, format, cancellationToken: HttpContext.RequestAborted);
+        thumbnailStream.Position = 0;
+        var thumbnailBlob = thumbnailsContainer.GetBlobClient(fileName);
+        await thumbnailBlob.UploadAsync(thumbnailStream, overwrite: true, cancellationToken: HttpContext.RequestAborted);
     }
-    return RedirectToAction("Index");
+    return RedirectToPage();
 }
 ```
 
