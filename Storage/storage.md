@@ -75,6 +75,7 @@ VSCode-ban a könyvtár megnyitása (Solution Explorer-ben). Indítási projekt 
 ```powershell
 dotnet add package Azure.Storage.Blobs
 dotnet add package Microsoft.Extensions.Azure
+dotnet add package SixLabors.ImageSharp
 ```
 
 5. Blob client regisztrálás a DI-ba a a Program.cs-ben a többi `builder.Services` sor alá
@@ -91,10 +92,16 @@ builder.Services.AddAzureClients(azb =>
 6. `IndexModel`-ben elkérjük a klienst
 
 ```csharp
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Sas;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.Processing;
+
 //class definíció átírva
 public class IndexModel(BlobServiceClient blobSvc): PageModel
 ```
-
 
 7. `BlobInfo` record típus
 
@@ -109,6 +116,7 @@ Az `IndexModel`-be:
 ```csharp
 private const string PhotosContainerName = "photos";
 private const string ThumbnailsContainerName = "thumbnails";
+public IEnumerable<BlobInfo> Blobs { get; set; } = [];
 
 private static BlobSasQueryParameters CreateContainerSas(
     BlobContainerClient containerClient,
@@ -154,24 +162,23 @@ public async Task OnGetAsync()
 9. Felület az Index.cshtml-be
 
 ```html
-<div class="container" style="padding-top: 24px">
+<div class="pt-4">
     <div class="row">
         <div class="col-sm-8">
-           <form method="post" enctype="multipart/form-data">
-                <input type="file" asp-for="Upload" id="upload" style="display: none" onchange="$('#submit').click();"/>
-                <input type="button" value="Upload a Photo" class="btn btn-primary btn-lg" onclick="$('#upload').click();" />
-                <input type="submit" id="submit" style="display: none" asp-page-handler="Upload"/>
+           <form method="post" enctype="multipart/form-data" asp-page-handler="Upload">
+                <input type="file" asp-for="Upload" id="upload" class="d-none" onchange="this.form.requestSubmit();" />
+                <button type="button" class="btn btn-primary btn-lg" onclick="document.getElementById('upload').click();">
+                    Upload a Photo
+                </button>
             </form>
-        </div>
-        <div class="col-sm-4 float-right">
         </div>
     </div>
     <hr />
     <div class="row">
         <div class="col-sm-12">
-            @foreach (BlobInfo blob in Model.Blobs ?? Enumerable.Empty<BlobInfo>())
+            @foreach (var blob in Model.Blobs)
             {
-                <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
+                <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" alt="" loading="lazy" class="me-3 mb-3" />
             }
         </div>
     </div>
