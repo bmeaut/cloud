@@ -1,7 +1,7 @@
 {
   "name": "image-captions-minimal-indexer",
   "description": null,
-  "dataSourceName": "ipix2ds",
+  "dataSourceName": "ipixds",
   "skillsetName": "image-captions-skillset",
   "targetIndexName": "ipix2idx",
   "disabled": null,
