@@ -267,12 +267,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-## Computer Vision szolgáltatás bekötése
+## AI Search szolgáltatás bekötése
 
 1. NuGet csomag hozzáadása
 
 ```bash
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
+dotnet add package Azure.Search.Documents
 ```
 
 Ez a csomag az API 3.x-es verzióját hívja, a legújabb 4-es API verzióval kompatibilis [csomag](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/sdk/install-sdk?tabs=windows%2Cubuntu%2Cdotnetcli%2Cterminal%2Cmaven&pivots=programming-language-csharp) jelenleg még beta állapotban van.
