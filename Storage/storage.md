@@ -275,15 +275,14 @@ document.addEventListener('DOMContentLoaded', () => {
 dotnet add package Azure.Search.Documents
 ```
 
-Ez a csomag az API 3.x-es verzióját hívja, a legújabb 4-es API verzióval kompatibilis [csomag](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/sdk/install-sdk?tabs=windows%2Cubuntu%2Cdotnetcli%2Cterminal%2Cmaven&pivots=programming-language-csharp) jelenleg még beta állapotban van.
-
-4. Vision client regisztrálás a DI-ba a `Startup.ConfigureServices`-ben
+4. Search client regisztrálás a DI-ba a Program.cs-ben
 
 ```csharp
-builder.Services.AddSingleton(provider => {
-    return new ComputerVisionClient(new ApiKeyServiceClientCredentials(builder.Configuration["AzVision:Key"]))
-        {Endpoint = builder.Configuration["AzVision:Endpoint"]};
-});
+//builder.Services.AddAzureClients(azb =>
+//{
+//    azb.AddBlobServiceClient(...);
+      azb.AddSearchClient(new Uri("https://ipixNEPTUN.search.windows.net"), "ipixidx");
+//});
 ```
 
 5. A kliens elkérése az `IndexModel` konstruktorban
