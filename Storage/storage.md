@@ -228,22 +228,48 @@ public async Task<IActionResult> OnPostUploadAsync()
 
 13. Nézzük meg a kép URL-eket a weboldal forrásában.
 
-## Ex. 4.
-- Kihagyható
+## Opcionális: GLightbox
 
-## Ex. 5.
-1. Computer Vision szolgáltatás létrehozása
- - F0 plan
- - ugyanabba a resource group-ba és régióba, mint ahol a storage account van
+1. A _Layout.cshtml-be a többi CSS, js mellé
 
-2. Új secret-ek a Keys & Endpoint lapról
-
-```bash
-dotnet user-secrets set "AzVision:Endpoint" "https://valami.cognitiveservices.azure.com/"
-dotnet user-secrets set "AzVision:Key" "titok"
+```aspnetcorerazor
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css" />    
 ```
 
-3. NuGet csomag hozzáadása
+```aspnetcorerazor
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js"></script>
+```
+
+2. Az Index.cshtml-ben az img tag-et vegyük körbe egy <a> tag-gel
+
+```aspnetcorerazor
+<a href="@blob.ImageUri"
+  class="glightbox"
+  data-gallery="photos"
+  data-title="@blob.Caption">
+   <img src="..." />
+</a>
+```
+
+3. A _wwwroot/js/site.js_-ben, inicializáljuk a GLightbox-ot
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+	if (typeof GLightbox === 'undefined') {
+		return;
+	}
+
+	GLightbox({
+		selector: '.glightbox',
+		loop: true,
+		touchNavigation: true
+	});
+});
+```
+
+## Computer Vision szolgáltatás bekötése
+
+1. NuGet csomag hozzáadása
 
 ```bash
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision
