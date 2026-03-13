@@ -139,7 +139,7 @@ public async Task OnGetAsync()
         startsOn: DateTimeOffset.UtcNow.AddMinutes(-5),
         expiresOn: DateTimeOffset.UtcNow.AddDays(1));
     var photosSas = CreateContainerSas(photosClient, delegationKey, blobSvc.AccountName);
-    var thumbnailsSas = CreateContainerSas(thumbnailsClient, delegationKey, blobSvc.Account
+    var thumbnailsSas = CreateContainerSas(thumbnailsClient, delegationKey, blobSvc.AccountName);
     Blobs = await photosClient.GetBlobsAsync()
         .Select(b => new BlobInfo(
                         new BlobUriBuilder(photosClient.Uri) 
