@@ -13,15 +13,15 @@ https://docs.azure.cn/en-us/search/cognitive-search-skill-image-analysis
 ### Nyelvi beállítások
 A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
 
-### Költségfigyelés
-https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage (Student előfieztésen nem működik a free usage monitor)
+### Költségek
+Ingyenes szolgáltatások: https://azure.microsoft.com/en-us/pricing/free-services
+Ellenőrzés: https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage
+Költségfigyelés: https://learn.microsoft.com/en-us/azure/cost-management-billing/benefits/credits/mca-check-azure-credits-balance?tabs=portal
+
 Ebben laborban:
- - Storage -> 5 GB LRS blob hallgatóknak ingyenes 12 hónapig
- - Computer Vision -> ha free tier-t választod, akkor ingyenes (kvóta van)
- 
- Ingyenes szolgáltatások: https://azure.microsoft.com/en-us/free/
- Azure sponsorship portál: https://www.microsoftazuresponsorships.com/ 
- 
+ - Storage -> 5 GB LRS blob 12 hónapig ingyenes
+ - Azure AI Search -> 50 MB tárhely, 10k dokumentum és 3 index ingyenes
+  
 **Tehát az egész labort ingyenes erőforrásokkal végig lehet csinálni.**
 
 ### Névválasztás
