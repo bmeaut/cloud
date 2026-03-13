@@ -35,14 +35,17 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - Advanced fül: ne engedélyezzük a hozzáférési kulcsokat (access keys), az Azure portal is Entra auth-ot használjon
 - resourcegroup: IntellipixResources
 - két konténert hozzunk létre Storage Browser-ben: photos, thumbnails
+- adjunk magunknak jogot, Scope: Storage account; Role: Blob Data Contributor; Subject: saját magunk
+- Azure portal logout-loginra
 - töltsünk fel pár képet
 
 ## Azure AI Search létrehozás
 - Ingyenes csomagot válasszuk
 
-## Azure AI Search <=> Storage integráció
+## Azure AI Search => Storage integráció
 - AI Search: kapcsoljuk be a System assigned identity-t (_Identity_ menüpont)
-- RBAC role assignment - Scope: Storage account; Role: Blob Data Reader; Subject: Search Service managed identity
+- Storage: RBAC role assignment - Scope: Storage account; Role: Blob Data Reader; Subject: Search Service managed identity
+- AI Search: data source-ként vegyük fel a _Storage account/photos_ konténert _ipixds_ néven
 
 ## Ex. 3.
 1. ASP.NET Core MVC projekt (`Intellipix`)
