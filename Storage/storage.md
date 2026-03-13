@@ -7,8 +7,6 @@ Sajnos már teljesen elavult a leírás :disappointed:
 
 Azure SDK for .NET csomagok: https://azure.github.io/azure-sdk/releases/latest/all/dotnet.html
 
-https://docs.azure.cn/en-us/search/cognitive-search-skill-image-analysis
-
 ## [Azure Portal](https://portal.azure.com/) 
 ### Nyelvi beállítások
 A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
@@ -46,6 +44,17 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - AI Search: kapcsoljuk be a System assigned identity-t (_Identity_ menüpont)
 - Storage: RBAC role assignment - Scope: Storage account; Role: Blob Data Reader; Subject: Search Service managed identity
 - AI Search: data source-ként vegyük fel a _Storage account/photos_ konténert _ipixds_ néven
+
+## Azure AI Search indexelés
+https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-image-analysis
+- Index létrehozás: importáljuk az index JSON-t
+- Skillset létrehozás: importáljuk a skillset JSON-t
+- Indexer létrehozás: importáljuk az indexer JSON-t
+- Indexer lefutás ellenőrzés
+
+## Opcionális: Indexer debug session
+- Storage: RBAC role assignment - Scope: Storage account; Role: Blob Data Contributor; Subject: Search Service managed identity
+- Új Debug session felvétele
 
 ## Ex. 3.
 1. ASP.NET Core MVC projekt (`Intellipix`)
