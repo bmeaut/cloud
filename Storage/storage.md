@@ -52,7 +52,7 @@ https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-image-anal
 - Indexer létrehozás: importáljuk az indexer JSON-t
 - Indexer lefutás ellenőrzés
 
-## Opcionális: Indexer debug session
+## Opcionális: indexer debug session
 - Storage: RBAC role assignment - Scope: Storage account; Role: Blob Data Contributor; Subject: Search Service managed identity
 - Új Debug session felvétele
 
