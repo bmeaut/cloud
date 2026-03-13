@@ -56,8 +56,8 @@ https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-image-anal
 - Storage: RBAC role assignment - Scope: Storage account; Role: Blob Data Contributor; Subject: Search Service managed identity
 - Új Debug session felvétele
 
-## Ex. 3.
-1. ASP.NET Core MVC projekt (`Intellipix`)
+## ASP.NET Core projekt létrehozás
+1. ASP.NET Core Razor Pages projekt (`Intellipix`)
 
 - Új könyvtár létrehozása `mkdir intellipix`
 - Új projekt
@@ -68,90 +68,85 @@ dotnet new webapp
 
 2. Próba
 
-VSCode-ban a könyvtár megnyitása. Dotnet assetek generáltatása.
+VSCode-ban a könyvtár megnyitása (Solution Explorer-ben). Indítási projekt beállítása.
 
 3. NuGet csomagok
 
 ```powershell
-dotnet add package SixLabors.ImageSharp
 dotnet add package Azure.Storage.Blobs
-dotnet add package System.Interactive.Async
 dotnet add package Microsoft.Extensions.Azure
-dotnet add package Flurl
-```
-
-4. Connection string => User Secrets.  A teljes connection string legyen benne ne csak az access key!
-
-```bash
-dotnet user-secrets init
-dotnet user-secrets set "AzStore:connectionString" "connstring"
 ```
 
 5. Blob client regisztrálás a DI-ba a a Program.cs-ben a többi `builder.Services` sor alá
 
 ```csharp
+using Microsoft.Extensions.Azure;
+//builder.Services.
 builder.Services.AddAzureClients(azb =>
 {
-    azb.AddBlobServiceClient(builder.Configuration.GetSection("AzStore"));
+    azb.AddBlobServiceClient(new Uri("https://ipix.blob.core.windows.net"));
 });
 ```
 
 6. `IndexModel`-ben elkérjük a klienst
 
 ```csharp
-private readonly BlobServiceClient _blobSvc;
-public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc)
-{
-    _logger = logger;
-    _blobSvc = blobSvc;
-}
+//class definíció átírva
+public class IndexModel(BlobServiceClient blobSvc): PageModel
 ```
 
 
-7. `BlobInfo` egy új `Models` alkönyvtárba
+7. `BlobInfo` record típus
 
 ```csharp
-namespace intellipix.Models;
-
-public class BlobInfo
-{
-    public string ImageUri { get; set; }
-    public string ThumbnailUri { get; set; }
-    public string? Caption { get; set; }
-
-    public BlobInfo(string imageUri, string thumbnailUri, string? caption=default)
-    {
-        ImageUri = imageUri;
-        ThumbnailUri = thumbnailUri;
-        Caption = caption;
-    }
-}
+public record BlobInfo(string ImageUri, string ThumbnailUri, string? Caption = default);
 ```
-
 
 8. Blob adatok listázása az `IndexModel`-be
 
-Az `IndexModel` tetejére:
+Az `IndexModel`-be:
 
 ```csharp
-using Flurl;
-using intellipix.Models;
+private const string PhotosContainerName = "photos";
+private const string ThumbnailsContainerName = "thumbnails";
+
+private static BlobSasQueryParameters CreateContainerSas(
+    BlobContainerClient containerClient,
+    UserDelegationKey delegationKey,
+    string accountName)
+{
+    var sasBuilder = new BlobSasBuilder
+    {
+        BlobContainerName = containerClient.Name,
+        Resource = "c",
+        StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
+        ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(30),
+        CacheControl = "max-age=1800"
+    };
+    sasBuilder.SetPermissions(BlobContainerSasPermissions.Read);
+    return sasBuilder.ToSasQueryParameters(delegationKey, accountName);
+}
 ```
 
 Cseréljük az eredeti `OnGet`-et erre:
 
 ```csharp
-public IEnumerable<BlobInfo> Blobs { get; set; } = Enumerable.Empty<BlobInfo>();
-
-public async Task OnGet()
+public async Task OnGetAsync()
 {
-    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
-    BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
-    Blobs = await blobccP.GetBlobsAsync()
+    var photosClient = blobSvc.GetBlobContainerClient(PhotosContainerName);
+    var thumbnailsClient = blobSvc.GetBlobContainerClient(ThumbnailsContainerName);
+    var delegationKey = await blobSvc.GetUserDelegationKeyAsync(
+        startsOn: DateTimeOffset.UtcNow.AddMinutes(-5),
+        expiresOn: DateTimeOffset.UtcNow.AddDays(1));
+    var photosSas = CreateContainerSas(photosClient, delegationKey, blobSvc.AccountName);
+    var thumbnailsSas = CreateContainerSas(thumbnailsClient, delegationKey, blobSvc.Account
+    Blobs = await photosClient.GetBlobsAsync()
         .Select(b => new BlobInfo(
-                        blobccP.Uri.AppendPathSegment(b.Name)
-                        ,blobccT.Uri.AppendPathSegment(b.Name))
-               )
+                        new BlobUriBuilder(photosClient.Uri) 
+                            { BlobName = b.Name, Sas = photosSas }.ToUri().ToString()
+                        , new BlobUriBuilder(thumbnailsClient.Uri) 
+                            { BlobName = b.Name, Sas = thumbnailsSas }.ToUri().ToString()
+               ))
     .ToListAsync();
 }
 ```
