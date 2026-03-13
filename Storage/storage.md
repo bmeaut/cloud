@@ -116,6 +116,7 @@ Az `IndexModel`-be:
 ```csharp
 private const string PhotosContainerName = "photos";
 private const string ThumbnailsContainerName = "thumbnails";
+private const int ThumbnailWidthPx = 192;
 public IEnumerable<BlobInfo> Blobs { get; set; } = [];
 
 private static BlobSasQueryParameters CreateContainerSas(
@@ -220,7 +221,7 @@ public async Task<IActionResult> OnPostUploadAsync()
 
 11. Példaképek [letöltése](/assets/cs-storage-resources.zip)
 
-12. Nézzük meg mit műveltünk Azure Storage Explorer-ben és a weboldal forrásában is. Ha átírjuk a thumbnail URI-ban a /thumbnail/-t /photos/-ra, megkapjuk az eredeti képet.
+12. Nézzük meg a kép URL-eket a weboldal forrásában.
 
 ## Ex. 4.
 - Kihagyható
