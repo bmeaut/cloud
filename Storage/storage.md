@@ -47,6 +47,9 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 
 ## Azure AI Search indexelés
 https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-image-analysis
+
+https://learn.microsoft.com/en-us/azure/search/search-how-to-index-azure-blob-storage#indexing-blob-metadata
+
 - Index létrehozás: importáljuk az index JSON-t
 - Skillset létrehozás: importáljuk a skillset JSON-t
 - Indexer létrehozás: importáljuk az indexer JSON-t
@@ -221,7 +224,9 @@ public async Task<IActionResult> OnPostUploadAsync()
 
 11. Példaképek [letöltése](/assets/cs-storage-resources.zip)
 
-12. Nézzük meg a kép URL-eket a weboldal forrásában.
+12. Töltsük fel újra az eddig feltöltött képeket (felülírás), és még néhányat. Ellenőrizzük a thumbnail-eket.
+
+13. Nézzük meg a kép URL-eket a weboldal forrásában.
 
 ## Ex. 4.
 - Kihagyható
