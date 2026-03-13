@@ -30,10 +30,9 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 ## Ex. 1.
 - új Storage fiók létrehozása
 - hogy ingyenes legyen (LRS) és _hot_ tier
-- Advanced fül: engedélyezzük az anonim hozzáférést
+- Advanced fül: ne engedélyezzük a hozzáférési kulcsokat (access keys), az Azure portal is Entra auth-ot használjon
 - resourcegroup: IntellipixResources
 - két konténert hozzunk létre Storage Browser-ben: photos, thumbnails
-  - mindkettőben hozzá lehessen férni publikusan a blobokhoz
 
 ## Ex. 2.
 - Connection String: Access Key menüpont -> felül Show Keys gomb
