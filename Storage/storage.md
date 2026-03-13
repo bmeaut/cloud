@@ -15,7 +15,9 @@ A jobb felső részen fogaskerék ikonra bökve. Érdemes angolra állítani.
 
 ### Költségek
 Ingyenes szolgáltatások: https://azure.microsoft.com/en-us/pricing/free-services
+
 Ellenőrzés: https://docs.microsoft.com/en-us/azure/billing/billing-check-free-service-usage
+
 Költségfigyelés: https://learn.microsoft.com/en-us/azure/cost-management-billing/benefits/credits/mca-check-azure-credits-balance?tabs=portal
 
 Ebben laborban:
