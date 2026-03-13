@@ -3,7 +3,7 @@
   "description": null,
   "dataSourceName": "ipixds",
   "skillsetName": "image-captions-skillset",
-  "targetIndexName": "ipix2idx",
+  "targetIndexName": "ipixidx",
   "disabled": null,
   "schedule": null,
   "parameters": {
