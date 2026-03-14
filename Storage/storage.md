@@ -275,123 +275,141 @@ document.addEventListener('DOMContentLoaded', () => {
 dotnet add package Azure.Search.Documents
 ```
 
-4. Search client regisztrálás a DI-ba a Program.cs-ben
+2. Search client regisztrálás a DI-ba a Program.cs-ben
 
 ```csharp
 //builder.Services.AddAzureClients(azb =>
 //{
 //    azb.AddBlobServiceClient(...);
-      azb.AddSearchClient(new Uri("https://ipixNEPTUN.search.windows.net"), "ipixidx");
+      azb.AddSearchClient(new Uri("https://valami.search.windows.net"), "ipix2idx",
+			new AzureKeyCredential(string.Empty))
+      .WithCredential(new DefaultAzureCredential());
 //});
 ```
 
-5. A kliens elkérése az `IndexModel` konstruktorban
-
+3. A kliens elkérése az `IndexModel` konstruktorban
 
 ```csharp
-private readonly ComputerVisionClient _visionClient;
+using Azure.Search.Documents;
+using Azure.Search.Documents.Models;
+//..
+public class IndexModel(BlobServiceClient blobSvc, SearchClient searchClient) : PageModel
+```
 
-public IndexModel(ILogger<IndexModel> logger, BlobServiceClient blobSvc, ComputerVisionClient visionClient)
+4. Az indexnek megfelelő modellosztály egy új _Models_ almappába:
+
+```csharp
+using System.Text.Json.Serialization;
+
+//namespace xxx.Models;
+
+public class PhotoDocument
 {
-    _logger = logger;
-    _blobSvc = blobSvc;
-    _visionClient = visionClient;
+    [JsonPropertyName("id")]
+    public string Id { get; set; } = string.Empty;
+
+    [JsonPropertyName("metadata_storage_path")]
+    public string MetadataStoragePath { get; set; } = string.Empty;
+
+    [JsonPropertyName("description")]
+    public IReadOnlyList<PhotoDescription> Description { get; set; } = [];
+
+    [JsonPropertyName("tags")]
+    public IReadOnlyList<PhotoTag> Tags { get; set; } = [];
+}
+
+public class PhotoDescription
+{
+    [JsonPropertyName("tags")]
+    public IReadOnlyList<string> Tags { get; set; } = [];
+
+    [JsonPropertyName("captions")]
+    public IReadOnlyList<PhotoCaption> Captions { get; set; } = [];
+}
+
+public class PhotoCaption
+{
+    [JsonPropertyName("text")]
+    public string Text { get; init; } = string.Empty;
+
+    [JsonPropertyName("confidence")]
+    public double Confidence { get; init; }
+}
+
+public class PhotoTag
+{
+    [JsonPropertyName("name")]
+    public string Name { get; init; } = string.Empty;
+
+    [JsonPropertyName("hint")]
+    public string Hint { get; init; } = string.Empty;
+
+    [JsonPropertyName("confidence")]
+    public double Confidence { get; init; }
 }
 ```
+5. Keresőfelület az Index.cshtml-be a `<hr />` fölötti `<div>` vége elé
 
-5. Feltöltés okosítása
-
-Az `OnPostUploadAsync` elejére:
-
-```csharp
-VisualFeatureTypes?[] features = new VisualFeatureTypes?[] { VisualFeatureTypes.Description };
-```
-
-Ugyanezen függvényben a kommenttel jelzett helyre:
-
-```csharp
-var analResult = await _visionClient.AnalyzeImageAsync(blobc.Uri.ToString(), features);
-var blobMetaDict = analResult.Description.Tags
-   .Select((t, i) => new KeyValuePair<string, string>(nameof(analResult.Description.Tags) + i, t))
-   .Concat(new Dictionary<string, string> { { nameof(analResult.Description.Captions), analResult.Description.Captions[0].Text } })
-   .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-await blobc.SetMetadataAsync(blobMetaDict);
-```
-
-6. Listázás okosítása
-```csharp
-public async Task OnGet()
-{
-    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
-    BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
-    Blobs = await blobccP.GetBlobsAsync(BlobTraits.Metadata)
-        .Select(b => new BlobInfo(
-                        blobccP.Uri.AppendPathSegment(b.Name)
-                        ,blobccT.Uri.AppendPathSegment(b.Name)
-                        ,b.Metadata.ContainsKey("Captions")? b.Metadata["Captions"]:b.Name)
-               )
-    .ToListAsync();
-}
-```
-
-7. Próba
-
-## Ex. 6.
-
-1. Új form az eddigi üres div-be
-
-```html
-<div class="col-sm-4 float-right">
-   <form method="post" enctype="multipart/form-data" class="form-inline">
-     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search photos" asp-for="SearchTerm" style="max-width: 800px">
-        <span class="input-group-append">
-            <button class="btn btn-primary" type="submit" asp-page-handler="Search">Go</button>
-        </span>
-    </div>
-  </form>                
+```aspnetcorerazor
+<div class="col-sm-4">
+    <form method="post" asp-page-handler="Search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search photos" asp-for="SearchTerm" />
+            <button class="btn btn-primary" type="submit">Go</button>
+        </div>
+    </form>
 </div>
 ```
 
-2. Kezelőfv az `IndexModel`-be, átirányítjuk a lekérdező műveletre.
+6. `SearchTerm` kezelőfüggvény az Index.cshtml.cs-be
 
 ```csharp
-[BindProperty]
-public string? SearchTerm {get; set;}
+[BindProperty(SupportsGet = true)]
+public string? SearchTerm { get; set; }
 
-public ActionResult OnPostSearchAsync()
+public IActionResult OnPostSearch()
 {
-    return RedirectToAction("Index", new { term = SearchTerm });
+    return RedirectToPage(new { SearchTerm });
 }
 ```
 
-3. Lekérdező művelet okosítása
+7. Listázás okosítása - Index.cshtml.cs `OnGetAsync()`
 
 ```csharp
-    public async Task OnGet(string? term)
-/**/{
-/**/    BlobContainerClient blobccP = _blobSvc.GetBlobContainerClient("photos");
-/**/    BlobContainerClient blobccT = _blobSvc.GetBlobContainerClient("thumbnails");
-/**/    Blobs = await blobccP.GetBlobsAsync(BlobTraits.Metadata)
-            .Where(b=>string.IsNullOrEmpty(term) || 
-                      b.Metadata.Any(m=>m.Key.StartsWith("Tags") 
-                      && m.Value.Equals(term, StringComparison.InvariantCultureIgnoreCase))
-                   )
-/**/       .Select(b => new BlobInfo(
-/**/                        blobccP.Uri.AppendPathSegment(b.Name)
-/**/                        ,blobccT.Uri.AppendPathSegment(b.Name)
-/**/                       ,b.Metadata.ContainsKey("Captions")? b.Metadata["Captions"]:b.Name)
-/**/              )
-/**/    .ToListAsync();
-        SearchTerm = term;
-/**/}
+// SAS tokenek legyártása
+if (!string.IsNullOrWhiteSpace(SearchTerm))
+{
+    var searchResults = await searchClient.SearchAsync<PhotoDocument>(SearchTerm, new SearchOptions
+    {
+        Select = { "metadata_storage_path", "description" },
+        Size = 100
+    });
+    var blobs = new List<BlobInfo>();
+    await foreach (var result in searchResults.Value.GetResultsAsync())
+    {
+        var doc = result.Document;
+        var blobName = new Uri(doc.MetadataStoragePath).Segments[^1];
+        var caption = string.Join(", ", doc.Description
+            .SelectMany(d => d.Captions)
+            .OrderByDescending(c => c.Confidence)
+            .Select(c => $"{c.Text} ({c.Confidence:P0})"));
+        blobs.Add(new BlobInfo(
+            new BlobUriBuilder(photosClient.Uri) { BlobName = blobName, Sas = photosSas }
+						.ToUri().ToString(),
+            new BlobUriBuilder(thumbnailsClient.Uri) { BlobName = blobName, Sas = thumbnailsSas }
+						.ToUri().ToString(),
+            caption
+        ));
+    }
+    Blobs = blobs;
+}
+else
+{
+    //Blobs = await photosClient.GetBlobsAsync()
+}
 ```
 
-Ezzel így lekérdezzük az összes blob összes metaadatát és memóriában szűrünk. Alternatív lehetőségnek tűnhet a [blob index tags](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-index-how-to?tabs=azure-portal) töltése, amivel már Azure oldalon tudnánk szűrni. Sajnos a fenti szűrést nem lehet egy az egyben átfordítani szűrőkifejezéssé. A kulcsokat explicit meg kell adni, nem lehet a kulcsokra kifejezést megadni.
-
-4. Próba
-
-
+8. Próba
 
 
 
