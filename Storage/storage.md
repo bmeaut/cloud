@@ -39,6 +39,8 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 
 ## Azure AI Search létrehozás
 - Ingyenes csomagot válasszuk
+- Létrehozás után _Keys_ -> _Role-based access control_
+- adjunk magunknak jogot, Scope: AI Search account; Role: Search Index Data Reader; Subject: saját magunk
 
 ## Azure AI Search => Storage integráció
 - AI Search: kapcsoljuk be a System assigned identity-t (_Identity_ menüpont)
