@@ -369,7 +369,7 @@ public class PhotoTag
 </div>
 ```
 
-7. `Search` kezelőfüggvény az Index.cshtml.cs-be
+7. `Search` kezelőfüggvény az `IndexModel`-be
 
 ```csharp
 [BindProperty(SupportsGet = true)]
