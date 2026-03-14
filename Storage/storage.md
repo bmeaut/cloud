@@ -286,7 +286,7 @@ dotnet add package Azure.Search.Documents
 },
 ```
 
-2. Search client regisztrálás a DI-ba a Program.cs-ben
+3. Search client regisztrálás a DI-ba a Program.cs-ben
 
 ```csharp
 //builder.Services.AddAzureClients(azb =>
@@ -296,16 +296,15 @@ dotnet add package Azure.Search.Documents
 //});
 ```
 
-3. A kliens elkérése az `IndexModel` konstruktorban
+4. A kliens elkérése az `IndexModel` konstruktorban
 
 ```csharp
 using Azure.Search.Documents;
-using Azure.Search.Documents.Models;
 //..
 public class IndexModel(BlobServiceClient blobSvc, SearchClient searchClient) : PageModel
 ```
 
-4. Az indexnek megfelelő modellosztály egy új _Models_ almappába:
+5. Az indexnek megfelelő modellosztály egy új _Models_ almappába:
 
 ```csharp
 using System.Text.Json.Serialization;
@@ -357,7 +356,7 @@ public class PhotoTag
     public double Confidence { get; init; }
 }
 ```
-5. Keresőfelület az Index.cshtml-be a `<hr />` fölötti `<div>` vége elé
+6. Keresőfelület az Index.cshtml-be a `<hr />` fölötti `<div>` vége elé
 
 ```aspnetcorerazor
 <div class="col-sm-4">
@@ -370,7 +369,7 @@ public class PhotoTag
 </div>
 ```
 
-6. `Search` kezelőfüggvény az Index.cshtml.cs-be
+7. `Search` kezelőfüggvény az Index.cshtml.cs-be
 
 ```csharp
 [BindProperty(SupportsGet = true)]
@@ -382,7 +381,7 @@ public IActionResult OnPostSearch()
 }
 ```
 
-7. Listázás okosítása - Index.cshtml.cs `OnGetAsync()`
+8. Listázás okosítása - Index.cshtml.cs `OnGetAsync()`
 
 ```csharp
 // SAS tokenek legyártása
@@ -418,7 +417,4 @@ else
 }
 ```
 
-8. Próba
-
-
-
+9. Próba
