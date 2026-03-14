@@ -277,15 +277,22 @@ document.addEventListener('DOMContentLoaded', () => {
 dotnet add package Azure.Search.Documents
 ```
 
+2. Search API config az appsettings.json-be
+
+```javascript
+"SearchService": {
+  "Endpoint": "https://ipix2idx.search.windows.net",
+  "IndexName": "ipix2idx"
+},
+```
+
 2. Search client regisztrálás a DI-ba a Program.cs-ben
 
 ```csharp
 //builder.Services.AddAzureClients(azb =>
 //{
 //    azb.AddBlobServiceClient(...);
-      azb.AddSearchClient(new Uri("https://valami.search.windows.net"), "ipix2idx",
-			new AzureKeyCredential(string.Empty))
-      .WithCredential(new DefaultAzureCredential());
+      azb.AddSearchClient(builder.Configuration.GetSection("SearchService"));
 //});
 ```
 
@@ -363,7 +370,7 @@ public class PhotoTag
 </div>
 ```
 
-6. `SearchTerm` kezelőfüggvény az Index.cshtml.cs-be
+6. `Search` kezelőfüggvény az Index.cshtml.cs-be
 
 ```csharp
 [BindProperty(SupportsGet = true)]
