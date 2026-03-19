@@ -1,5 +1,5 @@
 # Megajánlott jegyként elfogadott Microsoft minősítések - 2026. tavasz
-Még nincs véglegesítve 2026. őszi félévre
+Véglegesítve 2026. tavaszi félévre 2026.03.19-én
 
 A minősítésnek 
 * szerep alapú (ún. role-based) vagy fundamentals típusúnak kell lennie
