@@ -31,9 +31,8 @@
     }
   ],
   "cognitiveServices": {
-    "@odata.type": "#Microsoft.Azure.Search.AIServicesByKey",
+    "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
     "description": "Azure AI Foundry multi-service resource used for billing built-in skill executions",
-    "subdomainUrl": "https://<resource-name>.services.ai.azure.com",
     "key": "<your-api-key>"
   }
 }

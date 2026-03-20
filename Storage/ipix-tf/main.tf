@@ -54,5 +54,5 @@ resource "azurerm_cognitive_account" "ipix" {
   location            = var.location
   name                = "ipixai${var.suffix}"
   resource_group_name = azurerm_resource_group.ipix.name
-  sku_name            = "S1"
+  sku_name            = "S0"
 }
