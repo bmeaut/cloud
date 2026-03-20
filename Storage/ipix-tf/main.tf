@@ -47,3 +47,12 @@ resource "azurerm_role_assignment" "search_blob_reader" {
   role_definition_name = "Storage Blob Data Reader"
   scope                = azurerm_storage_account.ipix.id
 }
+
+resource "azurerm_cognitive_account" "ipix" {
+  count               = var.enable_ai_foundry ? 1 : 0
+  kind                = "AIServices"
+  location            = var.location
+  name                = "ipixai${var.suffix}"
+  resource_group_name = azurerm_resource_group.ipix.name
+  sku_name            = "S1"
+}
