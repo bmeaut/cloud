@@ -1,7 +1,7 @@
 # Install OpenTofu without admin rights (user-local)
 $ErrorActionPreference = "Stop"
 
-$installDir = "$env:USERPROFILE\.local\bin"
+$installDir = "$env:LOCALAPPDATA\Programs\OpenTofu"
 $null = New-Item -ItemType Directory -Force -Path $installDir
 
 # Get latest release version from GitHub

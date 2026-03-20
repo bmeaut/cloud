@@ -48,6 +48,9 @@ Bizonyos erőforrásoknak globálisan vagy a régióban egyedi neve kell legyen.
 - AI Search: data source-ként vegyük fel a _Storage account/photos_ konténert _ipixds_ néven
 
 ## Azure AI Search indexelés
+
+https://learn.microsoft.com/en-us/azure/search/search-region-support#europe
+
 https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-image-analysis
 
 https://learn.microsoft.com/en-us/azure/search/search-how-to-index-azure-blob-storage#indexing-blob-metadata
