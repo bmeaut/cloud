@@ -284,8 +284,8 @@ dotnet add package Azure.Search.Documents
 
 ```javascript
 "SearchService": {
-  "Endpoint": "https://ipix2idx.search.windows.net",
-  "IndexName": "ipix2idx"
+  "Endpoint": "https://<search_endpoint_name>.search.windows.net",
+  "IndexName": "ipixidx"
 },
 ```
 
