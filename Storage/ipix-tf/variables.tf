@@ -3,7 +3,7 @@
 variable "location" {
   description = "Azure region for all resources"
   type        = string
-  default     = "swedencentral"
+  default     = "swedencentral" #az account list-locations --query "sort_by([].{FriendlyName:displayName, Name:name}, &Name)" -o table
 }
 
 variable "suffix" {
