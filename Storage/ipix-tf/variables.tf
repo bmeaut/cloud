@@ -1,3 +1,5 @@
+# $env:ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-00000000"
+
 variable "location" {
   description = "Azure region for all resources"
   type        = string
