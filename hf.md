@@ -4,13 +4,13 @@
 
 A 2025/26-os tavaszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
 
-### Közös kötelező rész
+## Közös kötelező rész
 
 **[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://learn.microsoft.com/en-us/training/courses/az-900t00)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon 3 képzési terv található kb. 6 órában. **Mind a 3 terv** elvégzése kötelező.
 
 Ezen tervek ideje is beszámít a jegyszerzéshez.
 
-### Védésről általában
+## Védésről általában
 
 A házi feladatot védeni kell. A védés során az önálló elvégzést ellenőrizzük.
 
@@ -41,7 +41,7 @@ Egyéb szabályok:
 
 Beszámított idő képzési tervenként: a képzési terv címe alatt látható időatartam.
 
-### Védés
+## Védés
 
 Az egyetemi M365 account-otokkal (@edu.bme.hu) belépve a [MS Learn oldalra](https://learn.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
