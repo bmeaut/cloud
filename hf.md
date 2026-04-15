@@ -1,6 +1,5 @@
-# Házi feladat feltételrendszer - 2025/26 tavaszi félév
-
-*Még nincs véglegesítve a félévre*
+# Házi feladat feltételrendszer - 2025/26 tavasz
+Véglegesítve 2025/26 tavaszi félévre 2026. április 15-én.
 
 A 2025/26-os tavaszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Az oktatási anyagban lehetnek gyakorlati feladatok, melyet a saját Azure előfizetéseteken kell elvégezni. 
 
