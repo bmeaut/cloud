@@ -2,19 +2,15 @@
 
 *Még nincs véglegesítve a félévre*
 
-A 2025/26-os tavaszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez. 
+A 2025/26-os tavaszi félévben házi feladatként hivatalos Microsoft-os gyakorlatok elvégzését, oktatási anyagok feldolgozását fogadjuk el. A gyakorlatok, anyagok **csak a lentebb megadott halmazokból kerülhetnek ki**, de ezek között szabadon válogathattok. Az oktatási anyagban lehetnek gyakorlati feladatok, melyet a saját Azure előfizetéseteken kell elvégezni. 
+
+Minden gyakorlathoz, anyaghoz egy időtartamot adott meg a készítője, a gyakorlat, anyag elvégzésével ezt az időtartamot beszámítjuk a jegyszerzéshez.
 
 ## Közös kötelező rész
 
 **[A teljes Azure Fundamentals minősítéshez tartozó ingyenes online felkészítő anyag](https://learn.microsoft.com/en-us/training/courses/az-900t00)** képzési terv a képzési terveknél lentebb írt szabályok szerinti elvégzése **mindenki számára kötelező**  (kivéve megajánlott jegyesek). Az oldalon 3 képzési terv található kb. 6 órában. **Mind a 3 terv** elvégzése kötelező.
 
 Ezen tervek ideje is beszámít a jegyszerzéshez.
-
-## Védésről általában
-
-A házi feladatot védeni kell. A védés során az önálló elvégzést ellenőrizzük.
-
-Védés helye, ideje: az utolsó óra során.
 
 ## Azure Learn képzési tervek (Learning Paths)
 
@@ -38,10 +34,15 @@ Egyéb szabályok:
 
 - az összes elvégzett képzési tervet ugyanazon egyetemi M365 (@edu.bme.hu) account-otokkal belépve végezzétek el
 - részben elvégzett képzési tervek, illetve olyan modulok, ahol a tartalmazó képzési terv nincs elvégezve - nem elfogadhatók
+    - mégis elfogadható, ha egy gyakorlati rész a hallgatói előfizetés korlátai (például kvóta, régiókorlát, de a költségkorlát nem ilyen) miatt nem végezhető el
 
 Beszámított idő képzési tervenként: a képzési terv címe alatt látható időatartam.
 
 ## Védés
+
+A házi feladatot védeni kell. A védés során az önálló elvégzést ellenőrizzük.
+
+Védés helye, ideje: az utolsó óra során.
 
 Az egyetemi M365 account-otokkal (@edu.bme.hu) belépve a [MS Learn oldalra](https://learn.microsoft.com/hu-hu/learn/) igazolnotok kell a képzési tervek elvégzését.
 Ezen túlmenően szúrópróbaszerűen 
@@ -66,7 +67,7 @@ A fenti feltételeknek megfelelő összes elvégzett és megvédett képzési te
 
 A költségek megtervezése, figyelése is a feladat része. Ha a hallgatói előfizetésen a kredit elfogy, az előfizetés befagyasztásra kerül. Vannak erőforrástípusok, melyeknél a leállítás csökkenti vagy megszünteti a költséget (pl. virtuális gép), ugyanakkor vannak, melyeket nem lehet költségsprólás miatt "kikapcsolni" (tipikusan a tárolást végző erőforrások, adatbázisok). A kredit elfogyása megakadályozhatja, hogy elvégezzétek a házi feladatot!
 
-Ha a házi feladat elvégzése **után**, de a védés előtt fogy el a kredit, az nem kizáró ok a védésre, de törekedjetek rá, hogy ez ne történjen meg. Nem kötelező a házi feladat elvégzése után az erőforrásokat megtartani, ha máskülönben elfogyott volna az előfizetésen a kredit. Az Azure Sandbox erőforrások legfeljebb 4 óráig élnek, így értelemszerűen nem kell (nem is lehet) őket megtartani.
+Ha a házi feladat elvégzése **után**, de a védés előtt fogy el a kredit, az nem kizáró ok a védésre, de törekedjetek rá, hogy ez ne történjen meg. Nem kötelező a házi feladat elvégzése után az erőforrásokat megtartani, ha máskülönben elfogyott volna az előfizetésen a kredit.
 
 ## A szabályrendszer változása
 
