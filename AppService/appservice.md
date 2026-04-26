@@ -1,12 +1,10 @@
 # AppService SQL adatbázissal
 
-A gyakorlat menete hasonló, de több helyen eltér ettől [a gyakorlatanyagtól](https://github.com/BMEVIAUBB04/gyakorlat-azure).
-
-A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/tree/3655d08a7503ce5ff3951a74e420afc639a8b7a8).
+Telepítendő alkalmazásként egy [másik tárgy példaalkalmazását](https://github.com/bmeaut/BookShop/tree/cloud) használjuk.
 
 ## Azure SQL
 
-  - válasszuk: serverless (Development workload)
+  - szolgáltatási szint: free serverless
   - Networking (a szerveren) - állítsuk be a saját IP-nket (_Add Client IP_) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
 )
   - nézzük meg:
@@ -14,60 +12,52 @@ A telepítendő alkalmazásként egy [MS példaalkalmazást használunk](https:/
     - skálázás (db)
     - backup (szerver)
     - connection strings (db)
-    - Replication (db)
     - Add Azure Search (db)
     - a webes *Query Editor*-ban ellenőrizzük, hogy üres az adatbázis
     
 ## Példaprojekt beüzemelése
 
-  - Töltsük le a [példaprojektet]([https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/3655d08a7503ce5ff3951a74e420afc639a8b7a8.zip))
-  - Azure-os connection string dotnet user secret-be, majd EF Migrations beüzemelése. A projektfájl (.csproj) könyvtárában:
+  - Töltsük le a [példaprojektet]([(https://github.com/bmeaut/BookShop/tree/cloud)](https://github.com/bmeaut/BookShop/tree/cloud))
+  - EF Migrations beüzemelése. Használjuk az Entra alapú connection stringet (cseréljük "" -> ''). A projektfájl (.csproj) könyvtárában:
   ```powershell
-  dotnet user-secrets init
-  dotnet user-secrets set "ConnectionStrings:MyDbConnection" "connectionstringünk"
   dotnet tool install -g dotnet-ef
-  dotnet ef database update --connection "connectionstringünk"
+  dotnet ef database update --project BookShop.Dal --startup-project BookShop.Web/BookShop.Web --connection "connectionstringünk"
   ```
-  - jelszót ne felejtsük el beírni a connection string-be!
   - futtat, próba. Ellenőrizzük weben az adatbázis tartalmat.
 
 ## Web App / App Service
 
   - https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree
-  - https://azure.microsoft.com/en-us/pricing/details/app-service/plans/
+  - https://azure.microsoft.com/en-us/pricing/details/app-service/linux/
   - Publish: code
-  - Runtime stack: .NET 6
-  - OS: Linux vagy Windows
-  - Region: WEU
+  - Runtime stack: .NET 10
+  - OS: Linux
+  - Region: amit a hallgatói előfizetés enged
   - **Free (F1)** legyen
   - App Insights: nem kell (még)
 
 Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
 
- ## App Service Configuration
- 
- - A portálról másoljuk ki a connection string-et
- - Configuration / App Settings
- - adjuk meg a connection stringet a secretnek megfelelően
-  
- ## Deployment
+## App Service Service Connector
 
- Aletrnatívaként a gyakorlatanyagból az Azure CLI-s megoldás is jó lehet.
+ Kattintsuk össze a Service Connector kapcsolatot (System-assigned MSI), a végén kiköp egy Azure CLI parancsot. Futtatásnál tegyünk a parancs végére plusz egy kapcsolót: '--customized-keys AZURE_SQL_CONNECTIONSTRING=ConnectionStrings__DefaultConnection '
+
+ Ellenőrizzük portálon, hogy létrejött-e (*Validate* gomb)
+  
+## Deployment
+
+  ```powershell
+dotnet publish "BookShop.Web\BookShop.Web\BookShop.Web.csproj" -c Release -o ./publish
+Compress-Archive -Path "./publish/*" -DestinationPath "publish.zip" -Force
+az webapp deploy --resource-group bookshop --name <app service neve> --src-path publish.zip --type zip --async
+  ```
+
  
- A solution könyvtárában álljunk!
-  - `git init`
-  - `git add --all` (.gitignore már van a projektben)
-  - `git commit`
-  - Deployment Center-ben a Local git deployment (with kudu) beállítása (https://github.com/projectkudu/kudu)
-  - `git remote add <remote név> <git deployment url>`
-  - push ( `git push --set-upstream az master`), push során adjuk meg a portálról a git repo app szintű jelszót (\ utáni rész kell csak a usernévből)
-    - ha elrontottuk, akkor Windows-on a Windows Credentials Manager-rel töröljük (Windows Credentials fül)
- 
- ## Diagnose & solve problems
+## Diagnose & solve problems
  
  - Diagnose & solve problems > Application Logs
  
- ## SQL AD Auth MSI-vel
+## SQL AD Auth MSI-vel, ha a Service Connector nem működne
  
  - Kapcsoljuk be az App Service-ben a system managed indetity-t (*Identity* lap)
  - Kapcsoljuk be az SQL Server-en az AD integrációt (*Active Directory admin* lap), saját magunkat adjuk meg
@@ -80,7 +70,6 @@ ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
 ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
  - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"`
- - Frissítsük az SqlClient-et: `dotnet add package Microsoft.Data.SqlClient --version 5.1.2` (**nem!** System.Data.SqlClient) Újra publikálás,
 
  - Ellenőrző szkript felhasználók listázásához 
 ```sql
@@ -132,20 +121,8 @@ WHERE DATETRUNC(d, s.login_time)= DATETRUNC( d, GETDATE())
 ```bash
 az ad sp show --id <a login_name @ előtti része>
 ```
-
- ## Csatlakozás fejlesztői gépről AD felhasználóként
-
- - csproj fájlban a user secrets kezelést kikapcsolni
-   ```xml
-   <!--<UserSecretsId>...</UserSecretsId>-->
-   ```
- - `appsettings.Development.json`-be connection stringet átírni: 
-    ```
-    "Server=tcp:<server-name>.database.windows.net,1433;Authentication=Active Directory Default;Database=<database-name>;"
-    ```
- - [tokenforrást](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) beállítani; VSCode [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). A tokenforrások sorrendje nem függ attól, hogy milyen alkalmazásban fejlesztünk éppen (VSCode-ban dolgozva is a VS tokenjét használjuk, ha van)!
    
- ## Application Insights w Log Analytics Workspace
+## Application Insights w Log Analytics Workspace
  
  https://learn.microsoft.com/en-us/azure/azure-monitor/overview#overview
  
@@ -157,7 +134,7 @@ az ad sp show --id <a login_name @ előtti része>
  - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/, https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial
  - Azure Monitor pricing - https://azure.microsoft.com/en-us/pricing/details/monitor/
  
- ## Deployment slots
+## Deployment slots
  
  - fel kell skálázni S1 szintre (**0,085 EUR/óra költség!**)
  - hozzunk létre új slot-ot *test* néven, klónoztassuk a configot az eredetiből
