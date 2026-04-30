@@ -40,7 +40,7 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
 
 ## App Service Service Connector
 
- Kattintsuk össze a Service Connector kapcsolatot (System-assigned MSI), a végén kiköp egy Azure CLI parancsot. Futtatásnál tegyünk a parancs végére plusz egy kapcsolót: '--customized-keys AZURE_SQL_CONNECTIONSTRING=ConnectionStrings__DefaultConnection '
+ Kattintsuk össze a Service Connector kapcsolatot (System-assigned MSI), a végén kiköp egy Azure CLI parancsot. Futtatásnál tegyünk a parancs végére plusz egy kapcsolót: `--customized-keys AZURE_SQL_CONNECTIONSTRING=ConnectionStrings__DefaultConnection`
 
  Ellenőrizzük portálon, hogy létrejött-e (*Validate* gomb)
   
