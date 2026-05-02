@@ -2,8 +2,13 @@
 
 Telepítendő alkalmazásként egy [másik tárgy példaalkalmazását](https://github.com/bmeaut/BookShop/tree/cloud) használjuk.
 
-## Azure SQL
+DB inicializálás után használható [felhasználói fiókok](https://github.com/bmeaut/BookShop/blob/9493385a60ffd800502c366c174a23a295bd584b/BookShop.Dal/EntityConfiguration/ApplicationUserEntityConfiguration.cs#L34)
 
+## Azure SQL Database
+
+  - név: bookshopdb
+  - szervernév (egyedinek kell lennie): bookshop{neptun_kód}dbsrv
+  - auth: Entra only
   - szolgáltatási szint: free serverless
   - Networking (a szerveren) - állítsuk be a saját IP-nket (_Add Client IP_) és engedélyezzük az Azure hozzáférést is (_Allow Azure services and resources to access this server_
 )
@@ -40,17 +45,30 @@ Egy előfizetés-régió-OS kombináción belül egyetlen free plan lehet.
 
 ## App Service Service Connector
 
- Kattintsuk össze a Service Connector kapcsolatot (System-assigned MSI), a végén kiköp egy Azure CLI parancsot. Futtatásnál tegyünk a parancs végére plusz egy kapcsolót: `--customized-keys AZURE_SQL_CONNECTIONSTRING=ConnectionStrings__DefaultConnection`
+Kattintsuk össze a Service Connector kapcsolatot (neve:bookshopdbconn, auth: System-assigned MSI), a végén kiköp egy Azure CLI parancsot. Futtatásnál tegyünk a parancs végére plusz egy kapcsolót: `--customized-keys AZURE_SQL_CONNECTIONSTRING=ConnectionStrings__DefaultConnection`
 
- Ellenőrizzük portálon, hogy létrejött-e (*Validate* gomb)
+Ellenőrizzük portálon, hogy létrejött-e (*Validate* gomb)
+
+Kicsit sok jogot ad (CONTROL DATABASE), így visszavonhatjuk
+
+```sql
+REVOKE CONTROL ON DATABASE::[bookshopdb] FROM [<identity-name>];
+ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+```
   
 ## Deployment
 
-  ```powershell
+Állítsuk be a futtatandó appot, mert az App Service az ASP.NET Core Web API és a Blazor appot is indíthatja, de az előbbit kellene.
+
+Configuration -> Stack Settings -> Startup command: `dotnet BookShop.Web.dll`
+
+
+```powershell
 dotnet publish "BookShop.Web\BookShop.Web\BookShop.Web.csproj" -c Release -o ./publish
 Compress-Archive -Path "./publish/*" -DestinationPath "publish.zip" -Force
 az webapp deploy --resource-group bookshop --name <app service neve> --src-path publish.zip --type zip --async
-  ```
+```
 
  
 ## Diagnose & solve problems
@@ -59,19 +77,20 @@ az webapp deploy --resource-group bookshop --name <app service neve> --src-path 
  
 ## SQL AD Auth MSI-vel, ha a Service Connector nem működne
  
- - Kapcsoljuk be az App Service-ben a system managed indetity-t (*Identity* lap)
- - Kapcsoljuk be az SQL Server-en az AD integrációt (*Active Directory admin* lap), saját magunkat adjuk meg
- - [Osszunk jogokat](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi#grant-permissions-to-managed-identity) az SQL Server-ben az MSI-nek
-    - Az identitás neve App Service esetében az App Service neve
+- Kapcsoljuk be az App Service-ben a system managed indetity-t (*Identity* lap)
+- Kapcsoljuk be az SQL Server-en az AD integrációt (*Active Directory admin* lap), saját magunkat adjuk meg
+- [Osszunk jogokat](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-connect-msi#grant-permissions-to-managed-identity) az SQL Server-ben az MSI-nek
+  - Az identitás neve App Service esetében az App Service neve
  
 ```sql
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
 ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
 ```
- - Állítsuk át a connection string-et `"Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"`
+- Vegyünk fel környezeti változót az App Service-be (*Environment variables*) _ConnectionStrings__DefaultConnection_ néven, értéke legyen ugyanaz, mint amit az EF Migrations-nál használtunk ("" nélkül).
 
- - Ellenőrző szkript felhasználók listázásához 
+- Ellenőrző szkript felhasználók listázásához 
+
 ```sql
 select name as username,
        create_date,
@@ -85,6 +104,20 @@ order by username;
 ```
  - Ellenőrző szkript jogosultságok listázásához
 ```sql
+
+-- DB permissions for external users
+SELECT 
+  pr.name AS PrincipalName,
+  pr.type_desc AS PrincipalType,
+  pr.authentication_type_desc AS AuthType,
+  perm.permission_name,
+  perm.state_desc,
+  perm.class_desc
+FROM sys.database_permissions perm
+JOIN sys.database_principals pr ON perm.grantee_principal_id = pr.principal_id
+WHERE pr.type = 'E'  -- External users only
+ORDER BY pr.name;
+
 -- List of database roles for the MSI user
 SELECT dp.name AS principal_name, dp.type_desc AS principal_type, r.name AS role_name
 FROM sys.database_role_members AS m
