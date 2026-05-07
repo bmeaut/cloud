@@ -28,6 +28,7 @@ DB inicializálás után használható [felhasználói fiókok](https://github.c
   dotnet tool install -g dotnet-ef
   dotnet ef database update --project BookShop.Dal --startup-project BookShop.Web/BookShop.Web --connection "connectionstringünk"
   ```
+  - ugyanezt a connection stringet használjuk a backend projekt appsettings.json-jában is.
   - futtat, próba. Ellenőrizzük weben az adatbázis tartalmat.
 
 ## Web App / App Service
