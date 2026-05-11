@@ -1,0 +1,48 @@
+[
+  {
+    "name": "cpu-spike-demo-maximum",
+    "capacity": {
+      "minimum": "1",
+      "maximum": "5",
+      "default": "1"
+    },
+    "rules": [
+      {
+        "metricTrigger": {
+          "metricName": "CpuPercentage",
+          "metricResourceUri": "<targetResourceUri>",
+          "timeGrain": "PT1M",
+          "statistic": "Max",
+          "timeWindow": "PT1M",
+          "timeAggregation": "Maximum",
+          "operator": "GreaterThan",
+          "threshold": 50
+        },
+        "scaleAction": {
+          "direction": "Increase",
+          "type": "ChangeCount",
+          "value": "1",
+          "cooldown": "PT2M"
+        }
+      },
+      {
+        "metricTrigger": {
+          "metricName": "CpuPercentage",
+          "metricResourceUri": "<targetResourceUri>",
+          "timeGrain": "PT1M",
+          "statistic": "Average",
+          "timeWindow": "PT10M",
+          "timeAggregation": "Average",
+          "operator": "LessThan",
+          "threshold": 30
+        },
+        "scaleAction": {
+          "direction": "Decrease",
+          "type": "ChangeCount",
+          "value": "1",
+          "cooldown": "PT5M"
+        }
+      }
+    ]
+  }
+]

@@ -165,29 +165,67 @@ az ad sp show --id <a login_name @ előtti része>
  - Auto instrumentation már [Linuxos ASP.NET Core alkalmazásokhoz is](https://learn.microsoft.com/en-us/azure/azure-monitor/app/azure-web-apps-net-core?tabs=Linux%2Cwindows#enable-client-side-monitoring) ([támogatott keretrendszerek](https://learn.microsoft.com/en-us/azure/azure-monitor/app/codeless-overview#supported-environments-languages-and-resource-providers))
  - navigáljunk pár nemlétező oldalra (pl. /phpmyadmin)
  - kis idő múlva figyeljük meg, hogy megjelennek a hibás (404) hívások
- - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/, https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial
+ - Kusto Query Language (KQL) - https://docs.microsoft.com/en-us/azure/kusto/query/, https://learn.microsoft.com/en-us/kusto/query/tutorials/learn-common-operators
  - Azure Monitor pricing - https://azure.microsoft.com/en-us/pricing/details/monitor/
  
 ## Deployment slots
  
  - fel kell skálázni S1 szintre (**0,085 EUR/óra költség!**)
  - hozzunk létre új slot-ot *test* néven, klónoztassuk a configot az eredetiből
- - ez egy új app, Identity-t be kell kapcsolni + fel kell venni az SQL adatbázisba a slot felhasználót `[<appnév>/slots/<slotnév>]`
- - legyen egy kis eltérés, pl. a \_Layout.cshtml-be:
-   ```html
-   <li class="nav-item">
-     <a class="nav-link text-dark" asp-area="" asp-controller="Todos" asp-action="Index">Todos</a>
-   </li>
-   ```
- - Ha git-tel publikálunk: deployment opciókat inicializálni, majd push
- - Ha Az CLI-vel publikálunk: `--slot slotnév` hozzáadása az `az webapp deploy` parancshoz
+ - ez egy új app, az SQL felé a kapcsolatot ide is fel kell venni. Az Entra-s identity user neve: `[<appnév>/slots/<slotnév>]`
+ - legyen egy kis eltérés, a Program.cs-ben tegyünk egy mesterséges késleltetést az egyik API végpontra (az `app.UseAuthorization();` után):
+```csharp
+const int cpuBurnMs = 2000;
+
+app.UseWhen(
+  ctx => HttpMethods.IsGet(ctx.Request.Method) &&
+         ctx.Request.Path.Equals("/api/Categories", StringComparison.OrdinalIgnoreCase),
+  branch =>
+  {
+      var loggerFactory =
+          branch.ApplicationServices.GetRequiredService<ILoggerFactory>();  
+      var logger =
+          loggerFactory.CreateLogger("CpuBurnCategoriesBranch");  
+      branch.Use(async (context, next) =>
+      {
+          logger.LogInformation(
+              "CPU burn branch activated for {Method} {Path}",
+              context.Request.Method,
+              context.Request.Path);  
+          var sw = System.Diagnostics.Stopwatch.StartNew();
+          double x = 0; 
+          logger.LogInformation(
+              "Starting CPU burn for {DurationMs} ms on {Path}",
+              cpuBurnMs,
+              context.Request.Path);  
+          while (sw.ElapsedMilliseconds < cpuBurnMs)
+          {
+              context.RequestAborted.ThrowIfCancellationRequested();  
+              x += Math.Sqrt((sw.ElapsedTicks & 1023) + 1);
+              if (x > 1_000_000)
+                  x = 0;
+          } 
+          logger.LogInformation(
+              "Finished CPU burn after {ElapsedMs} ms on {Path}",
+              sw.ElapsedMilliseconds,
+              context.Request.Path);  
+          await next(context);
+      });
+  }
+);
+```
+ - publikálás: `--slot slotnév` hozzáadása az `az webapp deploy` parancshoz
  - [swap](https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#what-happens-during-a-swap) a két slot között
+ - Application Insights: **Requests** response time statisztika KQL nézete -> nézet leszűrése egy slot-ra.
 
 ## Azure Load test & scale-out lehetőségek
 
-- [Load Test erőforrás és egyszerű load test létrehozása](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test?tabs=portal)
+- [Load Test erőforrás és egyszerű load test létrehozása kifejezetten a fő App Service-hez](https://learn.microsoft.com/en-us/azure/app-testing/load-testing/how-to-create-load-test-app-service)
 - Load Test lefutás real-time megfigyeléssel (App Insights Live Metrics)
-- Scale-out lehetőségek bemutatása
+  - Number of VU: 50
+  - Test duration: 5 min
+  - Ramp-up time: 1 min
+- Scale-out lehetőségek bemutatása: metrika alapú autoscale (autoscale-profile.json).
     
 ## Labor végén/után
 
